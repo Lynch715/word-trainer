@@ -1,0 +1,24 @@
+{
+  "name": "单词拼写练习 · 四六级雅思",
+  "short_name": "背单词",
+  "start_url": "./%E8%83%8C%E5%8D%95%E8%AF%8D.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1120",
+  "theme_color": "#0e1524",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
