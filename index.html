@@ -4947,7 +4947,9 @@ vocalize|v. 发声，说出
       if(blanks.indexOf(i) >= 0){
         const inp = document.createElement("input");
         inp.className = "sl"; inp.maxLength = 1; inp.type = "text";
-        inp.autocapitalize = "off"; inp.autocomplete = "off"; inp.spellcheck = false;
+        inp.autocapitalize = "none"; inp.autocomplete = "off"; inp.spellcheck = false;
+        inp.autocorrect = "off"; inp.setAttribute("autocorrect","off");
+        inp.setAttribute("inputmode","text"); inp.setAttribute("data-form-type","other");
         inp.enterKeyHint = "done"; inp.dataset.i = i;
         box.appendChild(inp);
       }else{
@@ -4976,17 +4978,45 @@ vocalize|v. 发声，说出
   }
 
   function slots(){ return [].slice.call($("word").querySelectorAll("input.sl")); }
+
+  /* 手机输入法（尤其 iOS / Gboard）会在一次按键里同时触发插入和合成事件，
+     若在事件里立刻转移焦点，同一个字母会被重复提交到下一个格子。
+     这里统一由 fill() 写值，并把跳格延后到事件循环之后，避免一键占两格。 */
   function bindSlots(){
     const ss = slots();
+
+    function fill(k, letters){
+      letters = (letters || "").replace(/[^a-zA-Z]/g, "");
+      if(!letters) return;
+      let p = k;
+      for(let n=0; n<letters.length && p<ss.length; n++, p++){
+        ss[p].value = letters[n].toLowerCase();
+        ss[p].classList.remove("ok","no");
+      }
+      const next = ss[Math.min(p, ss.length-1)];
+      setTimeout(()=>{ try{ next.focus(); next.select(); }catch(e){} }, 0);
+    }
+
     ss.forEach((inp,k)=>{
-      inp.addEventListener("input", ()=>{
-        inp.classList.remove("ok","no");
-        inp.value = inp.value.replace(/[^a-zA-Z]/g,"").slice(-1);
-        if(inp.value && ss[k+1]) ss[k+1].focus();
+      inp.addEventListener("beforeinput", e=>{
+        if(!e.inputType || e.inputType.indexOf("insert") !== 0) return;  // 删除等交给默认行为
+        if(!e.cancelable) return;                                        // 不可取消时走 input 兜底
+        e.preventDefault();
+        inp.value = "";
+        fill(k, e.data || "");
       });
+      inp.addEventListener("input", ()=>{
+        const v = inp.value;
+        inp.value = "";
+        inp.classList.remove("ok","no");
+        fill(k, v);
+      });
+      inp.addEventListener("focus", ()=>{ setTimeout(()=>{ try{ inp.select(); }catch(e){} }, 0); });
       inp.addEventListener("keydown", e=>{
-        if(e.key === "Backspace" && !inp.value && ss[k-1]){
-          ss[k-1].focus(); ss[k-1].value = ""; e.preventDefault();
+        if(e.key === "Backspace"){
+          e.preventDefault();
+          if(inp.value){ inp.value = ""; inp.classList.remove("ok","no"); }
+          else if(ss[k-1]){ ss[k-1].value = ""; ss[k-1].classList.remove("ok","no"); ss[k-1].focus(); }
         }
         if(e.key === "ArrowLeft"  && ss[k-1]){ ss[k-1].focus(); e.preventDefault(); }
         if(e.key === "ArrowRight" && ss[k+1]){ ss[k+1].focus(); e.preventDefault(); }
