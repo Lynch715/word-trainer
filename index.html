@@ -306,6 +306,14 @@
   .modes div.on{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-weight:600;
     box-shadow:0 6px 16px var(--shadow)}
 
+  #sBankOpts{grid-template-columns:repeat(3,1fr);max-height:230px;overflow:auto;
+    padding:2px;-webkit-overflow-scrolling:touch}
+  .opt.chap{position:relative;overflow:hidden;padding:11px 6px}
+  .opt.chap b{font-size:13px}
+  .opt.chap span{font-size:10.5px}
+  .opt.chap i{position:absolute;left:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .4s}
+
   #sent{margin-top:4px}
   .ansline{min-height:56px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
     align-items:center;padding:10px 8px;border-radius:14px;background:var(--soft);
@@ -3792,73 +3800,35 @@ yearning|n. 渴望，向往
 zenith|n. 顶峰，天顶
 /*@6*/`;
 const RAW_SENT = `
+#greet|打招呼寒暄
 你好。‖Hello.‖Hello:həˈloʊ:你好:I‖问候语;可单独成句
 早上好。‖Good morning.‖Good:ɡʊd:好的:D/morning:ˈmɔrnɪŋ:早晨:S‖固定问候搭配;中午前使用
 下午好。‖Good afternoon.‖Good:ɡʊd:好的:D/afternoon:ˌæftərˈnun:下午:S‖固定问候搭配
 晚上好。‖Good evening.‖Good:ɡʊd:好的:D/evening:ˈivnɪŋ:傍晚:S‖见面时用;睡前告别用 Good night
 晚安。‖Good night.‖Good:ɡʊd:好的:D/night:naɪt:夜晚:S‖道别或睡前使用
-谢谢你。‖Thank you.‖Thank:θæŋk:感谢:V/you:ju:你:O‖祈使句省略主语 I
-非常感谢。‖Thanks a lot.‖Thanks:θæŋks:谢谢:S/a lot:ə lɑt:很多:A‖a lot 作程度状语
-不客气。‖You're welcome.‖You're:jʊr:你是:S/welcome:ˈwɛlkəm:受欢迎的:C‖回应致谢的固定说法
-对不起。‖I'm sorry.‖I'm:aɪm:我是:S/sorry:ˈsɑri:抱歉的:C‖主系表结构
-没关系。‖It's OK.‖It's:ɪts:它是:S/OK:ˌoʊˈkeɪ:没问题:C‖it 指代前面提到的事
 再见。‖Goodbye.‖Goodbye:ˌɡʊdˈbaɪ:再见:I‖告别语;口语常缩为 Bye
 回头见。‖See you later.‖See:si:见:V/you:ju:你:O/later:ˈleɪtər:稍后:A‖省略主语的告别语
 明天见。‖See you tomorrow.‖See:si:见:V/you:ju:你:O/tomorrow:təˈmɑroʊ:明天:A‖时间状语放句末
+你好吗？‖How are you?‖How:haʊ:怎样:Q/are:ɑr:是:V/you:ju:你:S‖疑问词开头;be 动词提前
+祝你好运。‖Good luck.‖Good:ɡʊd:好的:D/luck:lʌk:运气:S‖祝福语;省略 I wish you
+保重。‖Take care.‖Take:teɪk:保持:V/care:kɛr:关心:O‖告别时叮嘱
+一路顺风。‖Have a nice trip.‖Have:hæv:拥有:V/a:ə:一次:D/nice:naɪs:愉快的:D/trip:trɪp:旅行:O‖祝福出行
+欢迎回来。‖Welcome back.‖Welcome:ˈwɛlkəm:欢迎:V/back:bæk:回来:A‖省略主语的欢迎语
+好久不见。‖Long time no see.‖Long time:lɔŋ taɪm:很长时间:A/no see:noʊ si:没见:V‖源自中式英语的固定说法
+你一点没变。‖You haven't changed at all.‖You:ju:你:S/haven't changed:ˈhævənt tʃeɪndʒd:没变:V/at all:æt ɔl:一点:A‖at all 用于否定句加强
+最近怎么样？‖How have you been?‖How:haʊ:怎样:Q/have:hæv:助动词:AUX/you:ju:你:S/been:bɪn:过:V‖问候一段时间未见的人
+我们该聚聚了。‖We should catch up sometime.‖We:wi:我们:S/should:ʃʊd:应该:AUX/catch up:kætʃ ʌp:叙旧:V/sometime:ˈsʌmtaɪm:找个时间:A‖catch up 表示叙旧
+代我向你家人问好。‖Say hello to your family for me.‖Say hello:seɪ həˈloʊ:问好:V/to your family:tu jʊr ˈfæməli:向你家人:A/for me:fɔr mi:代我:A‖for me 表示代为
+路上小心。‖Have a safe trip.‖Have:hæv:拥有:V/a safe trip:ə seɪf trɪp:平安的旅程:O‖告别祝福
+我会想你的。‖I'll miss you.‖I'll:aɪl:我将:S/miss:mɪs:想念:V/you:ju:你:O‖miss 表示想念
+保持联系。‖Keep in touch.‖Keep:kip:保持:V/in touch:ɪn tʌtʃ:联系:C‖keep in touch 固定搭配
+你什么时候回来？‖When are you coming back?‖When:wɛn:什么时候:Q/are:ɑr:助动词:AUX/you:ju:你:S/coming back:ˈkʌmɪŋ bæk:回来:V‖进行时表将来
+终于到了。‖Here we are.‖Here:hɪr:这里:A/we:wi:我们:S/are:ɑr:是:V‖到达时的固定说法
+我很好。‖I'm fine.‖I'm:aɪm:我是:S/fine:faɪn:好的:C‖对 How are you 的常见回答
+#intro|自我介绍
 我叫李明。‖I'm Li Ming.‖I'm:aɪm:我是:S/Li Ming:li mɪŋ:李明:C‖be 动词表身份
 很高兴认识你。‖Nice to meet you.‖Nice:naɪs:高兴的:C/to meet:tu mit:认识:V/you:ju:你:O‖初次见面用语;省略 It's
-你好吗？‖How are you?‖How:haʊ:怎样:Q/are:ɑr:是:V/you:ju:你:S‖疑问词开头;be 动词提前
-我很好。‖I'm fine.‖I'm:aɪm:我是:S/fine:faɪn:好的:C‖对 How are you 的常见回答
-我也是。‖Me too.‖Me:mi:我:S/too:tu:也:A‖口语省略句
 你呢？‖And you?‖And:ænd:那么:J/you:ju:你:S‖反问对方的省略句
-这是什么？‖What's this?‖What's:wʌts:是什么:Q/this:ðɪs:这个:S‖What is 的缩写
-那是一本书。‖That's a book.‖That's:ðæts:那是:S/a:ə:一本:D/book:bʊk:书:C‖不定冠词 a 表示一个
-这是我的包。‖This is my bag.‖This:ðɪs:这个:S/is:ɪz:是:V/my:maɪ:我的:D/bag:bæɡ:包:C‖物主代词作定语
-那很粗鲁。‖That's rude.‖That's:ðæts:那是:S/rude:rud:粗鲁的:C‖一般现在时;主系表结构;That's 是 That is 的缩写
-太棒了。‖That's great.‖That's:ðæts:那是:S/great:ɡreɪt:很棒的:C‖形容词作表语
-我明白了。‖I see.‖I:aɪ:我:S/see:si:明白:V‖see 在此表示理解
-我不知道。‖I don't know.‖I:aɪ:我:S/don't:doʊnt:不:N/know:noʊ:知道:V‖实义动词否定要用 don't
-我不确定。‖I'm not sure.‖I'm:aɪm:我是:S/not:nɑt:不:N/sure:ʃʊr:确定的:C‖be 动词后直接加 not
-当然可以。‖Of course.‖Of course:ʌv kɔrs:当然:I‖固定短语;表示肯定
-没问题。‖No problem.‖No:noʊ:没有:N/problem:ˈprɑbləm:问题:S‖省略句;回应请求或致谢
-稍等一下。‖Just a moment.‖Just:dʒʌst:只:A/a:ə:一:D/moment:ˈmoʊmənt:片刻:S‖请求对方稍候
-我饿了。‖I'm hungry.‖I'm:aɪm:我是:S/hungry:ˈhʌŋɡri:饥饿的:C‖形容词表状态
-我渴了。‖I'm thirsty.‖I'm:aɪm:我是:S/thirsty:ˈθɜrsti:口渴的:C‖形容词表状态
-我累了。‖I'm tired.‖I'm:aɪm:我是:S/tired:ˈtaɪərd:疲惫的:C‖-ed 形容词描述人的感受
-我很忙。‖I'm busy.‖I'm:aɪm:我是:S/busy:ˈbɪzi:忙碌的:C‖主系表结构
-我准备好了。‖I'm ready.‖I'm:aɪm:我是:S/ready:ˈrɛdi:准备好的:C‖ready 后可接 for 或 to
-我迟到了。‖I'm late.‖I'm:aɪm:我是:S/late:leɪt:迟的:C‖late 作表语
-别担心。‖Don't worry.‖Don't:doʊnt:不要:N/worry:ˈwɜri:担心:V‖否定祈使句
-快点。‖Hurry up.‖Hurry:ˈhɜri:赶快:V/up:ʌp:起来:A‖动词短语;up 加强语气
-小心。‖Be careful.‖Be:bi:要:V/careful:ˈkɛrfəl:小心的:C‖be 开头的祈使句
-坐吧。‖Have a seat.‖Have:hæv:有:V/a:ə:一个:D/seat:sit:座位:O‖礼貌请人就坐
-进来吧。‖Come in.‖Come:kʌm:来:V/in:ɪn:进入:A‖祈使句;副词表方向
-请跟我来。‖Follow me.‖Follow:ˈfɑloʊ:跟随:V/me:mi:我:O‖祈使句;me 是宾格
-让我看看。‖Let me see.‖Let:lɛt:让:V/me:mi:我:O/see:si:看:C‖let 后接动词原形
-我同意。‖I agree.‖I:aɪ:我:S/agree:əˈɡri:同意:V‖不及物动词
-我不介意。‖I don't mind.‖I:aɪ:我:S/don't:doʊnt:不:N/mind:maɪnd:介意:V‖mind 表示介意
-随你便。‖It's up to you.‖It's:ɪts:这:S/up to:ʌp tu:取决于:V/you:ju:你:O‖固定短语 be up to sb
-我不这么认为。‖I don't think so.‖I:aɪ:我:S/don't:doʊnt:不:N/think:θɪŋk:认为:V/so:soʊ:如此:O‖so 代替上文内容
-我希望如此。‖I hope so.‖I:aɪ:我:S/hope:hoʊp:希望:V/so:soʊ:如此:O‖so 指代前文
-听起来不错。‖Sounds good.‖Sounds:saʊndz:听起来:V/good:ɡʊd:好的:C‖省略主语 It;系动词 sound
-真可惜。‖What a pity.‖What:wʌt:多么:Q/a:ə:一个:D/pity:ˈpɪti:憾事:S‖what 引导的感叹句
-祝你好运。‖Good luck.‖Good:ɡʊd:好的:D/luck:lʌk:运气:S‖祝福语;省略 I wish you
-干得好。‖Well done.‖Well:wɛl:好地:A/done:dʌn:完成的:C‖表扬用语
-慢慢来。‖Take your time.‖Take:teɪk:花费:V/your:jʊr:你的:D/time:taɪm:时间:O‖让对方不必着急
-我出发了。‖I'm leaving.‖I'm:aɪm:我在:S/leaving:ˈlivɪŋ:离开:V‖现在进行时表将要发生
-我回来了。‖I'm back.‖I'm:aɪm:我:S/back:bæk:回来:C‖back 作表语表示位置
-我们走吧。‖Let's go.‖Let's:lɛts:让我们:V/go:ɡoʊ:走:C‖Let us 的缩写;提出建议
-等等我。‖Wait for me.‖Wait:weɪt:等:V/for:fɔr:为:A/me:mi:我:O‖wait 后接 for 才能带宾语
-你确定吗？‖Are you sure?‖Are:ɑr:是:V/you:ju:你:S/sure:ʃʊr:确定的:C‖一般疑问句;be 提到句首
-真的吗？‖Really?‖Really:ˈriəli:真的:I‖单词句;表示惊讶
-为什么？‖Why?‖Why:waɪ:为什么:Q‖疑问副词单独成句
-怎么了？‖What's wrong?‖What's:wʌts:什么是:Q/wrong:rɔŋ:不对劲的:C‖询问对方状况
-你说什么？‖What did you say?‖What:wʌt:什么:O/did:dɪd:助动词:AUX/you:ju:你:S/say:seɪ:说:V‖一般过去时疑问句;did 后用原形
-再说一遍。‖Say it again.‖Say:seɪ:说:V/it:ɪt:它:O/again:əˈɡɛn:再一次:A‖祈使句;代词宾语放动词后
-我听不懂。‖I don't understand.‖I:aɪ:我:S/don't:doʊnt:不:N/understand:ˌʌndərˈstænd:理解:V‖实义动词否定
-请说慢一点。‖Please speak slowly.‖Please:pliz:请:A/speak:spik:说:V/slowly:ˈsloʊli:慢地:A‖副词修饰动词
-你会说英语吗？‖Do you speak English?‖Do:du:助动词:AUX/you:ju:你:S/speak:spik:说:V/English:ˈɪŋɡlɪʃ:英语:O‖一般现在时疑问句
-一点点。‖A little.‖A little:ə ˈlɪtəl:一点:S‖回答程度的省略句
 我是学生。‖I'm a student.‖I'm:aɪm:我是:S/a:ə:一名:D/student:ˈstudənt:学生:C‖a 用于辅音音素前
 他是我朋友。‖He's my friend.‖He's:hiz:他是:S/my:maɪ:我的:D/friend:frɛnd:朋友:C‖He is 的缩写
 她是老师。‖She's a teacher.‖She's:ʃiz:她是:S/a:ə:一名:D/teacher:ˈtitʃər:老师:C‖职业名词前加冠词
@@ -3870,23 +3840,192 @@ const RAW_SENT = `
 我住在北京。‖I live in Beijing.‖I:aɪ:我:S/live:lɪv:居住:V/in:ɪn:在:A/Beijing:beɪˈdʒɪŋ:北京:O‖in 后接较大地点
 你从哪来？‖Where are you from?‖Where:wɛr:哪里:Q/are:ɑr:是:V/you:ju:你:S/from:frʌm:来自:A‖be from 表示来自
 我来自中国。‖I'm from China.‖I'm:aɪm:我是:S/from:frʌm:来自:A/China:ˈtʃaɪnə:中国:O‖be from 固定搭配
+你专业是什么？‖What's your major?‖What's:wʌts:是什么:Q/your major:jʊr ˈmeɪdʒər:你的专业:S‖major 表示专业
+我学计算机。‖I study computer science.‖I:aɪ:我:S/study:ˈstʌdi:学习:V/computer science:kəmˈpjutər ˈsaɪəns:计算机科学:O‖学科名不加冠词
+我大三了。‖I'm a junior.‖I'm:aɪm:我是:S/a junior:ə ˈdʒunjər:大三学生:C‖美式大学年级说法
+请问怎么称呼？‖May I have your name?‖May:meɪ:可以:AUX/I:aɪ:我:S/have:hæv:知道:V/your name:jʊr neɪm:你的名字:O‖礼貌问姓名
+我姓王。‖My last name is Wang.‖My last name:maɪ læst neɪm:我的姓:S/is:ɪz:是:V/Wang:wɑŋ:王:C‖last name 是姓
+叫我小李就行。‖Just call me Li.‖Just:dʒʌst:就:A/call:kɔl:称呼:V/me:mi:我:O/Li:li:小李:C‖call sb sth 结构
+我今年二十五。‖I'm twenty-five years old.‖I'm:aɪm:我是:S/twenty-five years old:ˈtwɛntiˈfaɪv jɪrz oʊld:二十五岁:C‖years old 可省略
+我是独生子。‖I'm an only child.‖I'm:aɪm:我是:S/an only child:ən ˈoʊnli tʃaɪld:独生子女:C‖only child 表示独生
+我家有四口人。‖There are four people in my family.‖There are:ðɛr ɑr:有:V/four people:fɔr ˈpipəl:四个人:S/in my family:ɪn maɪ ˈfæməli:我家:A‖There be 句型
+我有个哥哥。‖I have an older brother.‖I:aɪ:我:S/have:hæv:有:V/an older brother:ən ˈoʊldər ˈbrʌðər:一个哥哥:O‖older brother 表示哥哥
+我结婚了。‖I'm married.‖I'm:aɪm:我:S/married:ˈmɛrid:已婚的:C‖married 作表语
+我还单身。‖I'm single.‖I'm:aɪm:我:S/single:ˈsɪŋɡəl:单身的:C‖single 表示未婚
+我养了只猫。‖I have a cat.‖I:aɪ:我:S/have:hæv:养:V/a cat:ə kæt:一只猫:O‖have 表示拥有
+我在这工作两年了。‖I've worked here for two years.‖I've worked:aɪv wɜrkt:我工作:S/here:hɪr:这里:A/for two years:fɔr tu jɪrz:两年:A‖完成时加 for
+我是新来的。‖I'm new here.‖I'm:aɪm:我是:S/new:nu:新的:C/here:hɪr:这里:A‖new here 表示新来
+请多关照。‖I look forward to working with you.‖I:aɪ:我:S/look forward to:lʊk ˈfɔrwərd tu:期待:V/working with you:ˈwɜrkɪŋ wɪð ju:与你共事:O‖to 后接动名词
+认识你很高兴。‖It's a pleasure to meet you.‖It's:ɪts:这是:S/a pleasure:ə ˈplɛʒər:一件乐事:C/to meet you:tu mit ju:认识你:D‖it 作形式主语
+#time|时间日期
 现在几点？‖What time is it?‖What time:wʌt taɪm:几点:Q/is:ɪz:是:V/it:ɪt:它:S‖it 作时间的虚主语
 七点了。‖It's seven o'clock.‖It's:ɪts:现在是:S/seven:ˈsɛvən:七:D/o'clock:əˈklɑk:点钟:C‖o'clock 只用于整点
 今天星期几？‖What day is it today?‖What day:wʌt deɪ:星期几:Q/is:ɪz:是:V/it:ɪt:它:S/today:təˈdeɪ:今天:A‖询问星期
 今天星期一。‖It's Monday.‖It's:ɪts:今天是:S/Monday:ˈmʌndeɪ:星期一:C‖星期首字母大写
+下次吧。‖Maybe next time.‖Maybe:ˈmeɪbi:也许:A/next:nɛkst:下:D/time:taɪm:次:S‖委婉拒绝
+再等五分钟。‖Give me five more minutes.‖Give:ɡɪv:给:V/me:mi:我:O/five more minutes:faɪv mɔr ˈmɪnɪts:再五分钟:O‖give 接双宾语
+我们几点见？‖What time shall we meet?‖What time:wʌt taɪm:几点:Q/shall:ʃæl:将要:AUX/we:wi:我们:S/meet:mit:见面:V‖shall we 用于商量
+七点在门口见。‖Let's meet at the gate at seven.‖Let's:lɛts:让我们:V/meet:mit:见面:C/at the gate:æt ðə ɡeɪt:在门口:A/at seven:æt ˈsɛvən:七点:A‖地点状语通常在时间状语前
+下一班几点？‖When is the next one?‖When:wɛn:什么时候:Q/is:ɪz:是:V/the next one:ðə nɛkst wʌn:下一班:S‖one 代替上文名词
+早餐几点开始？‖What time does breakfast start?‖What time:wʌt taɪm:几点:Q/does:dʌz:助动词:AUX/breakfast:ˈbrɛkfəst:早餐:S/start:stɑrt:开始:V‖第三人称单数疑问用 does
+我打算下个月去。‖I'm planning to go next month.‖I'm:aɪm:我在:S/planning:ˈplænɪŋ:计划:V/to go:tu ɡoʊ:去:O/next month:nɛkst mʌnθ:下个月:A‖plan to do 固定搭配
+我今晚有约了。‖I have plans tonight.‖I:aɪ:我:S/have:hæv:有:V/plans:plænz:安排:O/tonight:təˈnaɪt:今晚:A‖plans 常用复数
+改天吧。‖How about another day?‖How about:haʊ əˈbaʊt:怎么样:Q/another:əˈnʌðər:另一:D/day:deɪ:天:S‖How about 后接名词
+截止日期是周五。‖The deadline is Friday.‖The:ðə:这:D/deadline:ˈdɛdlaɪn:截止日期:S/is:ɪz:是:V/Friday:ˈfraɪdeɪ:周五:C‖星期作表语
+我按时完成了。‖I finished it on time.‖I:aɪ:我:S/finished:ˈfɪnɪʃt:完成:V/it:ɪt:它:O/on time:ɑn taɪm:按时:A‖on time 表示准时
+再给我一天时间。‖Give me one more day.‖Give:ɡɪv:给:V/me:mi:我:O/one more day:wʌn mɔr deɪ:再一天:O‖one more 表示再一个
+我一小时前吃过了。‖I ate an hour ago.‖I:aɪ:我:S/ate:eɪt:吃:V/an hour ago:ən aʊər əˈɡoʊ:一小时前:A‖ago 用于一般过去时
+她昨天去了图书馆。‖She went to the library yesterday.‖She:ʃi:她:S/went:wɛnt:去:V/to the library:tu ðə ˈlaɪbrɛri:图书馆:A/yesterday:ˈjɛstərdeɪ:昨天:A‖go 的过去式是 went
+那时我正在洗澡。‖I was taking a shower then.‖I:aɪ:我:S/was taking:wʌz ˈteɪkɪŋ:正在洗:V/a shower:ə ˈʃaʊər:淋浴:O/then:ðɛn:那时:A‖过去进行时表当时正在做
+我明天要去看牙医。‖I'm seeing the dentist tomorrow.‖I'm seeing:aɪm ˈsiɪŋ:我要去看:S/the dentist:ðə ˈdɛntɪst:牙医:O/tomorrow:təˈmɑroʊ:明天:A‖进行时表已安排的将来
+他下个月就毕业了。‖He will graduate next month.‖He:hi:他:S/will:wɪl:将:AUX/graduate:ˈɡrædʒueɪt:毕业:V/next month:nɛkst mʌnθ:下个月:A‖will 表示将来
+到明年我就工作五年了。‖By next year I will have worked for five years.‖By next year:baɪ nɛkst jɪr:到明年:A/I:aɪ:我:S/will have worked:wɪl hæv wɜrkt:将工作:V/for five years:fɔr faɪv jɪrz:五年:A‖将来完成时
+今天没昨天那么冷。‖It's not as cold as yesterday.‖It's:ɪts:天:S/not:nɑt:不:N/as cold as:æz koʊld æz:像那么冷:C/yesterday:ˈjɛstərdeɪ:昨天:A‖not as as 表示不如
+请告诉我几点开始。‖Please tell me when it starts.‖Please:pliz:请:A/tell:tɛl:告诉:V/me:mi:我:O/when it starts:wɛn ɪt stɑrts:什么时候开始:O‖tell 接双宾语
+时间过得真快。‖Time flies.‖Time:taɪm:时间:S/flies:flaɪz:飞逝:V‖谚语;fly 的第三人称单数
+我等不及了。‖I can't wait.‖I:aɪ:我:S/can't:kænt:不能:N/wait:weɪt:等:V‖表示迫不及待
+课几点结束？‖When does the class end?‖When:wɛn:什么时候:Q/does:dʌz:助动词:AUX/the class:ðə klæs:课:S/end:ɛnd:结束:V‖第三人称单数疑问句
+图书馆几点关门？‖What time does the library close?‖What time:wʌt taɪm:几点:Q/does:dʌz:助动词:AUX/the library:ðə ˈlaɪbrɛri:图书馆:S/close:kloʊz:关门:V‖does 后用原形
+截止到下周五。‖It's due next Friday.‖It's due:ɪts du:它到期:S/next Friday:nɛkst ˈfraɪdeɪ:下周五:A‖due 表示截止
+大概多久能到？‖How long will it take?‖How long:haʊ lɔŋ:多久:Q/will:wɪl:将:AUX/it:ɪt:它:S/take:teɪk:花费:V‖take 表示花费时间
+再等二十分钟。‖About twenty more minutes.‖About:əˈbaʊt:大约:A/twenty more minutes:ˈtwɛnti mɔr ˈmɪnɪts:再二十分钟:S‖more 表示还要
+几点开门？‖What time do you open?‖What time:wʌt taɪm:几点:Q/do:du:助动词:AUX/you:ju:你们:S/open:ˈoʊpən:开门:V‖you 指店家
+今天先到这里。‖Let's call it a day.‖Let's:lɛts:让我们:V/call:kɔl:称:C/it:ɪt:它:O/a day:ə deɪ:一天:C‖call it a day 表示收工
+明天继续。‖We'll continue tomorrow.‖We'll:wil:我们将:S/continue:kənˈtɪnju:继续:V/tomorrow:təˈmɑroʊ:明天:A‖will 表示将来
+#weather|天气季节
 天气怎么样？‖How's the weather?‖How's:haʊz:怎么样:Q/the:ðə:这:D/weather:ˈwɛðər:天气:S‖How is 的缩写
 今天很热。‖It's hot today.‖It's:ɪts:天气是:S/hot:hɑt:热的:C/today:təˈdeɪ:今天:A‖it 指天气
 下雨了。‖It's raining.‖It's:ɪts:天:S/raining:ˈreɪnɪŋ:下雨:V‖现在进行时描述天气
 外面很冷。‖It's cold outside.‖It's:ɪts:天:S/cold:koʊld:冷的:C/outside:ˌaʊtˈsaɪd:外面:A‖副词作地点状语
-我喜欢咖啡。‖I like coffee.‖I:aɪ:我:S/like:laɪk:喜欢:V/coffee:ˈkɔfi:咖啡:O‖不可数名词不加冠词
-我不喜欢辣的。‖I don't like spicy food.‖I:aɪ:我:S/don't:doʊnt:不:N/like:laɪk:喜欢:V/spicy:ˈspaɪsi:辣的:D/food:fud:食物:O‖形容词放名词前
-你想喝点什么？‖What would you like to drink?‖What:wʌt:什么:O/would:wʊd:愿意:AUX/you:ju:你:S/like:laɪk:想要:V/to drink:tu drɪŋk:喝:A‖would like 比 want 礼貌
-来杯水吧。‖A glass of water, please.‖A glass of:ə ɡlæs ʌv:一杯:D/water:ˈwɔtər:水:S/please:pliz:请:A‖量词短语修饰不可数名词
+天气预报说明天有雨。‖The forecast says it will rain tomorrow.‖The forecast:ðə ˈfɔrkæst:天气预报:S/says:sɛz:说:V/it will rain:ɪt wɪl reɪn:会下雨:O/tomorrow:təˈmɑroʊ:明天:A‖say 后接宾语从句
+别忘了带伞。‖Don't forget your umbrella.‖Don't:doʊnt:不要:N/forget:fərˈɡɛt:忘记:V/your:jʊr:你的:D/umbrella:ʌmˈbrɛlə:雨伞:O‖否定祈使句
+这取决于天气。‖It depends on the weather.‖It:ɪt:这:S/depends on:dɪˈpɛndz ɑn:取决于:V/the:ðə:那:D/weather:ˈwɛðər:天气:O‖depend on 必须带 on
+如果明天下雨我们就不去了。‖If it rains tomorrow, we won't go.‖If:ɪf:如果:J/it rains:ɪt reɪnz:下雨:A/tomorrow:təˈmɑroʊ:明天:A/we:wi:我们:S/won't:woʊnt:不会:N/go:ɡoʊ:去:V‖条件句主将从现;从句用一般现在时
+因为下雨我们取消了野餐。‖We canceled the picnic because it rained.‖We:wi:我们:S/canceled:ˈkænsəld:取消:V/the picnic:ðə ˈpɪknɪk:野餐:O/because it rained:bɪˈkɔz ɪt reɪnd:因为下雨:A‖because 引导原因状语从句
+除非下雨否则我们照常。‖Unless it rains, we'll go as planned.‖Unless it rains:ənˈlɛs ɪt reɪnz:除非下雨:A/we'll go:wil ɡoʊ:我们会去:S/as planned:æz plænd:按计划:A‖unless 相当于 if not
+春天来了。‖Spring is here.‖Spring:sprɪŋ:春天:S/is here:ɪz hɪr:到了:V‖季节名一般不加冠词
+今天多云。‖It's cloudy today.‖It's:ɪts:天:S/cloudy:ˈklaʊdi:多云的:C/today:təˈdeɪ:今天:A‖天气形容词加 y
+风很大。‖It's windy.‖It's:ɪts:天:S/windy:ˈwɪndi:有风的:C‖wind 加 y 变形容词
+外面在下雪。‖It's snowing outside.‖It's snowing:ɪts ˈsnoʊɪŋ:在下雪:S/outside:ˌaʊtˈsaɪd:外面:A‖进行时描述天气
+天晴了。‖The sky is clear.‖The sky:ðə skaɪ:天空:S/is:ɪz:是:V/clear:klɪr:晴朗的:C‖clear 表示晴朗
+今天有雾。‖It's foggy today.‖It's:ɪts:天:S/foggy:ˈfɑɡi:有雾的:C/today:təˈdeɪ:今天:A‖fog 加 gy
+气温零下五度。‖It's five below zero.‖It's:ɪts:气温是:S/five below zero:faɪv bɪˈloʊ ˈzɪroʊ:零下五度:C‖below zero 表示零下
+今天很潮湿。‖It's humid today.‖It's:ɪts:天:S/humid:ˈhjumɪd:潮湿的:C/today:təˈdeɪ:今天:A‖humid 指空气湿
+天气转凉了。‖It's getting cooler.‖It's getting:ɪts ˈɡɛtɪŋ:变得:S/cooler:ˈkulər:更凉的:C‖get 加比较级表示渐变
+穿暖和点。‖Dress warmly.‖Dress:drɛs:穿衣:V/warmly:ˈwɔrmli:暖和地:A‖副词修饰动词
+记得涂防晒。‖Don't forget sunscreen.‖Don't:doʊnt:不要:N/forget:fərˈɡɛt:忘记:V/sunscreen:ˈsʌnskrin:防晒霜:O‖否定祈使句
+太阳真大。‖The sun is strong.‖The sun:ðə sʌn:太阳:S/is:ɪz:是:V/strong:strɔŋ:强烈的:C‖sun 前必须加 the
+下午会转晴。‖It'll clear up in the afternoon.‖It'll clear up:ˈɪtəl klɪr ʌp:天会转晴:S/in the afternoon:ɪn ði ˌæftərˈnun:下午:A‖clear up 表示放晴
+台风要来了。‖A typhoon is coming.‖A typhoon:ə taɪˈfun:一场台风:S/is coming:ɪz ˈkʌmɪŋ:要来:V‖进行时表将来
+雨停了。‖The rain has stopped.‖The rain:ðə reɪn:雨:S/has stopped:hæz stɑpt:停了:V‖完成时表刚结束
+今天适合出去走走。‖It's a good day for a walk.‖It's:ɪts:今天是:S/a good day:ə ɡʊd deɪ:好日子:C/for a walk:fɔr ə wɔk:散步:A‖for 表示用途
+夏天太热了。‖Summer is too hot here.‖Summer:ˈsʌmər:夏天:S/is:ɪz:是:V/too hot:tu hɑt:太热:C/here:hɪr:这里:A‖too 表示过分
+我更喜欢秋天。‖I prefer autumn.‖I:aɪ:我:S/prefer:prɪˈfɜr:更喜欢:V/autumn:ˈɔtəm:秋天:O‖autumn 是英式;美式用 fall
+明天降温。‖It'll be colder tomorrow.‖It'll be:ˈɪtəl bi:会是:S/colder:ˈkoʊldər:更冷:C/tomorrow:təˈmɑroʊ:明天:A‖比较级表变化
+天黑得早了。‖It gets dark early now.‖It:ɪt:天:S/gets:ɡɛts:变得:V/dark:dɑrk:黑的:C/early now:ˈɜrli naʊ:现在早:A‖get 作系动词
+#money|数字与钱
 多少钱？‖How much is it?‖How much:haʊ mʌtʃ:多少钱:Q/is:ɪz:是:V/it:ɪt:它:S‖How much 问价格
 十美元。‖Ten dollars.‖Ten:tɛn:十:D/dollars:ˈdɑlərz:美元:S‖复数名词加 s
 太贵了。‖It's too expensive.‖It's:ɪts:它是:S/too:tu:太:A/expensive:ɪkˈspɛnsɪv:昂贵的:C‖too 表示超出可接受程度
 便宜点吧。‖Can you make it cheaper?‖Can:kæn:能:AUX/you:ju:你:S/make:meɪk:使:V/it:ɪt:它:O/cheaper:ˈtʃipər:更便宜的:C‖make 后接宾语补足语
+去机场多少钱？‖How much is it to the airport?‖How much:haʊ mʌtʃ:多少钱:Q/is:ɪz:是:V/it:ɪt:它:S/to the airport:tu ði ˈɛrpɔrt:到机场:A‖it 指路费
+可以刷卡吗？‖Do you take credit cards?‖Do:du:助动词:AUX/you:ju:你们:S/take:teɪk:接受:V/credit cards:ˈkrɛdɪt kɑrdz:信用卡:O‖take 在此表示接受
+我付现金。‖I'll pay in cash.‖I'll:aɪl:我将:S/pay:peɪ:支付:V/in cash:ɪn kæʃ:用现金:A‖in cash 表示付款方式
+能便宜一点吗？‖Is there any discount?‖Is there:ɪz ðɛr:有吗:V/any:ˈɛni:任何:D/discount:ˈdɪskaʊnt:折扣:S‖疑问句中用 any
+我在存钱。‖I'm saving money.‖I'm saving:aɪm ˈseɪvɪŋ:我在存:S/money:ˈmʌni:钱:O‖save 表示储蓄
+这个月花超了。‖I spent too much this month.‖I:aɪ:我:S/spent:spɛnt:花费:V/too much:tu mʌtʃ:太多:O/this month:ðɪs mʌnθ:这个月:A‖spend 的过去式
+我买不起。‖I can't afford it.‖I:aɪ:我:S/can't:kænt:不能:N/afford:əˈfɔrd:负担得起:V/it:ɪt:它:O‖afford 常与 can 连用
+值这个价。‖It's worth the price.‖It's:ɪts:它:S/worth:wɜrθ:值得:C/the price:ðə praɪs:这个价:O‖worth 后接名词
+在打折。‖It's on sale.‖It's:ɪts:它:S/on sale:ɑn seɪl:打折中:C‖on sale 表示减价
+我要办张卡。‖I'd like to open an account.‖I'd like:aɪd laɪk:我想:S/to open:tu ˈoʊpən:开:V/an account:ən əˈkaʊnt:一个账户:O‖open an account 固定搭配
+房租多少？‖How much is the rent?‖How much:haʊ mʌtʃ:多少:Q/is:ɪz:是:V/the rent:ðə rɛnt:房租:S‖rent 表示租金
+包水电吗？‖Does it include utilities?‖Does:dʌz:助动词:AUX/it:ɪt:它:S/include:ɪnˈklud:包含:V/utilities:juˈtɪlətiz:水电费:O‖utilities 常用复数
+门票多少钱？‖How much is the ticket?‖How much:haʊ mʌtʃ:多少钱:Q/is:ɪz:是:V/the ticket:ðə ˈtɪkɪt:门票:S‖问价格
+学生有优惠吗？‖Is there a student discount?‖Is there:ɪz ðɛr:有吗:V/a student discount:ə ˈstudənt ˈdɪskaʊnt:学生折扣:S‖There be 疑问
+一共多少？‖How much is it altogether?‖How much:haʊ mʌtʃ:多少:Q/is:ɪz:是:V/it:ɪt:它:S/altogether:ˌɔltəˈɡɛðər:总共:A‖altogether 表示合计
+找您五块。‖Here's your change.‖Here's:hɪrz:这是:V/your change:jʊr tʃeɪndʒ:你的零钱:S‖change 指找零
+我没带够钱。‖I don't have enough money.‖I:aɪ:我:S/don't:doʊnt:不:N/have:hæv:有:V/enough money:ɪˈnʌf ˈmʌni:足够的钱:O‖enough 放名词前
+能便宜十块吗？‖Can you take ten off?‖Can:kæn:能:AUX/you:ju:你:S/take:teɪk:减:V/ten:tɛn:十块:O/off:ɔf:掉:A‖take off 中间可夹数量
+太值了。‖It's a good deal.‖It's:ɪts:这:S/a good deal:ə ɡʊd dil:划算的交易:C‖deal 表示交易
+我预算有限。‖I'm on a tight budget.‖I'm:aɪm:我:S/on a tight budget:ɑn ə taɪt ˈbʌdʒɪt:预算紧张:C‖tight budget 表示紧张的预算
+这个月工资发了。‖I got paid this month.‖I:aɪ:我:S/got paid:ɡɑt peɪd:拿到工资:V/this month:ðɪs mʌnθ:这个月:A‖get paid 表示领薪
+我在还房贷。‖I'm paying off my mortgage.‖I'm paying off:aɪm ˈpeɪɪŋ ɔf:我在还清:S/my mortgage:maɪ ˈmɔrɡɪdʒ:我的房贷:O‖pay off 表示还清
+我借了他一百。‖I lent him a hundred.‖I:aɪ:我:S/lent:lɛnt:借出:V/him:hɪm:他:O/a hundred:ə ˈhʌndrəd:一百:O‖lend 是借出
+记得还我钱。‖Don't forget to pay me back.‖Don't:doʊnt:不要:N/forget:fərˈɡɛt:忘记:V/to pay me back:tu peɪ mi bæk:还我钱:O‖pay sb back 表示还钱
+汇率是多少？‖What's the exchange rate?‖What's:wʌts:是多少:Q/the exchange rate:ði ɪksˈtʃeɪndʒ reɪt:汇率:S‖exchange rate 表示汇率
+我要换点钱。‖I need to exchange some money.‖I:aɪ:我:S/need to:nid tu:需要:AUX/exchange:ɪksˈtʃeɪndʒ:兑换:V/some money:sʌm ˈmʌni:一些钱:O‖exchange 表示兑换
+#shop|购物
 我要这个。‖I'll take this one.‖I'll:aɪl:我将:S/take:teɪk:要:V/this one:ðɪs wʌn:这个:O‖one 代替上文名词
+可以打包吗？‖Can I get it to go?‖Can:kæn:能:AUX/I:aɪ:我:S/get:ɡɛt:拿:V/it:ɪt:它:O/to go:tu ɡoʊ:带走:C‖to go 表示外带
+可以试穿吗？‖Can I try it on?‖Can:kæn:能:AUX/I:aɪ:我:S/try:traɪ:试:V/it:ɪt:它:O/on:ɑn:上身:A‖try on 中间夹代词;不能说 try on it
+有大一号的吗？‖Do you have a bigger size?‖Do:du:助动词:AUX/you:ju:你们:S/have:hæv:有:V/a bigger size:ə ˈbɪɡər saɪz:更大的尺码:O‖比较级作定语
+这个我很喜欢。‖I really like this one.‖I:aɪ:我:S/really:ˈriəli:真的:A/like:laɪk:喜欢:V/this one:ðɪs wʌn:这个:O‖really 加强语气
+我再看看。‖I'm just looking.‖I'm:aɪm:我在:S/just:dʒʌst:只是:A/looking:ˈlʊkɪŋ:看看:V‖店内婉拒推销的说法
+可以退货吗？‖Can I return this?‖Can:kæn:能:AUX/I:aɪ:我:S/return:rɪˈtɜrn:退回:V/this:ðɪs:这个:O‖return 表示退货
+我想换一个。‖I'd like to exchange it.‖I'd like:aɪd laɪk:我想:S/to exchange:tu ɪksˈtʃeɪndʒ:更换:V/it:ɪt:它:O‖exchange 表示换货
+请给我收据。‖May I have the receipt?‖May:meɪ:可以:AUX/I:aɪ:我:S/have:hæv:得到:V/the receipt:ðə rɪˈsit:收据:O‖receipt 中的 p 不发音
+我在网上买的。‖I bought it online.‖I:aɪ:我:S/bought:bɔt:买:V/it:ɪt:它:O/online:ˈɑnlaɪn:在网上:A‖buy 的过去式是 bought
+包裹什么时候到？‖When will the package arrive?‖When:wɛn:什么时候:Q/will:wɪl:将:AUX/the package:ðə ˈpækɪdʒ:包裹:S/arrive:əˈraɪv:到达:V‖一般将来时疑问句
+请给我打包一下。‖Could you wrap it up?‖Could:kʊd:可以:AUX/you:ju:你:S/wrap:ræp:包:V/it:ɪt:它:O/up:ʌp:起来:A‖wrap up 中间可夹代词
+我随便看看。‖I'm just browsing.‖I'm:aɪm:我在:S/just:dʒʌst:只是:A/browsing:ˈbraʊzɪŋ:随便看:V‖browse 表示随便逛
+这个有别的颜色吗？‖Does it come in other colors?‖Does:dʌz:助动词:AUX/it:ɪt:它:S/come in:kʌm ɪn:有:V/other colors:ˈʌðər ˈkʌlərz:别的颜色:O‖come in 表示有某规格
+试衣间在哪？‖Where is the fitting room?‖Where:wɛr:哪里:Q/is:ɪz:是:V/the fitting room:ðə ˈfɪtɪŋ rum:试衣间:S‖fitting room 是试衣间
+有点小。‖It's a bit small.‖It's:ɪts:它:S/a bit:ə bɪt:有点:A/small:smɔl:小的:C‖a bit 表示稍微
+很合身。‖It fits well.‖It:ɪt:它:S/fits:fɪts:合身:V/well:wɛl:好地:A‖fit 表示尺寸合适
+这个多少钱？‖What's the price of this?‖What's:wʌts:是多少:Q/the price:ðə praɪs:价格:S/of this:ʌv ðɪs:这个的:D‖of 表示所属
+能给我看看那个吗？‖Could you show me that one?‖Could:kʊd:可以:AUX/you:ju:你:S/show:ʃoʊ:给看:V/me:mi:我:O/that one:ðæt wʌn:那个:O‖show 接双宾语
+我买两个。‖I'll take two.‖I'll:aɪl:我将:S/take:teɪk:买:V/two:tu:两个:O‖take 表示购买
+可以刷微信吗？‖Can I pay by WeChat?‖Can:kæn:能:AUX/I:aɪ:我:S/pay:peɪ:支付:V/by WeChat:baɪ ˈwitʃæt:用微信:A‖by 表示支付方式
+请给我一个袋子。‖Can I have a bag?‖Can:kæn:能:AUX/I:aɪ:我:S/have:hæv:得到:V/a bag:ə bæɡ:一个袋子:O‖have 表示要一个
+这是最后一件了。‖It's the last one.‖It's:ɪts:它是:S/the last one:ðə læst wʌn:最后一件:C‖one 代替名词
+什么时候到货？‖When will you restock?‖When:wɛn:什么时候:Q/will:wɪl:将:AUX/you:ju:你们:S/restock:riˈstɑk:进货:V‖re 前缀表示再次
+有保修吗？‖Does it have a warranty?‖Does:dʌz:助动词:AUX/it:ɪt:它:S/have:hæv:有:V/a warranty:ə ˈwɔrənti:保修:O‖warranty 表示保修
+可以开发票吗？‖Can I get a receipt?‖Can:kæn:能:AUX/I:aɪ:我:S/get:ɡɛt:得到:V/a receipt:ə rɪˈsit:发票:O‖receipt 也指收据
+质量很好。‖The quality is good.‖The quality:ðə ˈkwɑləti:质量:S/is:ɪz:是:V/good:ɡʊd:好的:C‖quality 不可数
+我要退款。‖I'd like a refund.‖I'd like:aɪd laɪk:我想要:S/a refund:ə ˈrifʌnd:退款:O‖refund 表示退款
+我下单了。‖I placed an order.‖I:aɪ:我:S/placed:pleɪst:下:V/an order:ən ˈɔrdər:订单:O‖place an order 固定搭配
+包裹丢了。‖My package is missing.‖My package:maɪ ˈpækɪdʒ:我的包裹:S/is:ɪz:是:V/missing:ˈmɪsɪŋ:丢失的:C‖missing 表示不见了
+#food|餐厅点餐
+你想喝点什么？‖What would you like to drink?‖What:wʌt:什么:O/would:wʊd:愿意:AUX/you:ju:你:S/like:laɪk:想要:V/to drink:tu drɪŋk:喝:A‖would like 比 want 礼貌
+来杯水吧。‖A glass of water, please.‖A glass of:ə ɡlæs ʌv:一杯:D/water:ˈwɔtər:水:S/please:pliz:请:A‖量词短语修饰不可数名词
+我吃饱了。‖I'm full.‖I'm:aɪm:我:S/full:fʊl:饱的:C‖full 形容吃饱
+很好吃。‖It's delicious.‖It's:ɪts:它是:S/delicious:dɪˈlɪʃəs:美味的:C‖delicious 本身含很的意思
+买单。‖Check, please.‖Check:tʃɛk:账单:S/please:pliz:请:A‖餐厅结账用语
+我要一份沙拉。‖I'd like a salad.‖I'd like:aɪd laɪk:我想要:S/a:ə:一份:D/salad:ˈsæləd:沙拉:O‖点餐常用句
+有什么推荐的吗？‖What do you recommend?‖What:wʌt:什么:O/do:du:助动词:AUX/you:ju:你:S/recommend:ˌrɛkəˈmɛnd:推荐:V‖特殊疑问句
+我对花生过敏。‖I'm allergic to peanuts.‖I'm:aɪm:我:S/allergic:əˈlɜrdʒɪk:过敏的:C/to peanuts:tu ˈpinʌts:对花生:A‖be allergic to 固定搭配
+不要放糖。‖No sugar, please.‖No:noʊ:不要:N/sugar:ˈʃʊɡər:糖:S/please:pliz:请:A‖点餐时的简洁说法
+账单请分开。‖Separate checks, please.‖Separate:ˈsɛprət:分开的:D/checks:tʃɛks:账单:S/please:pliz:请:A‖AA 结账的说法
+我请客。‖It's on me.‖It's:ɪts:这:S/on me:ɑn mi:算我的:C‖口语中表示我买单
+他来的时候我在做饭。‖I was cooking when he came.‖I:aɪ:我:S/was cooking:wʌz ˈkʊkɪŋ:正在做饭:V/when he came:wɛn hi keɪm:当他来时:A‖过去进行加过去时表打断
+我们出去庆祝一下吧。‖Let's go out and celebrate.‖Let's:lɛts:让我们:V/go out:ɡoʊ aʊt:出去:C/and celebrate:ænd ˈsɛləbreɪt:庆祝:C‖两个动词用 and 并列
+今晚我请客。‖Dinner is on me tonight.‖Dinner:ˈdɪnər:晚餐:S/is on me:ɪz ɑn mi:算我的:C/tonight:təˈnaɪt:今晚:A‖on me 表示我买单
+我来洗碗。‖I'll do the dishes.‖I'll:aɪl:我将:S/do the dishes:du ðə ˈdɪʃɪz:洗碗:V‖do the dishes 固定搭配
+我去买点菜。‖I'm going grocery shopping.‖I'm going:aɪm ˈɡoʊɪŋ:我要去:S/grocery shopping:ˈɡroʊsəri ˈʃɑpɪŋ:买菜:O‖go shopping 结构
+冰箱空了。‖The fridge is empty.‖The fridge:ðə frɪdʒ:冰箱:S/is:ɪz:是:V/empty:ˈɛmpti:空的:C‖fridge 是 refrigerator 的简称
+今晚吃什么？‖What's for dinner?‖What's:wʌts:是什么:Q/for dinner:fɔr ˈdɪnər:晚餐:A‖问吃什么的口语
+我不太会做饭。‖I'm not a good cook.‖I'm:aɪm:我:S/not:nɑt:不是:N/a good cook:ə ɡʊd kʊk:好厨师:C‖cook 作名词指厨师
+我们叫外卖吧。‖Let's order takeout.‖Let's:lɛts:让我们:V/order:ˈɔrdər:点:C/takeout:ˈteɪkaʊt:外卖:O‖takeout 是美式说法
+我喜欢咖啡。‖I like coffee.‖I:aɪ:我:S/like:laɪk:喜欢:V/coffee:ˈkɔfi:咖啡:O‖不可数名词不加冠词
+我不喜欢辣的。‖I don't like spicy food.‖I:aɪ:我:S/don't:doʊnt:不:N/like:laɪk:喜欢:V/spicy:ˈspaɪsi:辣的:D/food:fud:食物:O‖形容词放名词前
+几位？‖How many people?‖How many:haʊ ˈmɛni:多少:Q/people:ˈpipəl:人:S‖How many 问可数
+两位。‖A table for two.‖A table:ə ˈteɪbəl:一张桌:S/for two:fɔr tu:两人的:D‖for 表示供几人
+菜单给我看下。‖Can I see the menu?‖Can:kæn:能:AUX/I:aɪ:我:S/see:si:看:V/the menu:ðə ˈmɛnju:菜单:O‖menu 指菜单
+这道菜辣吗？‖Is this dish spicy?‖Is:ɪz:是:V/this dish:ðɪs dɪʃ:这道菜:S/spicy:ˈspaɪsi:辣的:C‖dish 指菜肴
+我要一份牛排。‖I'll have a steak.‖I'll:aɪl:我将:S/have:hæv:要:V/a steak:ə steɪk:一份牛排:O‖点餐用 have
+几分熟？‖How would you like it cooked?‖How:haʊ:怎样:Q/would:wʊd:愿意:AUX/you:ju:你:S/like it cooked:laɪk ɪt kʊkt:做几分熟:V‖过去分词作宾补
+七分熟。‖Medium well, please.‖Medium well:ˈmidiəm wɛl:七分熟:C/please:pliz:请:A‖牛排熟度说法
+再来一杯。‖One more, please.‖One more:wʌn mɔr:再一杯:S/please:pliz:请:A‖one more 表示再来一份
+菜还没上。‖Our food hasn't come yet.‖Our food:aʊr fud:我们的菜:S/hasn't come:ˈhæzənt kʌm:还没来:V/yet:jɛt:还:A‖完成时否定加 yet
+我点的不是这个。‖This isn't what I ordered.‖This:ðɪs:这:S/isn't:ˈɪzənt:不是:N/what I ordered:wʌt aɪ ˈɔrdərd:我点的:C‖what 引导表语从句
+太咸了。‖It's too salty.‖It's:ɪts:它:S/too:tu:太:A/salty:ˈsɔlti:咸的:C‖salt 加 y 变形容词
+凉了。‖It's cold.‖It's:ɪts:它:S/cold:koʊld:凉的:C‖cold 指菜凉了
+可以加点辣吗？‖Could you make it spicier?‖Could:kʊd:可以:AUX/you:ju:你:S/make:meɪk:使:V/it:ɪt:它:O/spicier:ˈspaɪsiər:更辣:C‖make 加宾补
+不要香菜。‖No cilantro, please.‖No:noʊ:不要:N/cilantro:sɪˈlɑntroʊ:香菜:S/please:pliz:请:A‖美式称香菜为 cilantro
+我素食。‖I'm a vegetarian.‖I'm:aɪm:我是:S/a vegetarian:ə ˌvɛdʒəˈtɛriən:素食者:C‖vegetarian 表示素食者
+味道怎么样？‖How does it taste?‖How:haʊ:怎样:Q/does:dʌz:助动词:AUX/it:ɪt:它:S/taste:teɪst:尝起来:V‖taste 是系动词
+再来点米饭。‖More rice, please.‖More rice:mɔr raɪs:更多米饭:S/please:pliz:请:A‖rice 不可数
+#way|问路方位
 在哪里？‖Where is it?‖Where:wɛr:哪里:Q/is:ɪz:是:V/it:ɪt:它:S‖询问位置
 在这边。‖It's over here.‖It's:ɪts:它在:S/over here:ˈoʊvər hɪr:这边:C‖over 加强方位感
 往左拐。‖Turn left.‖Turn:tɜrn:转:V/left:lɛft:左:A‖指路祈使句
@@ -3895,280 +4034,133 @@ const RAW_SENT = `
 离这远吗？‖Is it far from here?‖Is:ɪz:是:V/it:ɪt:它:S/far:fɑr:远的:C/from here:frʌm hɪr:离这里:A‖far from 表示距离
 走路十分钟。‖It's ten minutes on foot.‖It's:ɪts:它是:S/ten:tɛn:十:D/minutes:ˈmɪnɪts:分钟:C/on foot:ɑn fʊt:步行:A‖on foot 表示步行方式
 我迷路了。‖I'm lost.‖I'm:aɪm:我:S/lost:lɔst:迷路的:C‖被动形式作表语
-能帮我吗？‖Can you help me?‖Can:kæn:能:AUX/you:ju:你:S/help:hɛlp:帮助:V/me:mi:我:O‖情态动词开头的疑问句
-当然。‖Sure.‖Sure:ʃʊr:当然:I‖单词句;表示答应
-给你。‖Here you are.‖Here:hɪr:这里:A/you:ju:你:S/are:ɑr:是:V‖递东西时使用
-我可以试试吗？‖May I try it?‖May:meɪ:可以:AUX/I:aɪ:我:S/try:traɪ:试:V/it:ɪt:它:O‖may 表示请求许可
-请自便。‖Help yourself.‖Help:hɛlp:帮助:V/yourself:jʊrˈsɛlf:你自己:O‖反身代词作宾语
-再来一点吗？‖Would you like some more?‖Would:wʊd:愿意:AUX/you:ju:你:S/like:laɪk:想要:V/some more:sʌm mɔr:再多一些:O‖疑问句用 some 表期待肯定
-不用了谢谢。‖No, thanks.‖No:noʊ:不:N/thanks:θæŋks:谢谢:I‖礼貌拒绝
-我吃饱了。‖I'm full.‖I'm:aɪm:我:S/full:fʊl:饱的:C‖full 形容吃饱
-很好吃。‖It's delicious.‖It's:ɪts:它是:S/delicious:dɪˈlɪʃəs:美味的:C‖delicious 本身含很的意思
-买单。‖Check, please.‖Check:tʃɛk:账单:S/please:pliz:请:A‖餐厅结账用语
-我在工作。‖I'm working.‖I'm:aɪm:我在:S/working:ˈwɜrkɪŋ:工作:V‖现在进行时
-我很快回来。‖I'll be right back.‖I'll:aɪl:我将:S/be:bi:是:V/right:raɪt:马上:A/back:bæk:回来:C‖right 加强马上的语气
-我们到了。‖We're here.‖We're:wɪr:我们:S/here:hɪr:在这里:C‖here 作表语表示到达
-它坏了。‖It's broken.‖It's:ɪts:它是:S/broken:ˈbroʊkən:坏了的:C‖过去分词作表语
-我忘了。‖I forgot.‖I:aɪ:我:S/forgot:fərˈɡɑt:忘记:V‖forget 的过去式
-我记得。‖I remember.‖I:aɪ:我:S/remember:rɪˈmɛmbər:记得:V‖一般现在时表状态
-我没时间。‖I don't have time.‖I:aɪ:我:S/don't:doʊnt:不:N/have:hæv:有:V/time:taɪm:时间:O‖time 不可数
-下次吧。‖Maybe next time.‖Maybe:ˈmeɪbi:也许:A/next:nɛkst:下:D/time:taɪm:次:S‖委婉拒绝
-听我说。‖Listen to me.‖Listen:ˈlɪsən:听:V/to:tu:向:A/me:mi:我:O‖listen 后必须加 to
-看那边。‖Look over there.‖Look:lʊk:看:V/over there:ˈoʊvər ðɛr:那边:A‖look 强调动作
-我同意你。‖I agree with you.‖I:aɪ:我:S/agree:əˈɡri:同意:V/with:wɪð:与:A/you:ju:你:O‖agree with sb 固定搭配
-你是对的。‖You're right.‖You're:jʊr:你是:S/right:raɪt:对的:C‖形容词作表语
-我错了。‖I was wrong.‖I:aɪ:我:S/was:wʌz:是:V/wrong:rɔŋ:错的:C‖be 动词过去式
-没事的。‖It doesn't matter.‖It:ɪt:它:S/doesn't:ˈdʌzənt:不:N/matter:ˈmætər:要紧:V‖第三人称单数否定用 doesn't
-我保证。‖I promise.‖I:aɪ:我:S/promise:ˈprɑmɪs:保证:V‖一般现在时表承诺
-祝你生日快乐。‖Happy birthday to you.‖Happy:ˈhæpi:快乐的:D/birthday:ˈbɜrθdeɪ:生日:S/to you:tu ju:给你:A‖省略 I wish 的祝福句
-新年快乐。‖Happy New Year.‖Happy:ˈhæpi:快乐的:D/New Year:nu jɪr:新年:S‖节日祝福固定说法
-保重。‖Take care.‖Take:teɪk:保持:V/care:kɛr:关心:O‖告别时叮嘱
-一路顺风。‖Have a nice trip.‖Have:hæv:拥有:V/a:ə:一次:D/nice:naɪs:愉快的:D/trip:trɪp:旅行:O‖祝福出行
-欢迎回来。‖Welcome back.‖Welcome:ˈwɛlkəm:欢迎:V/back:bæk:回来:A‖省略主语的欢迎语
-我每天六点起床。‖I get up at six every day.‖I:aɪ:我:S/get up:ɡɛt ʌp:起床:V/at:æt:在:A/six:sɪks:六点:O/every day:ˈɛvri deɪ:每天:A‖at 用于具体时刻;频率状语放句末
+排队的人真多。‖There's a long line.‖There's:ðɛrz:有:V/a long line:ə lɔŋ laɪn:长队:S‖line 指队伍
+我在排队。‖I'm in line.‖I'm:aɪm:我:S/in line:ɪn laɪn:排队中:C‖in line 表示排队
+到你了。‖It's your turn.‖It's:ɪts:现在是:S/your turn:jʊr tɜrn:你的回合:C‖turn 表示轮到
+先来后到。‖First come, first served.‖First come:fɜrst kʌm:先来:S/first served:fɜrst sɜrvd:先得:C‖谚语式省略句
+我们走错路了。‖We took the wrong way.‖We:wi:我们:S/took:tʊk:走:V/the wrong way:ðə rɔŋ weɪ:错误的路:O‖take the way 表示走某条路
+掉头吧。‖Let's turn around.‖Let's:lɛts:让我们:V/turn around:tɜrn əˈraʊnd:掉头:C‖turn around 表示转向
+我用地图看看。‖Let me check the map.‖Let:lɛt:让:V/me:mi:我:O/check:tʃɛk:查看:C/the map:ðə mæp:地图:O‖check 表示查看
+还有五公里。‖Five more kilometers to go.‖Five more kilometers:faɪv mɔr kəˈlɑmɪtərz:还有五公里:S/to go:tu ɡoʊ:要走:D‖to go 表示还剩
+我们快到了。‖We're almost there.‖We're:wɪr:我们:S/almost:ˈɔlmoʊst:几乎:A/there:ðɛr:到了:C‖almost there 表示快到
+请问洗手间在哪？‖Where is the restroom?‖Where:wɛr:哪里:Q/is:ɪz:是:V/the restroom:ðə ˈrɛstrum:洗手间:S‖restroom 是美式说法
+在二楼。‖It's on the second floor.‖It's:ɪts:它在:S/on the second floor:ɑn ðə ˈsɛkənd flɔr:二楼:C‖楼层用 on
+往前走两个路口。‖Go two blocks ahead.‖Go:ɡoʊ:走:V/two blocks:tu blɑks:两个街区:O/ahead:əˈhɛd:向前:A‖block 指街区
+在你右手边。‖It's on your right.‖It's:ɪts:它在:S/on your right:ɑn jʊr raɪt:你的右边:C‖on one's right 表示右侧
+过马路。‖Cross the street.‖Cross:krɔs:穿过:V/the street:ðə strit:马路:O‖cross 是及物动词
+就在超市对面。‖It's across from the supermarket.‖It's:ɪts:它在:S/across from:əˈkrɔs frʌm:对面:C/the supermarket:ðə ˈsupərmɑrkɪt:超市:O‖across from 表示对面
+在银行旁边。‖It's next to the bank.‖It's:ɪts:它在:S/next to:nɛkst tu:紧邻:C/the bank:ðə bæŋk:银行:O‖next to 表示挨着
+在两栋楼之间。‖It's between the two buildings.‖It's:ɪts:它在:S/between:bɪˈtwin:在之间:C/the two buildings:ðə tu ˈbɪldɪŋz:两栋楼:O‖between 用于两者之间
+你走过头了。‖You've gone too far.‖You've gone:juv ɡɔn:你走了:S/too far:tu fɑr:太远:A‖完成时表结果
+往回走一点。‖Go back a little.‖Go back:ɡoʊ bæk:往回走:V/a little:ə ˈlɪtəl:一点:A‖go back 表示返回
+我给你指路。‖Let me show you the way.‖Let:lɛt:让:V/me:mi:我:O/show:ʃoʊ:指:C/you:ju:你:O/the way:ðə weɪ:路:O‖show sb the way 固定搭配
+跟着指示牌走。‖Just follow the signs.‖Just:dʒʌst:只需:A/follow:ˈfɑloʊ:跟随:V/the signs:ðə saɪnz:指示牌:O‖sign 指标识
+坐电梯上去。‖Take the elevator up.‖Take:teɪk:乘:V/the elevator:ði ˈɛləveɪtər:电梯:O/up:ʌp:上去:A‖elevator 是美式说法
+#traffic|交通出行
 她通常坐公交上班。‖She usually takes the bus to work.‖She:ʃi:她:S/usually:ˈjuʒuəli:通常:A/takes:teɪks:乘坐:V/the bus:ðə bʌs:公交车:O/to work:tu wɜrk:去上班:A‖频率副词放实义动词前;第三人称单数加 s
-我们明天开会。‖We have a meeting tomorrow.‖We:wi:我们:S/have:hæv:有:V/a:ə:一个:D/meeting:ˈmitɪŋ:会议:O/tomorrow:təˈmɑroʊ:明天:A‖一般现在时表已安排的将来
-他正在打电话。‖He is making a phone call.‖He:hi:他:S/is:ɪz:正在:AUX/making:ˈmeɪkɪŋ:打:V/a phone call:ə foʊn kɔl:电话:O‖现在进行时 be + doing
-我在找我的钥匙。‖I'm looking for my keys.‖I'm:aɪm:我在:S/looking for:ˈlʊkɪŋ fɔr:寻找:V/my:maɪ:我的:D/keys:kiz:钥匙:O‖look for 表示寻找过程
-你在做什么？‖What are you doing?‖What:wʌt:什么:O/are:ɑr:正在:AUX/you:ju:你:S/doing:ˈduɪŋ:做:V‖现在进行时疑问句
-我在看电视。‖I'm watching TV.‖I'm:aɪm:我在:S/watching:ˈwɑtʃɪŋ:观看:V/TV:ˌtiˈvi:电视:O‖watch 强调看动态画面
-我需要休息一下。‖I need to take a break.‖I:aɪ:我:S/need:nid:需要:V/to take:tu teɪk:去进行:A/a break:ə breɪk:休息:O‖need to do 表示需要做某事
-我们该走了。‖It's time to go.‖It's:ɪts:现在是:S/time:taɪm:时候:C/to go:tu ɡoʊ:走:D‖It's time to do 固定句型
-我睡过头了。‖I overslept.‖I:aɪ:我:S/overslept:ˌoʊvərˈslɛpt:睡过头:V‖oversleep 的过去式
-我昨晚没睡好。‖I didn't sleep well last night.‖I:aɪ:我:S/didn't:ˈdɪdənt:没有:N/sleep:slip:睡:V/well:wɛl:好地:A/last night:læst naɪt:昨晚:A‖didn't 后接动词原形
-我头疼。‖I have a headache.‖I:aɪ:我:S/have:hæv:有:V/a:ə:一个:D/headache:ˈhɛdeɪk:头痛:O‖英语用 have 表示身体不适
-你该看医生。‖You should see a doctor.‖You:ju:你:S/should:ʃʊd:应该:AUX/see:si:看:V/a doctor:ə ˈdɑktər:医生:O‖should 表示建议
-多喝水。‖Drink more water.‖Drink:drɪŋk:喝:V/more:mɔr:更多:D/water:ˈwɔtər:水:O‖祈使句给建议
-好好休息。‖Get some rest.‖Get:ɡɛt:获得:V/some:sʌm:一些:D/rest:rɛst:休息:O‖rest 不可数
-祝你早日康复。‖Get well soon.‖Get:ɡɛt:变得:V/well:wɛl:健康的:C/soon:sun:很快:A‖well 在此是形容词
-我感冒了。‖I've caught a cold.‖I've:aɪv:我已:S/caught:kɔt:得了:V/a cold:ə koʊld:感冒:O‖现在完成时强调影响到现在
-天气预报说明天有雨。‖The forecast says it will rain tomorrow.‖The forecast:ðə ˈfɔrkæst:天气预报:S/says:sɛz:说:V/it will rain:ɪt wɪl reɪn:会下雨:O/tomorrow:təˈmɑroʊ:明天:A‖say 后接宾语从句
-别忘了带伞。‖Don't forget your umbrella.‖Don't:doʊnt:不要:N/forget:fərˈɡɛt:忘记:V/your:jʊr:你的:D/umbrella:ʌmˈbrɛlə:雨伞:O‖否定祈使句
-我把手机落在家里了。‖I left my phone at home.‖I:aɪ:我:S/left:lɛft:落下:V/my:maɪ:我的:D/phone:foʊn:手机:O/at home:æt hoʊm:在家:A‖leave 表示遗落;at home 不加 the
-你能借我笔吗？‖Can I borrow your pen?‖Can:kæn:能:AUX/I:aɪ:我:S/borrow:ˈbɑroʊ:借入:V/your:jʊr:你的:D/pen:pɛn:笔:O‖borrow 是借进来
-我把书还给你。‖I'll return your book.‖I'll:aɪl:我将:S/return:rɪˈtɜrn:归还:V/your:jʊr:你的:D/book:bʊk:书:O‖will 表示将来的打算
-这个用英语怎么说？‖How do you say this in English?‖How:haʊ:怎样:Q/do:du:助动词:AUX/you:ju:你:S/say:seɪ:说:V/this:ðɪs:这个:O/in English:ɪn ˈɪŋɡlɪʃ:用英语:A‖in + 语言表示用某语言
-请再说一遍好吗？‖Could you say that again?‖Could:kʊd:可以:AUX/you:ju:你:S/say:seɪ:说:V/that:ðæt:那:O/again:əˈɡɛn:再:A‖could 比 can 更委婉
-我可以问个问题吗？‖May I ask you a question?‖May:meɪ:可以:AUX/I:aɪ:我:S/ask:æsk:问:V/you:ju:你:O/a question:ə ˈkwɛstʃən:一个问题:O‖ask 可接双宾语
-我不太确定怎么说。‖I'm not sure how to say it.‖I'm:aɪm:我:S/not:nɑt:不:N/sure:ʃʊr:确定的:C/how to say it:haʊ tu seɪ ɪt:怎么说:A‖疑问词加不定式作宾语
-让我想想。‖Let me think about it.‖Let:lɛt:让:V/me:mi:我:O/think about:θɪŋk əˈbaʊt:考虑:C/it:ɪt:它:O‖think about 表示考虑
-我改主意了。‖I changed my mind.‖I:aɪ:我:S/changed:tʃeɪndʒd:改变:V/my:maɪ:我的:D/mind:maɪnd:主意:O‖change one's mind 固定搭配
-这取决于天气。‖It depends on the weather.‖It:ɪt:这:S/depends on:dɪˈpɛndz ɑn:取决于:V/the:ðə:那:D/weather:ˈwɛðər:天气:O‖depend on 必须带 on
-我完全同意。‖I couldn't agree more.‖I:aɪ:我:S/couldn't:ˈkʊdənt:不能:N/agree:əˈɡri:同意:V/more:mɔr:更多:A‖否定加比较级表示最高程度
-恐怕不行。‖I'm afraid not.‖I'm:aɪm:我:S/afraid:əˈfreɪd:恐怕:C/not:nɑt:不:N‖礼貌否定的固定说法
-我尽量。‖I'll try my best.‖I'll:aɪl:我将:S/try:traɪ:尽:V/my best:maɪ bɛst:最大努力:O‖try one's best 固定搭配
-我马上就来。‖I'm coming right now.‖I'm:aɪm:我在:S/coming:ˈkʌmɪŋ:来:V/right now:raɪt naʊ:立刻:A‖进行时表即将发生
-再等五分钟。‖Give me five more minutes.‖Give:ɡɪv:给:V/me:mi:我:O/five more minutes:faɪv mɔr ˈmɪnɪts:再五分钟:O‖give 接双宾语
-我们几点见？‖What time shall we meet?‖What time:wʌt taɪm:几点:Q/shall:ʃæl:将要:AUX/we:wi:我们:S/meet:mit:见面:V‖shall we 用于商量
-七点在门口见。‖Let's meet at the gate at seven.‖Let's:lɛts:让我们:V/meet:mit:见面:C/at the gate:æt ðə ɡeɪt:在门口:A/at seven:æt ˈsɛvən:七点:A‖地点状语通常在时间状语前
-我可能会迟到几分钟。‖I may be a few minutes late.‖I:aɪ:我:S/may:meɪ:可能:AUX/be:bi:是:V/a few minutes:ə fju ˈmɪnɪts:几分钟:A/late:leɪt:迟的:C‖may 表示可能性
 路上堵车。‖The traffic is heavy.‖The:ðə:这:D/traffic:ˈtræfɪk:交通:S/is:ɪz:是:V/heavy:ˈhɛvi:拥挤的:C‖traffic 不可数
 我错过了公交车。‖I missed the bus.‖I:aɪ:我:S/missed:mɪst:错过:V/the bus:ðə bʌs:公交车:O‖miss 表示错过
-下一班几点？‖When is the next one?‖When:wɛn:什么时候:Q/is:ɪz:是:V/the next one:ðə nɛkst wʌn:下一班:S‖one 代替上文名词
 请给我一张票。‖One ticket, please.‖One:wʌn:一张:D/ticket:ˈtɪkɪt:票:S/please:pliz:请:A‖购票的简洁说法
-去机场多少钱？‖How much is it to the airport?‖How much:haʊ mʌtʃ:多少钱:Q/is:ɪz:是:V/it:ɪt:它:S/to the airport:tu ði ˈɛrpɔrt:到机场:A‖it 指路费
 在这里停就行。‖Stop here, please.‖Stop:stɑp:停:V/here:hɪr:这里:A/please:pliz:请:A‖祈使句加 please 更礼貌
 我要去这个地址。‖I'm going to this address.‖I'm going to:aɪm ˈɡoʊɪŋ tu:我要去:S/this:ðɪs:这个:D/address:ˈædrɛs:地址:O‖be going to 表示计划
 请开快点。‖Could you drive faster?‖Could:kʊd:可以:AUX/you:ju:你:S/drive:draɪv:开车:V/faster:ˈfæstər:更快地:A‖比较级副词
+我的航班取消了。‖My flight was canceled.‖My flight:maɪ flaɪt:我的航班:S/was canceled:wʌz ˈkænsəld:被取消:V‖被动语态
+航班延误两小时。‖The flight is delayed two hours.‖The flight:ðə flaɪt:航班:S/is delayed:ɪz dɪˈleɪd:被延误:V/two hours:tu ˈaʊərz:两小时:A‖delay 表示延误
+登机口在哪？‖Where is the gate?‖Where:wɛr:哪里:Q/is:ɪz:是:V/the gate:ðə ɡeɪt:登机口:S‖gate 指登机口
+我要靠窗的座位。‖I'd like a window seat.‖I'd like:aɪd laɪk:我想要:S/a window seat:ə ˈwɪndoʊ sit:靠窗座位:O‖名词作定语
+行李超重了。‖The luggage is overweight.‖The luggage:ðə ˈlʌɡɪdʒ:行李:S/is:ɪz:是:V/overweight:ˈoʊvərweɪt:超重的:C‖luggage 不可数
+我只有随身行李。‖I only have carry-on baggage.‖I:aɪ:我:S/only:ˈoʊnli:只:A/have:hæv:有:V/carry-on baggage:ˈkærioʊn ˈbæɡɪdʒ:随身行李:O‖baggage 不可数
+护照请出示一下。‖May I see your passport?‖May:meɪ:可以:AUX/I:aɪ:我:S/see:si:看:V/your passport:jʊr ˈpæspɔrt:你的护照:O‖礼貌请求
+我来旅游的。‖I'm here on vacation.‖I'm:aɪm:我:S/here:hɪr:在这:C/on vacation:ɑn veɪˈkeɪʃən:度假:A‖入境常用回答
+待一周。‖For one week.‖For one week:fɔr wʌn wik:一周:A‖省略句回答时长
+我住在朋友家。‖I'm staying with a friend.‖I'm staying:aɪm ˈsteɪɪŋ:我住:S/with a friend:wɪð ə frɛnd:在朋友家:A‖stay with sb 表示住在某人处
+我崴到脚了。‖I twisted my ankle.‖I:aɪ:我:S/twisted:ˈtwɪstɪd:扭伤:V/my ankle:maɪ ˈæŋkəl:我的脚踝:O‖身体部位前用物主代词
+需要叫救护车吗？‖Should I call an ambulance?‖Should:ʃʊd:应该:AUX/I:aɪ:我:S/call:kɔl:叫:V/an ambulance:ən ˈæmbjələns:救护车:O‖should 表示征求意见
+慢点开车。‖Drive safely.‖Drive:draɪv:开车:V/safely:ˈseɪfli:安全地:A‖副词修饰动词
+系好安全带。‖Fasten your seat belt.‖Fasten:ˈfæsən:系紧:V/your seat belt:jʊr sit bɛlt:安全带:O‖fasten 中的 t 不发音
+前面红灯。‖The light is red.‖The light:ðə laɪt:信号灯:S/is:ɪz:是:V/red:rɛd:红色的:C‖light 指交通灯
+我打车过去。‖I'll take a taxi.‖I'll:aɪl:我将:S/take:teɪk:乘:V/a taxi:ə ˈtæksi:出租车:O‖take 加交通工具
+坐地铁更快。‖The subway is faster.‖The subway:ðə ˈsʌbweɪ:地铁:S/is:ɪz:是:V/faster:ˈfæstər:更快的:C‖比较级作表语
+在哪站下？‖Which stop should I get off?‖Which stop:wɪtʃ stɑp:哪一站:Q/should:ʃʊd:应该:AUX/I:aɪ:我:S/get off:ɡɛt ɔf:下车:V‖get off 表示下车
+下一站换乘。‖Transfer at the next stop.‖Transfer:trænsˈfɜr:换乘:V/at the next stop:æt ðə nɛkst stɑp:下一站:A‖transfer 表示换乘
+高峰期很挤。‖It's crowded at rush hour.‖It's:ɪts:它:S/crowded:ˈkraʊdɪd:拥挤的:C/at rush hour:æt rʌʃ aʊər:高峰期:A‖rush hour 表示高峰
+我要买张月票。‖I want a monthly pass.‖I:aɪ:我:S/want:wɑnt:想要:V/a monthly pass:ə ˈmʌnθli pæs:月票:O‖monthly 表示每月的
+车票丢了。‖I lost my ticket.‖I:aɪ:我:S/lost:lɔst:丢失:V/my ticket:maɪ ˈtɪkɪt:我的车票:O‖lose 的过去式
+火车晚点了。‖The train is running late.‖The train:ðə treɪn:火车:S/is running late:ɪz ˈrʌnɪŋ leɪt:晚点:V‖run late 表示晚点
+几号站台？‖Which platform?‖Which platform:wɪtʃ ˈplætfɔrm:哪个站台:Q‖platform 指站台
+这趟车直达吗？‖Is it a direct train?‖Is:ɪz:是:V/it:ɪt:它:S/a direct train:ə dəˈrɛkt treɪn:直达列车:C‖direct 表示直达
+我晕车。‖I get carsick.‖I:aɪ:我:S/get:ɡɛt:变得:V/carsick:ˈkɑrsɪk:晕车的:C‖get 作系动词
+#hotel|住宿酒店
 我想订个房间。‖I'd like to book a room.‖I'd like:aɪd laɪk:我想:S/to book:tu bʊk:预订:V/a room:ə rum:一个房间:O‖would like to do 表示委婉请求
 我预订了一个房间。‖I have a reservation.‖I:aɪ:我:S/have:hæv:有:V/a reservation:ə ˌrɛzərˈveɪʃən:预订:O‖办理入住的常用句
 可以退房了吗？‖Can I check out now?‖Can:kæn:能:AUX/I:aɪ:我:S/check out:tʃɛk aʊt:退房:V/now:naʊ:现在:A‖check out 是酒店退房
 房间里没有热水。‖There's no hot water in the room.‖There's:ðɛrz:有:V/no:noʊ:没有:N/hot water:hɑt ˈwɔtər:热水:S/in the room:ɪn ðə rum:房间里:A‖There be 句型表示存在
 空调坏了。‖The air conditioner doesn't work.‖The:ði:这:D/air conditioner:ɛr kənˈdɪʃənər:空调:S/doesn't:ˈdʌzənt:不:N/work:wɜrk:运转:V‖work 表示机器正常运转
 能帮我换个房间吗？‖Could I change my room?‖Could:kʊd:可以:AUX/I:aɪ:我:S/change:tʃeɪndʒ:更换:V/my room:maɪ rum:我的房间:O‖could 表示委婉请求
-早餐几点开始？‖What time does breakfast start?‖What time:wʌt taɪm:几点:Q/does:dʌz:助动词:AUX/breakfast:ˈbrɛkfəst:早餐:S/start:stɑrt:开始:V‖第三人称单数疑问用 does
-我要一份沙拉。‖I'd like a salad.‖I'd like:aɪd laɪk:我想要:S/a:ə:一份:D/salad:ˈsæləd:沙拉:O‖点餐常用句
-有什么推荐的吗？‖What do you recommend?‖What:wʌt:什么:O/do:du:助动词:AUX/you:ju:你:S/recommend:ˌrɛkəˈmɛnd:推荐:V‖特殊疑问句
-我对花生过敏。‖I'm allergic to peanuts.‖I'm:aɪm:我:S/allergic:əˈlɜrdʒɪk:过敏的:C/to peanuts:tu ˈpinʌts:对花生:A‖be allergic to 固定搭配
-不要放糖。‖No sugar, please.‖No:noʊ:不要:N/sugar:ˈʃʊɡər:糖:S/please:pliz:请:A‖点餐时的简洁说法
-可以打包吗？‖Can I get it to go?‖Can:kæn:能:AUX/I:aɪ:我:S/get:ɡɛt:拿:V/it:ɪt:它:O/to go:tu ɡoʊ:带走:C‖to go 表示外带
-账单请分开。‖Separate checks, please.‖Separate:ˈsɛprət:分开的:D/checks:tʃɛks:账单:S/please:pliz:请:A‖AA 结账的说法
-可以刷卡吗？‖Do you take credit cards?‖Do:du:助动词:AUX/you:ju:你们:S/take:teɪk:接受:V/credit cards:ˈkrɛdɪt kɑrdz:信用卡:O‖take 在此表示接受
-我付现金。‖I'll pay in cash.‖I'll:aɪl:我将:S/pay:peɪ:支付:V/in cash:ɪn kæʃ:用现金:A‖in cash 表示付款方式
-可以试穿吗？‖Can I try it on?‖Can:kæn:能:AUX/I:aɪ:我:S/try:traɪ:试:V/it:ɪt:它:O/on:ɑn:上身:A‖try on 中间夹代词;不能说 try on it
-有大一号的吗？‖Do you have a bigger size?‖Do:du:助动词:AUX/you:ju:你们:S/have:hæv:有:V/a bigger size:ə ˈbɪɡər saɪz:更大的尺码:O‖比较级作定语
-这个我很喜欢。‖I really like this one.‖I:aɪ:我:S/really:ˈriəli:真的:A/like:laɪk:喜欢:V/this one:ðɪs wʌn:这个:O‖really 加强语气
-我再看看。‖I'm just looking.‖I'm:aɪm:我在:S/just:dʒʌst:只是:A/looking:ˈlʊkɪŋ:看看:V‖店内婉拒推销的说法
-能便宜一点吗？‖Is there any discount?‖Is there:ɪz ðɛr:有吗:V/any:ˈɛni:任何:D/discount:ˈdɪskaʊnt:折扣:S‖疑问句中用 any
-可以退货吗？‖Can I return this?‖Can:kæn:能:AUX/I:aɪ:我:S/return:rɪˈtɜrn:退回:V/this:ðɪs:这个:O‖return 表示退货
-我想换一个。‖I'd like to exchange it.‖I'd like:aɪd laɪk:我想:S/to exchange:tu ɪksˈtʃeɪndʒ:更换:V/it:ɪt:它:O‖exchange 表示换货
-请给我收据。‖May I have the receipt?‖May:meɪ:可以:AUX/I:aɪ:我:S/have:hæv:得到:V/the receipt:ðə rɪˈsit:收据:O‖receipt 中的 p 不发音
-我在网上买的。‖I bought it online.‖I:aɪ:我:S/bought:bɔt:买:V/it:ɪt:它:O/online:ˈɑnlaɪn:在网上:A‖buy 的过去式是 bought
-包裹什么时候到？‖When will the package arrive?‖When:wɛn:什么时候:Q/will:wɪl:将:AUX/the package:ðə ˈpækɪdʒ:包裹:S/arrive:əˈraɪv:到达:V‖一般将来时疑问句
-我周末通常在家。‖I usually stay home on weekends.‖I:aɪ:我:S/usually:ˈjuʒuəli:通常:A/stay:steɪ:待:V/home:hoʊm:家:O/on weekends:ɑn ˈwikɛndz:周末:A‖on 用于具体日期或周末
-你周末做什么？‖What do you do on weekends?‖What:wʌt:什么:O/do:du:助动词:AUX/you:ju:你:S/do:du:做:V/on weekends:ɑn ˈwikɛndz:周末:A‖第一个 do 是助动词
-我喜欢跑步。‖I enjoy running.‖I:aɪ:我:S/enjoy:ɪnˈdʒɔɪ:喜欢:V/running:ˈrʌnɪŋ:跑步:O‖enjoy 后接动名词
-我每周健身三次。‖I work out three times a week.‖I:aɪ:我:S/work out:wɜrk aʊt:健身:V/three times:θri taɪmz:三次:A/a week:ə wik:每周:A‖a 表示每
-我在学吉他。‖I'm learning the guitar.‖I'm:aɪm:我在:S/learning:ˈlɜrnɪŋ:学习:V/the guitar:ðə ɡɪˈtɑr:吉他:O‖乐器前加 the
-听起来很有意思。‖That sounds interesting.‖That:ðæt:那:S/sounds:saʊndz:听起来:V/interesting:ˈɪntrəstɪŋ:有趣的:C‖-ing 形容词描述事物
-我从没试过。‖I've never tried it.‖I've:aɪv:我:S/never:ˈnɛvər:从未:N/tried:traɪd:试过:V/it:ɪt:它:O‖现在完成时表经历
-你去过上海吗？‖Have you ever been to Shanghai?‖Have:hæv:助动词:AUX/you:ju:你:S/ever:ˈɛvər:曾经:A/been to:bɪn tu:去过:V/Shanghai:ˌʃæŋˈhaɪ:上海:O‖been to 表示去过并回来
-我去过两次。‖I've been there twice.‖I've:aɪv:我:S/been:bɪn:去过:V/there:ðɛr:那里:A/twice:twaɪs:两次:A‖there 前不加 to
-那里非常漂亮。‖It's really beautiful there.‖It's:ɪts:那里是:S/really:ˈriəli:非常:A/beautiful:ˈbjutəfəl:美丽的:C/there:ðɛr:那里:A‖it 指代地点
-我打算下个月去。‖I'm planning to go next month.‖I'm:aɪm:我在:S/planning:ˈplænɪŋ:计划:V/to go:tu ɡoʊ:去:O/next month:nɛkst mʌnθ:下个月:A‖plan to do 固定搭配
-你想一起去吗？‖Would you like to come with me?‖Would:wʊd:愿意:AUX/you:ju:你:S/like to come:laɪk tu kʌm:一起来:V/with me:wɪð mi:和我:A‖礼貌邀请句型
-我很乐意。‖I'd love to.‖I'd love to:aɪd lʌv tu:我很乐意:S‖省略后面动词的回答
-我今晚有约了。‖I have plans tonight.‖I:aɪ:我:S/have:hæv:有:V/plans:plænz:安排:O/tonight:təˈnaɪt:今晚:A‖plans 常用复数
-改天吧。‖How about another day?‖How about:haʊ əˈbaʊt:怎么样:Q/another:əˈnʌðər:另一:D/day:deɪ:天:S‖How about 后接名词
-我请客。‖It's on me.‖It's:ɪts:这:S/on me:ɑn mi:算我的:C‖口语中表示我买单
-我们各付各的。‖Let's split the bill.‖Let's:lɛts:让我们:V/split:splɪt:平分:C/the bill:ðə bɪl:账单:O‖split the bill 表示 AA
-帮我个忙好吗？‖Could you do me a favor?‖Could:kʊd:可以:AUX/you:ju:你:S/do:du:做:V/me:mi:我:O/a favor:ə ˈfeɪvər:一个人情:O‖do sb a favor 固定搭配
-当然可以。‖Sure, no problem.‖Sure:ʃʊr:当然:I/no problem:noʊ ˈprɑbləm:没问题:I‖爽快答应的口语
-非常感谢你的帮助。‖Thanks for your help.‖Thanks:θæŋks:感谢:V/for:fɔr:因为:A/your help:jʊr hɛlp:你的帮助:O‖thanks for 后接名词或动名词
-不用麻烦了。‖Don't bother.‖Don't:doʊnt:不要:N/bother:ˈbɑðər:费心:V‖否定祈使句
-我自己来。‖I can do it myself.‖I:aɪ:我:S/can:kæn:能:AUX/do:du:做:V/it:ɪt:它:O/myself:maɪˈsɛlf:我自己:A‖反身代词加强语气
-需要帮忙吗？‖Do you need any help?‖Do:du:助动词:AUX/you:ju:你:S/need:nid:需要:V/any help:ˈɛni hɛlp:任何帮助:O‖疑问句用 any
-我来搭把手。‖Let me give you a hand.‖Let:lɛt:让:V/me:mi:我:O/give you a hand:ɡɪv ju ə hænd:帮你一把:C‖give sb a hand 表示帮忙
-太重了我搬不动。‖It's too heavy for me to carry.‖It's:ɪts:它是:S/too heavy:tu ˈhɛvi:太重:C/for me:fɔr mi:对我来说:A/to carry:tu ˈkæri:搬动:A‖too...to 表示太而不能
-把门关上好吗？‖Would you mind closing the door?‖Would you mind:wʊd ju maɪnd:介意吗:Q/closing:ˈkloʊzɪŋ:关上:V/the door:ðə dɔr:门:O‖mind 后接动名词
-一点也不。‖Not at all.‖Not at all:nɑt æt ɔl:一点也不:I‖回答 mind 类问题表示不介意
-这里可以抽烟吗？‖Is smoking allowed here?‖Is:ɪz:是:V/smoking:ˈsmoʊkɪŋ:抽烟:S/allowed:əˈlaʊd:被允许的:C/here:hɪr:这里:A‖被动语态表示规定
-请安静。‖Please be quiet.‖Please:pliz:请:A/be:bi:保持:V/quiet:ˈkwaɪət:安静的:C‖be 型祈使句
-声音太大了。‖It's too loud.‖It's:ɪts:它:S/too:tu:太:A/loud:laʊd:大声的:C‖too 表示过分
-可以小声点吗？‖Could you keep it down?‖Could:kʊd:可以:AUX/you:ju:你:S/keep:kip:保持:V/it:ɪt:声音:O/down:daʊn:低:C‖keep it down 表示小声点
-我在开会。‖I'm in a meeting.‖I'm:aɪm:我:S/in a meeting:ɪn ə ˈmitɪŋ:在开会:C‖介词短语作表语
-稍后回电给你。‖I'll call you back later.‖I'll:aɪl:我将:S/call:kɔl:打电话:V/you:ju:你:O/back:bæk:回:A/later:ˈleɪtər:稍后:A‖call sb back 代词放中间
-请留言。‖Please leave a message.‖Please:pliz:请:A/leave:liv:留下:V/a message:ə ˈmɛsɪdʒ:口信:O‖电话用语
-线路不太好。‖The line is bad.‖The:ðə:这:D/line:laɪn:线路:S/is:ɪz:是:V/bad:bæd:差的:C‖line 指电话线路
-你能听见我说话吗？‖Can you hear me?‖Can:kæn:能:AUX/you:ju:你:S/hear:hɪr:听见:V/me:mi:我:O‖hear 强调听到结果
-信号不好。‖The signal is weak.‖The:ðə:这:D/signal:ˈsɪɡnəl:信号:S/is:ɪz:是:V/weak:wik:弱的:C‖主系表结构
-我手机快没电了。‖My phone is running out of battery.‖My phone:maɪ foʊn:我的手机:S/is running out of:ɪz ˈrʌnɪŋ aʊt ʌv:快用完:V/battery:ˈbætəri:电量:O‖run out of 表示耗尽
-有充电器吗？‖Do you have a charger?‖Do:du:助动词:AUX/you:ju:你:S/have:hæv:有:V/a charger:ə ˈtʃɑrdʒər:充电器:O‖一般疑问句
-密码是多少？‖What's the password?‖What's:wʌts:是什么:Q/the:ðə:这:D/password:ˈpæswɜrd:密码:S‖询问信息
-这里有无线网吗？‖Is there Wi-Fi here?‖Is there:ɪz ðɛr:有吗:V/Wi-Fi:ˈwaɪfaɪ:无线网:S/here:hɪr:这里:A‖There be 疑问句
-网络很慢。‖The Internet is slow.‖The:ði:这:D/Internet:ˈɪntərnɛt:网络:S/is:ɪz:是:V/slow:sloʊ:慢的:C‖Internet 前通常加 the
-我发给你了。‖I've sent it to you.‖I've:aɪv:我已:S/sent:sɛnt:发送:V/it:ɪt:它:O/to you:tu ju:给你:A‖现在完成时表刚完成
-你收到了吗？‖Did you get it?‖Did:dɪd:助动词:AUX/you:ju:你:S/get:ɡɛt:收到:V/it:ɪt:它:O‖过去时疑问句
-我稍后再确认。‖I'll check it later.‖I'll:aɪl:我将:S/check:tʃɛk:检查:V/it:ɪt:它:O/later:ˈleɪtər:稍后:A‖check 表示核对
-截止日期是周五。‖The deadline is Friday.‖The:ðə:这:D/deadline:ˈdɛdlaɪn:截止日期:S/is:ɪz:是:V/Friday:ˈfraɪdeɪ:周五:C‖星期作表语
-我按时完成了。‖I finished it on time.‖I:aɪ:我:S/finished:ˈfɪnɪʃt:完成:V/it:ɪt:它:O/on time:ɑn taɪm:按时:A‖on time 表示准时
-再给我一天时间。‖Give me one more day.‖Give:ɡɪv:给:V/me:mi:我:O/one more day:wʌn mɔr deɪ:再一天:O‖one more 表示再一个
-这个很紧急。‖It's urgent.‖It's:ɪts:它是:S/urgent:ˈɜrdʒənt:紧急的:C‖形容词作表语
-我们得加快进度。‖We need to speed up.‖We:wi:我们:S/need to:nid tu:需要:AUX/speed up:spid ʌp:加快:V‖动词短语
-干得漂亮。‖You did a great job.‖You:ju:你:S/did:dɪd:做:V/a great job:ə ɡreɪt dʒɑb:很棒的工作:O‖do a good job 固定搭配
-我从中学到很多。‖I learned a lot from it.‖I:aɪ:我:S/learned:lɜrnd:学到:V/a lot:ə lɑt:很多:O/from it:frʌm ɪt:从中:A‖learn from 表示从中学习
-如果明天下雨我们就不去了。‖If it rains tomorrow, we won't go.‖If:ɪf:如果:J/it rains:ɪt reɪnz:下雨:A/tomorrow:təˈmɑroʊ:明天:A/we:wi:我们:S/won't:woʊnt:不会:N/go:ɡoʊ:去:V‖条件句主将从现;从句用一般现在时
-我到家就给你打电话。‖I'll call you when I get home.‖I'll:aɪl:我将:S/call:kɔl:打电话:V/you:ju:你:O/when I get home:wɛn aɪ ɡɛt hoʊm:当我到家时:A‖时间状语从句用现在时表将来
-虽然很难但值得一试。‖Although it's hard, it's worth a try.‖Although:ɔlˈðoʊ:虽然:J/it's hard:ɪts hɑrd:很难:A/it's:ɪts:它是:S/worth a try:wɜrθ ə traɪ:值得一试:C‖although 不能与 but 连用
-因为下雨我们取消了野餐。‖We canceled the picnic because it rained.‖We:wi:我们:S/canceled:ˈkænsəld:取消:V/the picnic:ðə ˈpɪknɪk:野餐:O/because it rained:bɪˈkɔz ɪt reɪnd:因为下雨:A‖because 引导原因状语从句
-我认为你是对的。‖I think you're right.‖I:aɪ:我:S/think:θɪŋk:认为:V/you're right:jʊr raɪt:你是对的:O‖that 引导的宾语从句可省略 that
-他说他会晚点到。‖He said he would be late.‖He:hi:他:S/said:sɛd:说:V/he would be late:hi wʊd bi leɪt:他会迟到:O‖主句过去时从句要用过去将来时
-我不知道该说什么。‖I don't know what to say.‖I:aɪ:我:S/don't:doʊnt:不:N/know:noʊ:知道:V/what to say:wʌt tu seɪ:该说什么:O‖疑问词加不定式作宾语
-这就是我想要的。‖This is what I want.‖This:ðɪs:这:S/is:ɪz:是:V/what I want:wʌt aɪ wɑnt:我想要的:C‖what 引导表语从句
-那是我第一次坐飞机。‖That was my first time on a plane.‖That:ðæt:那:S/was:wʌz:是:V/my first time:maɪ fɜrst taɪm:我第一次:C/on a plane:ɑn ə pleɪn:坐飞机:A‖序数词前加物主代词
-我已经在这住了三年。‖I've lived here for three years.‖I've lived:aɪv lɪvd:我已住:S/here:hɪr:这里:A/for three years:fɔr θri jɪrz:三年:A‖现在完成时加 for 表示持续
-他学英语已经很久了。‖He has been learning English for years.‖He:hi:他:S/has been learning:hæz bɪn ˈlɜrnɪŋ:一直在学:V/English:ˈɪŋɡlɪʃ:英语:O/for years:fɔr jɪrz:很多年:A‖现在完成进行时强调持续
-我从没见过这么大的雨。‖I've never seen such heavy rain.‖I've:aɪv:我:S/never:ˈnɛvər:从未:N/seen:sin:见过:V/such heavy rain:sʌtʃ ˈhɛvi reɪn:这么大的雨:O‖such 加不可数名词
-我们已经认识十年了。‖We have known each other for ten years.‖We:wi:我们:S/have known:hæv noʊn:认识:V/each other:itʃ ˈʌðər:彼此:O/for ten years:fɔr tɛn jɪrz:十年:A‖know 是状态动词用完成时
-你去过那家新餐厅吗？‖Have you tried the new restaurant?‖Have:hæv:助动词:AUX/you:ju:你:S/tried:traɪd:尝试:V/the new restaurant:ðə nu ˈrɛstərɑnt:那家新餐厅:O‖完成时表经历
-我还没决定。‖I haven't decided yet.‖I:aɪ:我:S/haven't:ˈhævənt:还没:N/decided:dɪˈsaɪdɪd:决定:V/yet:jɛt:尚且:A‖yet 用于否定句句末
-他刚刚出去了。‖He has just gone out.‖He:hi:他:S/has just gone out:hæz dʒʌst ɡɔn aʊt:刚出去:V‖just 表示刚刚
-我一小时前吃过了。‖I ate an hour ago.‖I:aɪ:我:S/ate:eɪt:吃:V/an hour ago:ən aʊər əˈɡoʊ:一小时前:A‖ago 用于一般过去时
-她昨天去了图书馆。‖She went to the library yesterday.‖She:ʃi:她:S/went:wɛnt:去:V/to the library:tu ðə ˈlaɪbrɛri:图书馆:A/yesterday:ˈjɛstərdeɪ:昨天:A‖go 的过去式是 went
-那时我正在洗澡。‖I was taking a shower then.‖I:aɪ:我:S/was taking:wʌz ˈteɪkɪŋ:正在洗:V/a shower:ə ˈʃaʊər:淋浴:O/then:ðɛn:那时:A‖过去进行时表当时正在做
-他来的时候我在做饭。‖I was cooking when he came.‖I:aɪ:我:S/was cooking:wʌz ˈkʊkɪŋ:正在做饭:V/when he came:wɛn hi keɪm:当他来时:A‖过去进行加过去时表打断
-我明天要去看牙医。‖I'm seeing the dentist tomorrow.‖I'm seeing:aɪm ˈsiɪŋ:我要去看:S/the dentist:ðə ˈdɛntɪst:牙医:O/tomorrow:təˈmɑroʊ:明天:A‖进行时表已安排的将来
-我打算换工作。‖I'm going to change jobs.‖I'm going to:aɪm ˈɡoʊɪŋ tu:我打算:S/change:tʃeɪndʒ:更换:V/jobs:dʒɑbz:工作:O‖be going to 表示打算
-他下个月就毕业了。‖He will graduate next month.‖He:hi:他:S/will:wɪl:将:AUX/graduate:ˈɡrædʒueɪt:毕业:V/next month:nɛkst mʌnθ:下个月:A‖will 表示将来
-到明年我就工作五年了。‖By next year I will have worked for five years.‖By next year:baɪ nɛkst jɪr:到明年:A/I:aɪ:我:S/will have worked:wɪl hæv wɜrkt:将工作:V/for five years:fɔr faɪv jɪrz:五年:A‖将来完成时
-如果我是你我就接受。‖If I were you, I would accept it.‖If I were you:ɪf aɪ wɜr ju:如果我是你:A/I:aɪ:我:S/would accept:wʊd əkˈsɛpt:会接受:V/it:ɪt:它:O‖虚拟语气用 were 和 would
-我真希望我能去。‖I wish I could go.‖I:aɪ:我:S/wish:wɪʃ:希望:V/I could go:aɪ kʊd ɡoʊ:我能去:O‖wish 后从句用虚拟语气
-你本该早点告诉我。‖You should have told me earlier.‖You:ju:你:S/should have told:ʃʊd hæv toʊld:本该告诉:V/me:mi:我:O/earlier:ˈɜrliər:更早:A‖should have done 表示本该做而没做
-我不该那么说。‖I shouldn't have said that.‖I:aɪ:我:S/shouldn't have said:ˈʃʊdənt hæv sɛd:不该说:V/that:ðæt:那话:O‖对过去行为的后悔
-他一定是忘了。‖He must have forgotten.‖He:hi:他:S/must have forgotten:mʌst hæv fərˈɡɑtən:一定是忘了:V‖must have done 表示对过去的肯定推测
-她可能还在路上。‖She might still be on the way.‖She:ʃi:她:S/might:maɪt:可能:AUX/still be:stɪl bi:仍然在:V/on the way:ɑn ðə weɪ:路上:C‖might 表示不确定的推测
-这本书是他写的。‖This book was written by him.‖This book:ðɪs bʊk:这本书:S/was written:wʌz ˈrɪtən:被写:V/by him:baɪ hɪm:被他:A‖被动语态 be 加过去分词
-门被锁上了。‖The door is locked.‖The door:ðə dɔr:门:S/is locked:ɪz lɑkt:被锁上:V‖被动表状态
-这里禁止停车。‖Parking is not allowed here.‖Parking:ˈpɑrkɪŋ:停车:S/is:ɪz:是:V/not allowed:nɑt əˈlaʊd:不被允许:C/here:hɪr:这里:A‖动名词作主语
-房子正在装修。‖The house is being renovated.‖The house:ðə haʊs:房子:S/is being renovated:ɪz ˈbiɪŋ ˈrɛnəveɪtɪd:正在被装修:V‖现在进行时的被动语态
-我的自行车被偷了。‖My bike was stolen.‖My bike:maɪ baɪk:我的自行车:S/was stolen:wʌz ˈstoʊlən:被偷:V‖steal 的过去分词是 stolen
+我想看看房子。‖I'd like to see the apartment.‖I'd like:aɪd laɪk:我想:S/to see:tu si:看:V/the apartment:ði əˈpɑrtmənt:公寓:O‖apartment 是美式说法
+离地铁站近吗？‖Is it near the subway station?‖Is:ɪz:是:V/it:ɪt:它:S/near:nɪr:靠近:C/the subway station:ðə ˈsʌbweɪ ˈsteɪʃən:地铁站:O‖near 可作介词
+我要搬家了。‖I'm moving out.‖I'm moving out:aɪm ˈmuvɪŋ aʊt:我要搬走:S‖move out 表示搬离
+帮我搬一下箱子。‖Help me move this box.‖Help:hɛlp:帮:V/me:mi:我:O/move:muv:搬:C/this box:ðɪs bɑks:这个箱子:O‖help sb do sth 结构
+垃圾该倒了。‖The trash needs to go out.‖The trash:ðə træʃ:垃圾:S/needs to go out:nidz tu ɡoʊ aʊt:该扔了:V‖trash 不可数
+衣服还没干。‖The clothes aren't dry yet.‖The clothes:ðə kloʊz:衣服:S/aren't:ɑrnt:不是:N/dry:draɪ:干的:C/yet:jɛt:还:A‖clothes 只有复数形式
+我想住三晚。‖I'd like to stay three nights.‖I'd like:aɪd laɪk:我想:S/to stay:tu steɪ:住:V/three nights:θri naɪts:三晚:A‖stay 表示逗留
+有空房吗？‖Do you have any rooms available?‖Do:du:助动词:AUX/you:ju:你们:S/have:hæv:有:V/any rooms:ˈɛni rumz:空房:O/available:əˈveɪləbəl:可用的:D‖available 后置作定语
+双人间多少钱？‖How much is a double room?‖How much:haʊ mʌtʃ:多少钱:Q/is:ɪz:是:V/a double room:ə ˈdʌbəl rum:双人间:S‖double room 是双人间
+含早餐吗？‖Is breakfast included?‖Is:ɪz:是:V/breakfast:ˈbrɛkfəst:早餐:S/included:ɪnˈkludɪd:包含的:C‖被动形式作表语
+几点可以入住？‖What time is check-in?‖What time:wʌt taɪm:几点:Q/is:ɪz:是:V/check-in:ˈtʃɛkɪn:入住:S‖check-in 作名词
+房卡不好使。‖My key card doesn't work.‖My key card:maɪ ki kɑrd:我的房卡:S/doesn't:ˈdʌzənt:不:N/work:wɜrk:管用:V‖work 表示正常运作
+可以再要条毛巾吗？‖Could I have another towel?‖Could:kʊd:可以:AUX/I:aɪ:我:S/have:hæv:得到:V/another towel:əˈnʌðər ˈtaʊəl:另一条毛巾:O‖another 表示再一个
+隔壁太吵了。‖The room next door is noisy.‖The room next door:ðə rum nɛkst dɔr:隔壁房间:S/is:ɪz:是:V/noisy:ˈnɔɪzi:吵闹的:C‖next door 作后置定语
+可以帮我叫醒吗？‖Could I get a wake-up call?‖Could:kʊd:可以:AUX/I:aɪ:我:S/get:ɡɛt:得到:V/a wake-up call:ə ˈweɪkʌp kɔl:叫醒服务:O‖wake-up 作定语
+行李可以寄存吗？‖Can I leave my luggage here?‖Can:kæn:能:AUX/I:aɪ:我:S/leave:liv:留下:V/my luggage:maɪ ˈlʌɡɪdʒ:我的行李:O/here:hɪr:这里:A‖leave 表示存放
+Wi-Fi 密码是什么？‖What's the Wi-Fi password?‖What's:wʌts:是什么:Q/the Wi-Fi password:ðə ˈwaɪfaɪ ˈpæswɜrd:无线网密码:S‖名词作定语
+可以晚点退房吗？‖Can I have a late checkout?‖Can:kæn:能:AUX/I:aɪ:我:S/have:hæv:得到:V/a late checkout:ə leɪt ˈtʃɛkaʊt:延迟退房:O‖late 作定语
+请打扫一下房间。‖Please clean my room.‖Please:pliz:请:A/clean:klin:打扫:V/my room:maɪ rum:我的房间:O‖祈使句
+我把钥匙锁屋里了。‖I locked myself out.‖I:aɪ:我:S/locked:lɑkt:锁:V/myself:maɪˈsɛlf:我自己:O/out:aʊt:在外:A‖lock oneself out 固定说法
+附近有便利店吗？‖Is there a store nearby?‖Is there:ɪz ðɛr:有吗:V/a store:ə stɔr:一家店:S/nearby:ˈnɪrbaɪ:附近:A‖nearby 作地点状语
+房间朝南。‖The room faces south.‖The room:ðə rum:房间:S/faces:ˈfeɪsɪz:朝向:V/south:saʊθ:南:O‖face 表示朝向
+可以加张床吗？‖Can we add an extra bed?‖Can:kæn:能:AUX/we:wi:我们:S/add:æd:加:V/an extra bed:ən ˈɛkstrə bɛd:一张加床:O‖extra 表示额外的
+我提前退房。‖I'm checking out early.‖I'm checking out:aɪm ˈtʃɛkɪŋ aʊt:我要退房:S/early:ˈɜrli:提前:A‖进行时表将来
+#study|校园学习
+你说什么？‖What did you say?‖What:wʌt:什么:O/did:dɪd:助动词:AUX/you:ju:你:S/say:seɪ:说:V‖一般过去时疑问句;did 后用原形
+再说一遍。‖Say it again.‖Say:seɪ:说:V/it:ɪt:它:O/again:əˈɡɛn:再一次:A‖祈使句;代词宾语放动词后
+我听不懂。‖I don't understand.‖I:aɪ:我:S/don't:doʊnt:不:N/understand:ˌʌndərˈstænd:理解:V‖实义动词否定
+请说慢一点。‖Please speak slowly.‖Please:pliz:请:A/speak:spik:说:V/slowly:ˈsloʊli:慢地:A‖副词修饰动词
+你会说英语吗？‖Do you speak English?‖Do:du:助动词:AUX/you:ju:你:S/speak:spik:说:V/English:ˈɪŋɡlɪʃ:英语:O‖一般现在时疑问句
+一点点。‖A little.‖A little:ə ˈlɪtəl:一点:S‖回答程度的省略句
+这个用英语怎么说？‖How do you say this in English?‖How:haʊ:怎样:Q/do:du:助动词:AUX/you:ju:你:S/say:seɪ:说:V/this:ðɪs:这个:O/in English:ɪn ˈɪŋɡlɪʃ:用英语:A‖in + 语言表示用某语言
+请再说一遍好吗？‖Could you say that again?‖Could:kʊd:可以:AUX/you:ju:你:S/say:seɪ:说:V/that:ðæt:那:O/again:əˈɡɛn:再:A‖could 比 can 更委婉
 这个词怎么拼？‖How do you spell that word?‖How:haʊ:怎样:Q/do:du:助动词:AUX/you:ju:你:S/spell:spɛl:拼写:V/that word:ðæt wɜrd:那个词:O‖spell 表示拼写
-比我想的容易。‖It's easier than I thought.‖It's:ɪts:它是:S/easier:ˈiziər:更容易的:C/than I thought:ðæn aɪ θɔt:比我想的:A‖比较级加 than
-这是我读过最好的书。‖It's the best book I've ever read.‖It's:ɪts:它是:S/the best book:ðə bɛst bʊk:最好的书:C/I've ever read:aɪv ˈɛvər rɛd:我读过的:D‖最高级后常接完成时定语从句
-他跑得比我快。‖He runs faster than me.‖He:hi:他:S/runs:rʌnz:跑:V/faster:ˈfæstər:更快:A/than me:ðæn mi:比我:A‖副词比较级
-今天没昨天那么冷。‖It's not as cold as yesterday.‖It's:ɪts:天:S/not:nɑt:不:N/as cold as:æz koʊld æz:像那么冷:C/yesterday:ˈjɛstərdeɪ:昨天:A‖not as as 表示不如
-越早越好。‖The sooner, the better.‖The sooner:ðə ˈsunər:越早:A/the better:ðə ˈbɛtər:越好:C‖the 加比较级表示越越
-这是唯一的办法。‖It's the only way.‖It's:ɪts:这是:S/the only way:ði ˈoʊnli weɪ:唯一的办法:C‖only 前加 the
-我需要一个能上网的地方。‖I need a place where I can get online.‖I:aɪ:我:S/need:nid:需要:V/a place:ə pleɪs:一个地方:O/where I can get online:wɛr aɪ kæn ɡɛt ˈɑnlaɪn:能上网的:D‖where 引导定语从句
-认识她的人都喜欢她。‖Everyone who knows her likes her.‖Everyone:ˈɛvriwʌn:每个人:S/who knows her:hu noʊz hɜr:认识她的:D/likes:laɪks:喜欢:V/her:hɜr:她:O‖who 引导定语从句;先行词是人
-这就是我住的地方。‖This is where I live.‖This:ðɪs:这:S/is:ɪz:是:V/where I live:wɛr aɪ lɪv:我住的地方:C‖where 引导表语从句
-那是我上班的公司。‖That's the company I work for.‖That's:ðæts:那是:S/the company:ðə ˈkʌmpəni:那家公司:C/I work for:aɪ wɜrk fɔr:我上班的:D‖省略关系代词的定语从句
-我想知道他为什么迟到。‖I wonder why he was late.‖I:aɪ:我:S/wonder:ˈwʌndər:想知道:V/why he was late:waɪ hi wʌz leɪt:他为什么迟到:O‖宾语从句用陈述语序
-你知道他住哪吗？‖Do you know where he lives?‖Do:du:助动词:AUX/you:ju:你:S/know:noʊ:知道:V/where he lives:wɛr hi lɪvz:他住哪:O‖从句要用陈述语序
-请告诉我几点开始。‖Please tell me when it starts.‖Please:pliz:请:A/tell:tɛl:告诉:V/me:mi:我:O/when it starts:wɛn ɪt stɑrts:什么时候开始:O‖tell 接双宾语
-我不确定这是否正确。‖I'm not sure if this is correct.‖I'm:aɪm:我:S/not sure:nɑt ʃʊr:不确定:C/if this is correct:ɪf ðɪs ɪz kəˈrɛkt:这是否正确:A‖if 表示是否
-无论如何我都会去。‖I'll go anyway.‖I'll:aɪl:我将:S/go:ɡoʊ:去:V/anyway:ˈɛniweɪ:无论如何:A‖anyway 常放句末
 不管你说什么我都不信。‖No matter what you say, I don't believe it.‖No matter what you say:noʊ ˈmætər wʌt ju seɪ:不管你说什么:A/I:aɪ:我:S/don't:doʊnt:不:N/believe:bɪˈliv:相信:V/it:ɪt:它:O‖no matter what 引导让步状语
-只要你努力就能成功。‖As long as you work hard, you'll succeed.‖As long as you work hard:æz lɔŋ æz ju wɜrk hɑrd:只要你努力:A/you'll:jul:你将:S/succeed:səkˈsid:成功:V‖as long as 表示只要
-除非下雨否则我们照常。‖Unless it rains, we'll go as planned.‖Unless it rains:ənˈlɛs ɪt reɪnz:除非下雨:A/we'll go:wil ɡoʊ:我们会去:S/as planned:æz plænd:按计划:A‖unless 相当于 if not
-我一到就告诉你。‖I'll let you know as soon as I arrive.‖I'll:aɪl:我将:S/let you know:lɛt ju noʊ:告诉你:V/as soon as I arrive:æz sun æz aɪ əˈraɪv:我一到:A‖as soon as 引导时间状语
-说起来容易做起来难。‖Easier said than done.‖Easier said:ˈiziər sɛd:说起来容易:C/than done:ðæn dʌn:比做起来:A‖谚语;省略主语
-熟能生巧。‖Practice makes perfect.‖Practice:ˈpræktɪs:练习:S/makes:meɪks:造就:V/perfect:ˈpɜrfɪkt:完美:O‖谚语;practice 作主语不加 the
-早起的鸟儿有虫吃。‖The early bird catches the worm.‖The early bird:ði ˈɜrli bɜrd:早起的鸟:S/catches:ˈkætʃɪz:抓住:V/the worm:ðə wɜrm:虫子:O‖谚语;第三人称单数加 es
-活到老学到老。‖It's never too late to learn.‖It's:ɪts:这:S/never too late:ˈnɛvər tu leɪt:永不太晚:C/to learn:tu lɜrn:学习:D‖it 作形式主语
-凡事都有第一次。‖There's a first time for everything.‖There's:ðɛrz:有:V/a first time:ə fɜrst taɪm:第一次:S/for everything:fɔr ˈɛvriθɪŋ:凡事:A‖There be 句型
-一分耕耘一分收获。‖No pain, no gain.‖No pain:noʊ peɪn:没有付出:S/no gain:noʊ ɡeɪn:没有收获:C‖对称省略句
-现在开始也不算晚。‖It's not too late to start now.‖It's:ɪts:这:S/not too late:nɑt tu leɪt:不算太晚:C/to start:tu stɑrt:开始:D/now:naʊ:现在:A‖不定式作真正主语
-我正在努力改进。‖I'm working on it.‖I'm:aɪm:我在:S/working on:ˈwɜrkɪŋ ɑn:着手处理:V/it:ɪt:它:O‖work on 表示正在做
-这需要时间。‖It takes time.‖It:ɪt:这:S/takes:teɪks:需要:V/time:taɪm:时间:O‖take 表示花费
-一步一步来。‖One step at a time.‖One step:wʌn stɛp:一步:S/at a time:æt ə taɪm:一次:A‖省略句;劝人不急
-别对自己太苛刻。‖Don't be too hard on yourself.‖Don't:doʊnt:不要:N/be:bi:是:V/too hard:tu hɑrd:太苛刻:C/on yourself:ɑn jʊrˈsɛlf:对自己:A‖be hard on sb 固定搭配
-每个人都会犯错。‖Everyone makes mistakes.‖Everyone:ˈɛvriwʌn:每个人:S/makes:meɪks:犯:V/mistakes:mɪˈsteɪks:错误:O‖everyone 视作单数
-从错误中学习。‖Learn from your mistakes.‖Learn:lɜrn:学习:V/from your mistakes:frʌm jʊr mɪˈsteɪks:从你的错误:A‖祈使句
-再试一次。‖Give it another try.‖Give:ɡɪv:给:V/it:ɪt:它:O/another try:əˈnʌðər traɪ:再一次尝试:O‖give sth a try 表示试一试
-我相信你能做到。‖I believe you can do it.‖I:aɪ:我:S/believe:bɪˈliv:相信:V/you can do it:ju kæn du ɪt:你能做到:O‖宾语从句省略 that
-坚持下去。‖Keep going.‖Keep:kip:保持:V/going:ˈɡoʊɪŋ:前进:C‖keep 后接动名词
-永不放弃。‖Never give up.‖Never:ˈnɛvər:永不:N/give up:ɡɪv ʌp:放弃:V‖否定祈使句
-你进步很大。‖You've made great progress.‖You've made:juv meɪd:你取得:S/great progress:ɡreɪt ˈprɑɡrɛs:很大进步:O‖progress 不可数
-我为你骄傲。‖I'm proud of you.‖I'm:aɪm:我:S/proud:praʊd:骄傲的:C/of you:ʌv ju:为你:A‖be proud of 固定搭配
-我们出去庆祝一下吧。‖Let's go out and celebrate.‖Let's:lɛts:让我们:V/go out:ɡoʊ aʊt:出去:C/and celebrate:ænd ˈsɛləbreɪt:庆祝:C‖两个动词用 and 并列
-今晚我请客。‖Dinner is on me tonight.‖Dinner:ˈdɪnər:晚餐:S/is on me:ɪz ɑn mi:算我的:C/tonight:təˈnaɪt:今晚:A‖on me 表示我买单
-好久不见。‖Long time no see.‖Long time:lɔŋ taɪm:很长时间:A/no see:noʊ si:没见:V‖源自中式英语的固定说法
-你一点没变。‖You haven't changed at all.‖You:ju:你:S/haven't changed:ˈhævənt tʃeɪndʒd:没变:V/at all:æt ɔl:一点:A‖at all 用于否定句加强
-最近怎么样？‖How have you been?‖How:haʊ:怎样:Q/have:hæv:助动词:AUX/you:ju:你:S/been:bɪn:过:V‖问候一段时间未见的人
-我们该聚聚了。‖We should catch up sometime.‖We:wi:我们:S/should:ʃʊd:应该:AUX/catch up:kætʃ ʌp:叙旧:V/sometime:ˈsʌmtaɪm:找个时间:A‖catch up 表示叙旧
-代我向你家人问好。‖Say hello to your family for me.‖Say hello:seɪ həˈloʊ:问好:V/to your family:tu jʊr ˈfæməli:向你家人:A/for me:fɔr mi:代我:A‖for me 表示代为
-祝你一切顺利。‖I wish you all the best.‖I:aɪ:我:S/wish:wɪʃ:祝愿:V/you:ju:你:O/all the best:ɔl ðə bɛst:一切顺利:O‖wish 接双宾语
-路上小心。‖Have a safe trip.‖Have:hæv:拥有:V/a safe trip:ə seɪf trɪp:平安的旅程:O‖告别祝福
-到了给我发消息。‖Text me when you get there.‖Text:tɛkst:发消息:V/me:mi:我:O/when you get there:wɛn ju ɡɛt ðɛr:你到那时:A‖text 作动词表示发短信
-我会想你的。‖I'll miss you.‖I'll:aɪl:我将:S/miss:mɪs:想念:V/you:ju:你:O‖miss 表示想念
-保持联系。‖Keep in touch.‖Keep:kip:保持:V/in touch:ɪn tʌtʃ:联系:C‖keep in touch 固定搭配
-你什么时候回来？‖When are you coming back?‖When:wɛn:什么时候:Q/are:ɑr:助动词:AUX/you:ju:你:S/coming back:ˈkʌmɪŋ bæk:回来:V‖进行时表将来
-时间过得真快。‖Time flies.‖Time:taɪm:时间:S/flies:flaɪz:飞逝:V‖谚语;fly 的第三人称单数
-我等不及了。‖I can't wait.‖I:aɪ:我:S/can't:kænt:不能:N/wait:weɪt:等:V‖表示迫不及待
-我尽快回复你。‖I'll get back to you soon.‖I'll:aɪl:我将:S/get back to:ɡɛt bæk tu:回复:V/you:ju:你:O/soon:sun:尽快:A‖get back to sb 表示稍后答复
-我需要再想想。‖I need more time to think.‖I:aɪ:我:S/need:nid:需要:V/more time:mɔr taɪm:更多时间:O/to think:tu θɪŋk:思考:D‖不定式作定语
-我们再讨论一下。‖Let's discuss it further.‖Let's:lɛts:让我们:V/discuss:dɪˈskʌs:讨论:C/it:ɪt:它:O/further:ˈfɜrðər:进一步:A‖discuss 后直接接宾语
-我明白你的意思。‖I see your point.‖I:aɪ:我:S/see:si:明白:V/your point:jʊr pɔɪnt:你的观点:O‖see 表示理解
-但我有不同看法。‖But I have a different view.‖But:bʌt:但是:J/I:aɪ:我:S/have:hæv:有:V/a different view:ə ˈdɪfərənt vju:不同看法:O‖view 表示观点
-就这么定了。‖It's a deal.‖It's:ɪts:这:S/a deal:ə dil:说定了:C‖口语中表示成交
-我完全理解。‖I totally understand.‖I:aɪ:我:S/totally:ˈtoʊtəli:完全:A/understand:ˌʌndərˈstænd:理解:V‖副词修饰动词
-别放在心上。‖Don't take it personally.‖Don't:doʊnt:不要:N/take:teɪk:理解:V/it:ɪt:它:O/personally:ˈpɜrsənəli:针对个人地:A‖take it personally 表示往心里去
-我不是那个意思。‖That's not what I meant.‖That's:ðæts:那:S/not:nɑt:不:N/what I meant:wʌt aɪ mɛnt:我的意思:C‖what 引导表语从句
-让我解释一下。‖Let me explain.‖Let:lɛt:让:V/me:mi:我:O/explain:ɪkˈspleɪn:解释:C‖explain 后可不接宾语
-是我的错。‖It's my fault.‖It's:ɪts:这是:S/my fault:maɪ fɔlt:我的错:C‖fault 表示过错
-我向你道歉。‖I owe you an apology.‖I:aɪ:我:S/owe:oʊ:欠:V/you:ju:你:O/an apology:ən əˈpɑlədʒi:一个道歉:O‖owe 接双宾语
-下不为例。‖It won't happen again.‖It:ɪt:这:S/won't:woʊnt:不会:N/happen:ˈhæpən:发生:V/again:əˈɡɛn:再:A‖保证不再犯
-谢谢你的理解。‖Thanks for understanding.‖Thanks:θæŋks:感谢:V/for understanding:fɔr ˌʌndərˈstændɪŋ:你的理解:A‖for 后接动名词
 我要去上课了。‖I'm going to class.‖I'm going:aɪm ˈɡoʊɪŋ:我要去:S/to class:tu klæs:上课:A‖go to class 不加冠词
-课几点结束？‖When does the class end?‖When:wɛn:什么时候:Q/does:dʌz:助动词:AUX/the class:ðə klæs:课:S/end:ɛnd:结束:V‖第三人称单数疑问句
 我有很多作业。‖I have a lot of homework.‖I:aɪ:我:S/have:hæv:有:V/a lot of:ə lɑt ʌv:很多:D/homework:ˈhoʊmwɜrk:作业:O‖homework 不可数
 我明天要考试。‖I have an exam tomorrow.‖I:aɪ:我:S/have:hæv:有:V/an exam:ən ɪɡˈzæm:一场考试:O/tomorrow:təˈmɑroʊ:明天:A‖exam 以元音开头用 an
 我得复习了。‖I need to review.‖I:aɪ:我:S/need to:nid tu:需要:AUX/review:rɪˈvju:复习:V‖need to do 结构
 我考得不错。‖I did well on the test.‖I:aɪ:我:S/did well:dɪd wɛl:表现好:V/on the test:ɑn ðə tɛst:考试中:A‖do well on 固定搭配
 我没及格。‖I failed the exam.‖I:aɪ:我:S/failed:feɪld:没通过:V/the exam:ði ɪɡˈzæm:考试:O‖fail 后直接接考试
 我需要更努力。‖I need to work harder.‖I:aɪ:我:S/need to:nid tu:需要:AUX/work:wɜrk:努力:V/harder:ˈhɑrdər:更加地:A‖副词比较级
-你专业是什么？‖What's your major?‖What's:wʌts:是什么:Q/your major:jʊr ˈmeɪdʒər:你的专业:S‖major 表示专业
-我学计算机。‖I study computer science.‖I:aɪ:我:S/study:ˈstʌdi:学习:V/computer science:kəmˈpjutər ˈsaɪəns:计算机科学:O‖学科名不加冠词
-我大三了。‖I'm a junior.‖I'm:aɪm:我是:S/a junior:ə ˈdʒunjər:大三学生:C‖美式大学年级说法
 我在准备考研。‖I'm preparing for the graduate exam.‖I'm preparing:aɪm prɪˈpɛrɪŋ:我在准备:S/for the graduate exam:fɔr ðə ˈɡrædʒuət ɪɡˈzæm:研究生考试:A‖prepare for 表示为做准备
-图书馆几点关门？‖What time does the library close?‖What time:wʌt taɪm:几点:Q/does:dʌz:助动词:AUX/the library:ðə ˈlaɪbrɛri:图书馆:S/close:kloʊz:关门:V‖does 后用原形
 我借了三本书。‖I borrowed three books.‖I:aɪ:我:S/borrowed:ˈbɑroʊd:借了:V/three books:θri bʊks:三本书:O‖borrow 是借入
 这本书下周还。‖This book is due next week.‖This book:ðɪs bʊk:这本书:S/is due:ɪz du:到期:V/next week:nɛkst wik:下周:A‖be due 表示到期
 我在写论文。‖I'm writing a paper.‖I'm writing:aɪm ˈraɪtɪŋ:我在写:S/a paper:ə ˈpeɪpər:一篇论文:O‖paper 可指论文
-截止到下周五。‖It's due next Friday.‖It's due:ɪts du:它到期:S/next Friday:nɛkst ˈfraɪdeɪ:下周五:A‖due 表示截止
 我需要更多资料。‖I need more information.‖I:aɪ:我:S/need:nid:需要:V/more information:mɔr ˌɪnfərˈmeɪʃən:更多信息:O‖information 不可数
 你能检查一下吗？‖Could you check it for me?‖Could:kʊd:可以:AUX/you:ju:你:S/check:tʃɛk:检查:V/it:ɪt:它:O/for me:fɔr mi:帮我:A‖for me 表示替我
+我不太确定怎么说。‖I'm not sure how to say it.‖I'm:aɪm:我:S/not:nɑt:不:N/sure:ʃʊr:确定的:C/how to say it:haʊ tu seɪ ɪt:怎么说:A‖疑问词加不定式作宾语
+老师讲得太快了。‖The teacher speaks too fast.‖The teacher:ðə ˈtitʃər:老师:S/speaks:spiks:讲:V/too fast:tu fæst:太快:A‖too 加副词
+我没听清。‖I didn't catch that.‖I:aɪ:我:S/didn't:ˈdɪdənt:没有:N/catch:kætʃ:听清:V/that:ðæt:那:O‖catch 表示听清
+这个知识点很重要。‖This point is important.‖This point:ðɪs pɔɪnt:这个要点:S/is:ɪz:是:V/important:ɪmˈpɔrtənt:重要的:C‖point 指知识点
+我做笔记了。‖I took notes.‖I:aɪ:我:S/took:tʊk:做:V/notes:noʊts:笔记:O‖take notes 固定搭配
+借我看下笔记。‖Can I borrow your notes?‖Can:kæn:能:AUX/I:aɪ:我:S/borrow:ˈbɑroʊ:借:V/your notes:jʊr noʊts:你的笔记:O‖borrow 是借入
+明天交作业。‖The homework is due tomorrow.‖The homework:ðə ˈhoʊmwɜrk:作业:S/is due:ɪz du:到期:V/tomorrow:təˈmɑroʊ:明天:A‖be due 表示到期
+我熬夜复习了。‖I stayed up studying.‖I:aɪ:我:S/stayed up:steɪd ʌp:熬夜:V/studying:ˈstʌdiɪŋ:学习:A‖stay up 表示熬夜
+#work|职场办公
+我们明天开会。‖We have a meeting tomorrow.‖We:wi:我们:S/have:hæv:有:V/a:ə:一个:D/meeting:ˈmitɪŋ:会议:O/tomorrow:təˈmɑroʊ:明天:A‖一般现在时表已安排的将来
+我在开会。‖I'm in a meeting.‖I'm:aɪm:我:S/in a meeting:ɪn ə ˈmitɪŋ:在开会:C‖介词短语作表语
+干得漂亮。‖You did a great job.‖You:ju:你:S/did:dɪd:做:V/a great job:ə ɡreɪt dʒɑb:很棒的工作:O‖do a good job 固定搭配
+我从中学到很多。‖I learned a lot from it.‖I:aɪ:我:S/learned:lɜrnd:学到:V/a lot:ə lɑt:很多:O/from it:frʌm ɪt:从中:A‖learn from 表示从中学习
+你进步很大。‖You've made great progress.‖You've made:juv meɪd:你取得:S/great progress:ɡreɪt ˈprɑɡrɛs:很大进步:O‖progress 不可数
+我为你骄傲。‖I'm proud of you.‖I'm:aɪm:我:S/proud:praʊd:骄傲的:C/of you:ʌv ju:为你:A‖be proud of 固定搭配
+祝你一切顺利。‖I wish you all the best.‖I:aɪ:我:S/wish:wɪʃ:祝愿:V/you:ju:你:O/all the best:ɔl ðə bɛst:一切顺利:O‖wish 接双宾语
 我上周入职。‖I started last week.‖I:aɪ:我:S/started:ˈstɑrtɪd:开始:V/last week:læst wik:上周:A‖start 可指入职
 我在一家公司上班。‖I work for a company.‖I:aɪ:我:S/work for:wɜrk fɔr:受雇于:V/a company:ə ˈkʌmpəni:一家公司:O‖work for 表示为某公司工作
 我是做销售的。‖I work in sales.‖I:aɪ:我:S/work in:wɜrk ɪn:从事:V/sales:seɪlz:销售:O‖work in 加领域
@@ -4193,7 +4185,87 @@ const RAW_SENT = `
 时间不够了。‖We're running out of time.‖We're running out of:wɪr ˈrʌnɪŋ aʊt ʌv:我们快用完:S/time:taɪm:时间:O‖run out of 表示耗尽
 我们得加班赶工。‖We have to catch up.‖We:wi:我们:S/have to:hæv tu:必须:AUX/catch up:kætʃ ʌp:赶上进度:V‖catch up 表示赶上
 辛苦了。‖Great work, everyone.‖Great work:ɡreɪt wɜrk:干得好:C/everyone:ˈɛvriwʌn:各位:I‖表扬团队
-我很感激。‖I really appreciate it.‖I:aɪ:我:S/really:ˈriəli:真的:A/appreciate:əˈpriʃieɪt:感激:V/it:ɪt:它:O‖appreciate 后接事物不接人
+我在工作。‖I'm working.‖I'm:aɪm:我在:S/working:ˈwɜrkɪŋ:工作:V‖现在进行时
+这个很紧急。‖It's urgent.‖It's:ɪts:它是:S/urgent:ˈɜrdʒənt:紧急的:C‖形容词作表语
+我们得加快进度。‖We need to speed up.‖We:wi:我们:S/need to:nid tu:需要:AUX/speed up:spid ʌp:加快:V‖动词短语
+我打算换工作。‖I'm going to change jobs.‖I'm going to:aɪm ˈɡoʊɪŋ tu:我打算:S/change:tʃeɪndʒ:更换:V/jobs:dʒɑbz:工作:O‖be going to 表示打算
+我在做报表。‖I'm working on a report.‖I'm working on:aɪm ˈwɜrkɪŋ ɑn:我在做:S/a report:ə rɪˈpɔrt:一份报告:O‖work on 表示着手做
+明天汇报进度。‖I'll report the progress tomorrow.‖I'll:aɪl:我将:S/report:rɪˈpɔrt:汇报:V/the progress:ðə ˈprɑɡrɛs:进度:O/tomorrow:təˈmɑroʊ:明天:A‖progress 不可数
+老板找你。‖The boss wants to see you.‖The boss:ðə bɔs:老板:S/wants:wɑnts:想:V/to see you:tu si ju:见你:O‖want to do 结构
+我明天出差。‖I'm going on a business trip tomorrow.‖I'm going on:aɪm ˈɡoʊɪŋ ɑn:我要去:S/a business trip:ə ˈbɪznəs trɪp:出差:O/tomorrow:təˈmɑroʊ:明天:A‖go on a trip 固定搭配
+我提交了申请。‖I submitted my application.‖I:aɪ:我:S/submitted:səbˈmɪtɪd:提交:V/my application:maɪ ˌæplɪˈkeɪʃən:我的申请:O‖submit 双写 t 加 ed
+我在面试。‖I have an interview.‖I:aɪ:我:S/have:hæv:有:V/an interview:ən ˈɪntərvju:一场面试:O‖interview 表示面试
+#phone|电话网络
+稍后回电给你。‖I'll call you back later.‖I'll:aɪl:我将:S/call:kɔl:打电话:V/you:ju:你:O/back:bæk:回:A/later:ˈleɪtər:稍后:A‖call sb back 代词放中间
+请留言。‖Please leave a message.‖Please:pliz:请:A/leave:liv:留下:V/a message:ə ˈmɛsɪdʒ:口信:O‖电话用语
+线路不太好。‖The line is bad.‖The:ðə:这:D/line:laɪn:线路:S/is:ɪz:是:V/bad:bæd:差的:C‖line 指电话线路
+你能听见我说话吗？‖Can you hear me?‖Can:kæn:能:AUX/you:ju:你:S/hear:hɪr:听见:V/me:mi:我:O‖hear 强调听到结果
+信号不好。‖The signal is weak.‖The:ðə:这:D/signal:ˈsɪɡnəl:信号:S/is:ɪz:是:V/weak:wik:弱的:C‖主系表结构
+我手机快没电了。‖My phone is running out of battery.‖My phone:maɪ foʊn:我的手机:S/is running out of:ɪz ˈrʌnɪŋ aʊt ʌv:快用完:V/battery:ˈbætəri:电量:O‖run out of 表示耗尽
+有充电器吗？‖Do you have a charger?‖Do:du:助动词:AUX/you:ju:你:S/have:hæv:有:V/a charger:ə ˈtʃɑrdʒər:充电器:O‖一般疑问句
+密码是多少？‖What's the password?‖What's:wʌts:是什么:Q/the:ðə:这:D/password:ˈpæswɜrd:密码:S‖询问信息
+这里有无线网吗？‖Is there Wi-Fi here?‖Is there:ɪz ðɛr:有吗:V/Wi-Fi:ˈwaɪfaɪ:无线网:S/here:hɪr:这里:A‖There be 疑问句
+网络很慢。‖The Internet is slow.‖The:ði:这:D/Internet:ˈɪntərnɛt:网络:S/is:ɪz:是:V/slow:sloʊ:慢的:C‖Internet 前通常加 the
+我发给你了。‖I've sent it to you.‖I've:aɪv:我已:S/sent:sɛnt:发送:V/it:ɪt:它:O/to you:tu ju:给你:A‖现在完成时表刚完成
+你收到了吗？‖Did you get it?‖Did:dɪd:助动词:AUX/you:ju:你:S/get:ɡɛt:收到:V/it:ɪt:它:O‖过去时疑问句
+我稍后再确认。‖I'll check it later.‖I'll:aɪl:我将:S/check:tʃɛk:检查:V/it:ɪt:它:O/later:ˈleɪtər:稍后:A‖check 表示核对
+到了给我发消息。‖Text me when you get there.‖Text:tɛkst:发消息:V/me:mi:我:O/when you get there:wɛn ju ɡɛt ðɛr:你到那时:A‖text 作动词表示发短信
+密码输错了。‖I entered the wrong password.‖I:aɪ:我:S/entered:ˈɛntərd:输入:V/the wrong password:ðə rɔŋ ˈpæswɜrd:错误的密码:O‖wrong 作定语
+我给你回电话。‖I'll call you back.‖I'll:aɪl:我将:S/call:kɔl:打电话:V/you:ju:你:O/back:bæk:回:A‖call sb back 结构
+现在方便说话吗？‖Is this a good time to talk?‖Is:ɪz:是:V/this:ðɪs:现在:S/a good time:ə ɡʊd taɪm:好时机:C/to talk:tu tɔk:说话:D‖不定式作定语
+你打错了。‖You have the wrong number.‖You:ju:你:S/have:hæv:有:V/the wrong number:ðə rɔŋ ˈnʌmbər:错误的号码:O‖打错电话的固定说法
+请转接销售部。‖Could you transfer me to sales?‖Could:kʊd:可以:AUX/you:ju:你:S/transfer:trænsˈfɜr:转接:V/me:mi:我:O/to sales:tu seɪlz:到销售部:A‖transfer to 表示转接
+他现在不在。‖He's not available right now.‖He's:hiz:他:S/not:nɑt:不:N/available:əˈveɪləbəl:有空的:C/right now:raɪt naʊ:现在:A‖available 指有空
+稍等我转给他。‖Hold on, I'll get him.‖Hold on:hoʊld ɑn:稍等:V/I'll get him:aɪl ɡɛt hɪm:我去叫他:S‖hold on 表示别挂
+我加你微信。‖I'll add you on WeChat.‖I'll:aɪl:我将:S/add:æd:添加:V/you:ju:你:O/on WeChat:ɑn ˈwitʃæt:在微信上:A‖on 加平台名
+扫我的二维码。‖Scan my QR code.‖Scan:skæn:扫描:V/my QR code:maɪ kju ɑr koʊd:我的二维码:O‖祈使句
+我发你链接。‖I'll send you the link.‖I'll:aɪl:我将:S/send:sɛnd:发送:V/you:ju:你:O/the link:ðə lɪŋk:链接:O‖send 接双宾语
+文件太大了。‖The file is too large.‖The file:ðə faɪl:文件:S/is:ɪz:是:V/too large:tu lɑrdʒ:太大:C‖too 表示过分
+下载失败了。‖The download failed.‖The download:ðə ˈdaʊnloʊd:下载:S/failed:feɪld:失败:V‖download 作名词
+网页打不开。‖The page won't load.‖The page:ðə peɪdʒ:网页:S/won't:woʊnt:不会:N/load:loʊd:加载:V‖load 表示加载
+重启一下试试。‖Try restarting it.‖Try:traɪ:试:V/restarting:riˈstɑrtɪŋ:重启:O/it:ɪt:它:O‖try doing 表示试着做
+我的账号登不上。‖I can't log in to my account.‖I:aɪ:我:S/can't:kænt:不能:N/log in:lɔɡ ɪn:登录:V/to my account:tu maɪ əˈkaʊnt:我的账号:A‖log in to 固定搭配
+忘记密码了。‖I forgot my password.‖I:aɪ:我:S/forgot:fərˈɡɑt:忘记:V/my password:maɪ ˈpæswɜrd:我的密码:O‖forget 的过去式
+#health|身体健康
+我饿了。‖I'm hungry.‖I'm:aɪm:我是:S/hungry:ˈhʌŋɡri:饥饿的:C‖形容词表状态
+我渴了。‖I'm thirsty.‖I'm:aɪm:我是:S/thirsty:ˈθɜrsti:口渴的:C‖形容词表状态
+我累了。‖I'm tired.‖I'm:aɪm:我是:S/tired:ˈtaɪərd:疲惫的:C‖-ed 形容词描述人的感受
+我需要休息一下。‖I need to take a break.‖I:aɪ:我:S/need:nid:需要:V/to take:tu teɪk:去进行:A/a break:ə breɪk:休息:O‖need to do 表示需要做某事
+我睡过头了。‖I overslept.‖I:aɪ:我:S/overslept:ˌoʊvərˈslɛpt:睡过头:V‖oversleep 的过去式
+我昨晚没睡好。‖I didn't sleep well last night.‖I:aɪ:我:S/didn't:ˈdɪdənt:没有:N/sleep:slip:睡:V/well:wɛl:好地:A/last night:læst naɪt:昨晚:A‖didn't 后接动词原形
+我头疼。‖I have a headache.‖I:aɪ:我:S/have:hæv:有:V/a:ə:一个:D/headache:ˈhɛdeɪk:头痛:O‖英语用 have 表示身体不适
+你该看医生。‖You should see a doctor.‖You:ju:你:S/should:ʃʊd:应该:AUX/see:si:看:V/a doctor:ə ˈdɑktər:医生:O‖should 表示建议
+多喝水。‖Drink more water.‖Drink:drɪŋk:喝:V/more:mɔr:更多:D/water:ˈwɔtər:水:O‖祈使句给建议
+好好休息。‖Get some rest.‖Get:ɡɛt:获得:V/some:sʌm:一些:D/rest:rɛst:休息:O‖rest 不可数
+祝你早日康复。‖Get well soon.‖Get:ɡɛt:变得:V/well:wɛl:健康的:C/soon:sun:很快:A‖well 在此是形容词
+我感冒了。‖I've caught a cold.‖I've:aɪv:我已:S/caught:kɔt:得了:V/a cold:ə koʊld:感冒:O‖现在完成时强调影响到现在
+今天休息不开。‖It's closed today.‖It's:ɪts:它:S/closed:kloʊzd:关闭的:C/today:təˈdeɪ:今天:A‖closed 作表语
+你多久锻炼一次？‖How often do you exercise?‖How often:haʊ ˈɔfən:多久一次:Q/do:du:助动词:AUX/you:ju:你:S/exercise:ˈɛksərsaɪz:锻炼:V‖How often 问频率
+我早睡早起。‖I go to bed early and get up early.‖I:aɪ:我:S/go to bed:ɡoʊ tu bɛd:睡觉:V/early:ˈɜrli:早:A/and get up early:ænd ɡɛt ʌp ˈɜrli:并早起:V‖go to bed 不加冠词
+我要少喝咖啡。‖I should drink less coffee.‖I:aɪ:我:S/should:ʃʊd:应该:AUX/drink:drɪŋk:喝:V/less coffee:lɛs ˈkɔfi:更少咖啡:O‖less 修饰不可数名词
+我在减肥。‖I'm trying to lose weight.‖I'm trying:aɪm ˈtraɪɪŋ:我在尝试:S/to lose weight:tu luz weɪt:减肥:O‖lose weight 固定搭配
+我戒烟了。‖I quit smoking.‖I:aɪ:我:S/quit:kwɪt:戒掉:V/smoking:ˈsmoʊkɪŋ:吸烟:O‖quit 后接动名词
+多运动对身体好。‖Exercise is good for your health.‖Exercise:ˈɛksərsaɪz:锻炼:S/is:ɪz:是:V/good:ɡʊd:好的:C/for your health:fɔr jʊr hɛlθ:对健康:A‖be good for 固定搭配
+早点睡吧。‖Get some sleep.‖Get:ɡɛt:获得:V/some sleep:sʌm slip:一些睡眠:O‖sleep 作名词不可数
+我今天状态很好。‖I feel great today.‖I:aɪ:我:S/feel:fil:感觉:V/great:ɡreɪt:很棒:C/today:təˈdeɪ:今天:A‖feel 是系动词
+我需要放松一下。‖I need to unwind.‖I:aɪ:我:S/need to:nid tu:需要:AUX/unwind:ʌnˈwaɪnd:放松:V‖unwind 表示放松身心
+你没事吧？‖Are you all right?‖Are:ɑr:是:V/you:ju:你:S/all right:ɔl raɪt:没事的:C‖关心他人的问句
+不用了我能走。‖No, I can walk.‖No:noʊ:不:N/I:aɪ:我:S/can:kæn:能:AUX/walk:wɔk:走:V‖can 表示能力
+我发烧了。‖I have a fever.‖I:aɪ:我:S/have:hæv:有:V/a fever:ə ˈfivər:发烧:O‖英语用 have 说症状
+我嗓子疼。‖I have a sore throat.‖I:aɪ:我:S/have:hæv:有:V/a sore throat:ə sɔr θroʊt:嗓子痛:O‖sore 表示酸痛
+我咳嗽得厉害。‖I have a bad cough.‖I:aɪ:我:S/have:hæv:有:V/a bad cough:ə bæd kɔf:严重的咳嗽:O‖bad 表示严重
+吃药了吗？‖Did you take your medicine?‖Did:dɪd:助动词:AUX/you:ju:你:S/take:teɪk:服用:V/your medicine:jʊr ˈmɛdɪsən:你的药:O‖take medicine 固定搭配
+一天三次饭后吃。‖Take it three times a day after meals.‖Take:teɪk:服用:V/it:ɪt:它:O/three times a day:θri taɪmz ə deɪ:一天三次:A/after meals:ˈæftər milz:饭后:A‖a day 表示每天
+多休息就好了。‖You'll feel better after some rest.‖You'll feel better:jul fil ˈbɛtər:你会好些:S/after some rest:ˈæftər sʌm rɛst:休息后:A‖after 加名词
+我要预约挂号。‖I'd like to make an appointment.‖I'd like:aɪd laɪk:我想:S/to make:tu meɪk:做:V/an appointment:ən əˈpɔɪntmənt:预约:O‖make an appointment 固定搭配
+#feel|情绪表达
+我很忙。‖I'm busy.‖I'm:aɪm:我是:S/busy:ˈbɪzi:忙碌的:C‖主系表结构
+我准备好了。‖I'm ready.‖I'm:aɪm:我是:S/ready:ˈrɛdi:准备好的:C‖ready 后可接 for 或 to
+我迟到了。‖I'm late.‖I'm:aɪm:我是:S/late:leɪt:迟的:C‖late 作表语
+我可能会迟到几分钟。‖I may be a few minutes late.‖I:aɪ:我:S/may:meɪ:可能:AUX/be:bi:是:V/a few minutes:ə fju ˈmɪnɪts:几分钟:A/late:leɪt:迟的:C‖may 表示可能性
+帮我个忙好吗？‖Could you do me a favor?‖Could:kʊd:可以:AUX/you:ju:你:S/do:du:做:V/me:mi:我:O/a favor:ə ˈfeɪvər:一个人情:O‖do sb a favor 固定搭配
+需要帮忙吗？‖Do you need any help?‖Do:du:助动词:AUX/you:ju:你:S/need:nid:需要:V/any help:ˈɛni hɛlp:任何帮助:O‖疑问句用 any
+我想知道他为什么迟到。‖I wonder why he was late.‖I:aɪ:我:S/wonder:ˈwʌndər:想知道:V/why he was late:waɪ hi wʌz leɪt:他为什么迟到:O‖宾语从句用陈述语序
 我很高兴。‖I'm so happy.‖I'm:aɪm:我:S/so:soʊ:如此:A/happy:ˈhæpi:开心的:C‖so 加强程度
 我很兴奋。‖I'm so excited.‖I'm:aɪm:我:S/so:soʊ:非常:A/excited:ɪkˈsaɪtɪd:兴奋的:C‖-ed 形容人的感受
 我有点紧张。‖I'm a little nervous.‖I'm:aɪm:我:S/a little:ə ˈlɪtəl:有点:A/nervous:ˈnɜrvəs:紧张的:C‖a little 修饰形容词
@@ -4214,59 +4286,24 @@ const RAW_SENT = `
 别想太多。‖Don't overthink it.‖Don't:doʊnt:不要:N/overthink:ˌoʊvərˈθɪŋk:想太多:V/it:ɪt:它:O‖over 前缀表过度
 往好处想。‖Look on the bright side.‖Look on:lʊk ɑn:看:V/the bright side:ðə braɪt saɪd:光明面:O‖固定短语
 明天会更好。‖Tomorrow will be better.‖Tomorrow:təˈmɑroʊ:明天:S/will be:wɪl bi:会是:V/better:ˈbɛtər:更好的:C‖比较级作表语
-我在存钱。‖I'm saving money.‖I'm saving:aɪm ˈseɪvɪŋ:我在存:S/money:ˈmʌni:钱:O‖save 表示储蓄
-这个月花超了。‖I spent too much this month.‖I:aɪ:我:S/spent:spɛnt:花费:V/too much:tu mʌtʃ:太多:O/this month:ðɪs mʌnθ:这个月:A‖spend 的过去式
-我买不起。‖I can't afford it.‖I:aɪ:我:S/can't:kænt:不能:N/afford:əˈfɔrd:负担得起:V/it:ɪt:它:O‖afford 常与 can 连用
-值这个价。‖It's worth the price.‖It's:ɪts:它:S/worth:wɜrθ:值得:C/the price:ðə praɪs:这个价:O‖worth 后接名词
-在打折。‖It's on sale.‖It's:ɪts:它:S/on sale:ɑn seɪl:打折中:C‖on sale 表示减价
-我要办张卡。‖I'd like to open an account.‖I'd like:aɪd laɪk:我想:S/to open:tu ˈoʊpən:开:V/an account:ən əˈkaʊnt:一个账户:O‖open an account 固定搭配
-密码输错了。‖I entered the wrong password.‖I:aɪ:我:S/entered:ˈɛntərd:输入:V/the wrong password:ðə rɔŋ ˈpæswɜrd:错误的密码:O‖wrong 作定语
-请稍等我查一下。‖Let me check for you.‖Let:lɛt:让:V/me:mi:我:O/check:tʃɛk:查:C/for you:fɔr ju:为你:A‖for you 表示为对方
-房租多少？‖How much is the rent?‖How much:haʊ mʌtʃ:多少:Q/is:ɪz:是:V/the rent:ðə rɛnt:房租:S‖rent 表示租金
-包水电吗？‖Does it include utilities?‖Does:dʌz:助动词:AUX/it:ɪt:它:S/include:ɪnˈklud:包含:V/utilities:juˈtɪlətiz:水电费:O‖utilities 常用复数
-我想看看房子。‖I'd like to see the apartment.‖I'd like:aɪd laɪk:我想:S/to see:tu si:看:V/the apartment:ði əˈpɑrtmənt:公寓:O‖apartment 是美式说法
-离地铁站近吗？‖Is it near the subway station?‖Is:ɪz:是:V/it:ɪt:它:S/near:nɪr:靠近:C/the subway station:ðə ˈsʌbweɪ ˈsteɪʃən:地铁站:O‖near 可作介词
-我要搬家了。‖I'm moving out.‖I'm moving out:aɪm ˈmuvɪŋ aʊt:我要搬走:S‖move out 表示搬离
-帮我搬一下箱子。‖Help me move this box.‖Help:hɛlp:帮:V/me:mi:我:O/move:muv:搬:C/this box:ðɪs bɑks:这个箱子:O‖help sb do sth 结构
-垃圾该倒了。‖The trash needs to go out.‖The trash:ðə træʃ:垃圾:S/needs to go out:nidz tu ɡoʊ aʊt:该扔了:V‖trash 不可数
-我来洗碗。‖I'll do the dishes.‖I'll:aɪl:我将:S/do the dishes:du ðə ˈdɪʃɪz:洗碗:V‖do the dishes 固定搭配
-衣服还没干。‖The clothes aren't dry yet.‖The clothes:ðə kloʊz:衣服:S/aren't:ɑrnt:不是:N/dry:draɪ:干的:C/yet:jɛt:还:A‖clothes 只有复数形式
-我去买点菜。‖I'm going grocery shopping.‖I'm going:aɪm ˈɡoʊɪŋ:我要去:S/grocery shopping:ˈɡroʊsəri ˈʃɑpɪŋ:买菜:O‖go shopping 结构
-冰箱空了。‖The fridge is empty.‖The fridge:ðə frɪdʒ:冰箱:S/is:ɪz:是:V/empty:ˈɛmpti:空的:C‖fridge 是 refrigerator 的简称
-今晚吃什么？‖What's for dinner?‖What's:wʌts:是什么:Q/for dinner:fɔr ˈdɪnər:晚餐:A‖问吃什么的口语
-我不太会做饭。‖I'm not a good cook.‖I'm:aɪm:我:S/not:nɑt:不是:N/a good cook:ə ɡʊd kʊk:好厨师:C‖cook 作名词指厨师
-我们叫外卖吧。‖Let's order takeout.‖Let's:lɛts:让我们:V/order:ˈɔrdər:点:C/takeout:ˈteɪkaʊt:外卖:O‖takeout 是美式说法
-大概多久能到？‖How long will it take?‖How long:haʊ lɔŋ:多久:Q/will:wɪl:将:AUX/it:ɪt:它:S/take:teɪk:花费:V‖take 表示花费时间
-再等二十分钟。‖About twenty more minutes.‖About:əˈbaʊt:大约:A/twenty more minutes:ˈtwɛnti mɔr ˈmɪnɪts:再二十分钟:S‖more 表示还要
-我的航班取消了。‖My flight was canceled.‖My flight:maɪ flaɪt:我的航班:S/was canceled:wʌz ˈkænsəld:被取消:V‖被动语态
-航班延误两小时。‖The flight is delayed two hours.‖The flight:ðə flaɪt:航班:S/is delayed:ɪz dɪˈleɪd:被延误:V/two hours:tu ˈaʊərz:两小时:A‖delay 表示延误
-登机口在哪？‖Where is the gate?‖Where:wɛr:哪里:Q/is:ɪz:是:V/the gate:ðə ɡeɪt:登机口:S‖gate 指登机口
-我要靠窗的座位。‖I'd like a window seat.‖I'd like:aɪd laɪk:我想要:S/a window seat:ə ˈwɪndoʊ sit:靠窗座位:O‖名词作定语
-行李超重了。‖The luggage is overweight.‖The luggage:ðə ˈlʌɡɪdʒ:行李:S/is:ɪz:是:V/overweight:ˈoʊvərweɪt:超重的:C‖luggage 不可数
-我只有随身行李。‖I only have carry-on baggage.‖I:aɪ:我:S/only:ˈoʊnli:只:A/have:hæv:有:V/carry-on baggage:ˈkærioʊn ˈbæɡɪdʒ:随身行李:O‖baggage 不可数
-护照请出示一下。‖May I see your passport?‖May:meɪ:可以:AUX/I:aɪ:我:S/see:si:看:V/your passport:jʊr ˈpæspɔrt:你的护照:O‖礼貌请求
-我来旅游的。‖I'm here on vacation.‖I'm:aɪm:我:S/here:hɪr:在这:C/on vacation:ɑn veɪˈkeɪʃən:度假:A‖入境常用回答
-待一周。‖For one week.‖For one week:fɔr wʌn wik:一周:A‖省略句回答时长
-我住在朋友家。‖I'm staying with a friend.‖I'm staying:aɪm ˈsteɪɪŋ:我住:S/with a friend:wɪð ə frɛnd:在朋友家:A‖stay with sb 表示住在某人处
-能给我们拍张照吗？‖Could you take a photo of us?‖Could:kʊd:可以:AUX/you:ju:你:S/take:teɪk:拍:V/a photo:ə ˈfoʊtoʊ:一张照片:O/of us:ʌv ʌs:我们的:D‖take a photo of 固定搭配
-风景真美。‖The view is amazing.‖The view:ðə vju:景色:S/is:ɪz:是:V/amazing:əˈmeɪzɪŋ:惊艳的:C‖-ing 形容词描述事物
-这里很值得一看。‖It's worth a visit.‖It's:ɪts:它:S/worth:wɜrθ:值得:C/a visit:ə ˈvɪzɪt:一次参观:O‖worth 加名词
-门票多少钱？‖How much is the ticket?‖How much:haʊ mʌtʃ:多少钱:Q/is:ɪz:是:V/the ticket:ðə ˈtɪkɪt:门票:S‖问价格
-学生有优惠吗？‖Is there a student discount?‖Is there:ɪz ðɛr:有吗:V/a student discount:ə ˈstudənt ˈdɪskaʊnt:学生折扣:S‖There be 疑问
-几点开门？‖What time do you open?‖What time:wʌt taɪm:几点:Q/do:du:助动词:AUX/you:ju:你们:S/open:ˈoʊpən:开门:V‖you 指店家
-今天休息不开。‖It's closed today.‖It's:ɪts:它:S/closed:kloʊzd:关闭的:C/today:təˈdeɪ:今天:A‖closed 作表语
-排队的人真多。‖There's a long line.‖There's:ðɛrz:有:V/a long line:ə lɔŋ laɪn:长队:S‖line 指队伍
-我们下次再来。‖Let's come back another time.‖Let's:lɛts:让我们:V/come back:kʌm bæk:再来:C/another time:əˈnʌðər taɪm:改天:A‖another 表示另一个
-你多久锻炼一次？‖How often do you exercise?‖How often:haʊ ˈɔfən:多久一次:Q/do:du:助动词:AUX/you:ju:你:S/exercise:ˈɛksərsaɪz:锻炼:V‖How often 问频率
-几乎每天。‖Almost every day.‖Almost:ˈɔlmoʊst:几乎:A/every day:ˈɛvri deɪ:每天:S‖almost 修饰频率
-我早睡早起。‖I go to bed early and get up early.‖I:aɪ:我:S/go to bed:ɡoʊ tu bɛd:睡觉:V/early:ˈɜrli:早:A/and get up early:ænd ɡɛt ʌp ˈɜrli:并早起:V‖go to bed 不加冠词
-我要少喝咖啡。‖I should drink less coffee.‖I:aɪ:我:S/should:ʃʊd:应该:AUX/drink:drɪŋk:喝:V/less coffee:lɛs ˈkɔfi:更少咖啡:O‖less 修饰不可数名词
-我在减肥。‖I'm trying to lose weight.‖I'm trying:aɪm ˈtraɪɪŋ:我在尝试:S/to lose weight:tu luz weɪt:减肥:O‖lose weight 固定搭配
-我戒烟了。‖I quit smoking.‖I:aɪ:我:S/quit:kwɪt:戒掉:V/smoking:ˈsmoʊkɪŋ:吸烟:O‖quit 后接动名词
-多运动对身体好。‖Exercise is good for your health.‖Exercise:ˈɛksərsaɪz:锻炼:S/is:ɪz:是:V/good:ɡʊd:好的:C/for your health:fɔr jʊr hɛlθ:对健康:A‖be good for 固定搭配
-早点睡吧。‖Get some sleep.‖Get:ɡɛt:获得:V/some sleep:sʌm slip:一些睡眠:O‖sleep 作名词不可数
-我今天状态很好。‖I feel great today.‖I:aɪ:我:S/feel:fil:感觉:V/great:ɡreɪt:很棒:C/today:təˈdeɪ:今天:A‖feel 是系动词
-我需要放松一下。‖I need to unwind.‖I:aɪ:我:S/need to:nid tu:需要:AUX/unwind:ʌnˈwaɪnd:放松:V‖unwind 表示放松身心
+我压力很大。‖I'm under a lot of pressure.‖I'm:aɪm:我:S/under a lot of pressure:ˈʌndər ə lɑt ʌv ˈprɛʃər:压力很大:C‖under pressure 固定搭配
+我需要静一静。‖I need some time alone.‖I:aɪ:我:S/need:nid:需要:V/some time alone:sʌm taɪm əˈloʊn:独处时间:O‖alone 后置修饰
+我有点难过。‖I'm feeling down.‖I'm feeling:aɪm ˈfilɪŋ:我感觉:S/down:daʊn:低落:C‖feel down 表示情绪低落
+这让我很生气。‖That made me angry.‖That:ðæt:那:S/made:meɪd:使:V/me:mi:我:O/angry:ˈæŋɡri:生气的:C‖make 加宾补
+我松了口气。‖What a relief.‖What:wʌt:多么:Q/a relief:ə rɪˈlif:一种解脱:S‖what 引导感叹句
+我太感动了。‖I'm so touched.‖I'm:aɪm:我:S/so:soʊ:如此:A/touched:tʌtʃt:感动的:C‖touched 表示被打动
+#hobby|兴趣爱好
+我喜欢跑步。‖I enjoy running.‖I:aɪ:我:S/enjoy:ɪnˈdʒɔɪ:喜欢:V/running:ˈrʌnɪŋ:跑步:O‖enjoy 后接动名词
+我每周健身三次。‖I work out three times a week.‖I:aɪ:我:S/work out:wɜrk aʊt:健身:V/three times:θri taɪmz:三次:A/a week:ə wik:每周:A‖a 表示每
+我在学吉他。‖I'm learning the guitar.‖I'm:aɪm:我在:S/learning:ˈlɜrnɪŋ:学习:V/the guitar:ðə ɡɪˈtɑr:吉他:O‖乐器前加 the
+听起来很有意思。‖That sounds interesting.‖That:ðæt:那:S/sounds:saʊndz:听起来:V/interesting:ˈɪntrəstɪŋ:有趣的:C‖-ing 形容词描述事物
+我从没试过。‖I've never tried it.‖I've:aɪv:我:S/never:ˈnɛvər:从未:N/tried:traɪd:试过:V/it:ɪt:它:O‖现在完成时表经历
+你去过上海吗？‖Have you ever been to Shanghai?‖Have:hæv:助动词:AUX/you:ju:你:S/ever:ˈɛvər:曾经:A/been to:bɪn tu:去过:V/Shanghai:ˌʃæŋˈhaɪ:上海:O‖been to 表示去过并回来
+我去过两次。‖I've been there twice.‖I've:aɪv:我:S/been:bɪn:去过:V/there:ðɛr:那里:A/twice:twaɪs:两次:A‖there 前不加 to
+那里非常漂亮。‖It's really beautiful there.‖It's:ɪts:那里是:S/really:ˈriəli:非常:A/beautiful:ˈbjutəfəl:美丽的:C/there:ðɛr:那里:A‖it 指代地点
+你想一起去吗？‖Would you like to come with me?‖Would:wʊd:愿意:AUX/you:ju:你:S/like to come:laɪk tu kʌm:一起来:V/with me:wɪð mi:和我:A‖礼貌邀请句型
+我很乐意。‖I'd love to.‖I'd love to:aɪd lʌv tu:我很乐意:S‖省略后面动词的回答
+你去过那家新餐厅吗？‖Have you tried the new restaurant?‖Have:hæv:助动词:AUX/you:ju:你:S/tried:traɪd:尝试:V/the new restaurant:ðə nu ˈrɛstərɑnt:那家新餐厅:O‖完成时表经历
 听音乐让我放松。‖Music helps me relax.‖Music:ˈmjuzɪk:音乐:S/helps:hɛlps:帮助:V/me:mi:我:O/relax:rɪˈlæks:放松:C‖help sb do sth 结构
 我喜欢看电影。‖I like watching movies.‖I:aɪ:我:S/like:laɪk:喜欢:V/watching movies:ˈwɑtʃɪŋ ˈmuviz:看电影:O‖like 后可接动名词
 这部电影很好看。‖The movie is great.‖The movie:ðə ˈmuvi:这部电影:S/is:ɪz:是:V/great:ɡreɪt:很棒的:C‖主系表结构
@@ -4277,27 +4314,218 @@ const RAW_SENT = `
 我觉得还行。‖It's not bad.‖It's:ɪts:它:S/not bad:nɑt bæd:不错:C‖双重否定表肯定
 比我预期的好。‖It's better than I expected.‖It's:ɪts:它:S/better:ˈbɛtər:更好的:C/than I expected:ðæn aɪ ɪkˈspɛktɪd:比我预期:A‖比较级加从句
 下次我们看别的。‖Let's watch something else next time.‖Let's:lɛts:让我们:V/watch:wɑtʃ:看:C/something else:ˈsʌmθɪŋ ɛls:别的:O/next time:nɛkst taɪm:下次:A‖else 放在不定代词后
-请给我打包一下。‖Could you wrap it up?‖Could:kʊd:可以:AUX/you:ju:你:S/wrap:ræp:包:V/it:ɪt:它:O/up:ʌp:起来:A‖wrap up 中间可夹代词
-我在排队。‖I'm in line.‖I'm:aɪm:我:S/in line:ɪn laɪn:排队中:C‖in line 表示排队
-到你了。‖It's your turn.‖It's:ɪts:现在是:S/your turn:jʊr tɜrn:你的回合:C‖turn 表示轮到
-先来后到。‖First come, first served.‖First come:fɜrst kʌm:先来:S/first served:fɜrst sɜrvd:先得:C‖谚语式省略句
-你没事吧？‖Are you all right?‖Are:ɑr:是:V/you:ju:你:S/all right:ɔl raɪt:没事的:C‖关心他人的问句
-我崴到脚了。‖I twisted my ankle.‖I:aɪ:我:S/twisted:ˈtwɪstɪd:扭伤:V/my ankle:maɪ ˈæŋkəl:我的脚踝:O‖身体部位前用物主代词
-需要叫救护车吗？‖Should I call an ambulance?‖Should:ʃʊd:应该:AUX/I:aɪ:我:S/call:kɔl:叫:V/an ambulance:ən ˈæmbjələns:救护车:O‖should 表示征求意见
-不用了我能走。‖No, I can walk.‖No:noʊ:不:N/I:aɪ:我:S/can:kæn:能:AUX/walk:wɔk:走:V‖can 表示能力
-慢点开车。‖Drive safely.‖Drive:draɪv:开车:V/safely:ˈseɪfli:安全地:A‖副词修饰动词
-系好安全带。‖Fasten your seat belt.‖Fasten:ˈfæsən:系紧:V/your seat belt:jʊr sit bɛlt:安全带:O‖fasten 中的 t 不发音
-前面红灯。‖The light is red.‖The light:ðə laɪt:信号灯:S/is:ɪz:是:V/red:rɛd:红色的:C‖light 指交通灯
-我们走错路了。‖We took the wrong way.‖We:wi:我们:S/took:tʊk:走:V/the wrong way:ðə rɔŋ weɪ:错误的路:O‖take the way 表示走某条路
-掉头吧。‖Let's turn around.‖Let's:lɛts:让我们:V/turn around:tɜrn əˈraʊnd:掉头:C‖turn around 表示转向
-我用地图看看。‖Let me check the map.‖Let:lɛt:让:V/me:mi:我:O/check:tʃɛk:查看:C/the map:ðə mæp:地图:O‖check 表示查看
-还有五公里。‖Five more kilometers to go.‖Five more kilometers:faɪv mɔr kəˈlɑmɪtərz:还有五公里:S/to go:tu ɡoʊ:要走:D‖to go 表示还剩
-我们快到了。‖We're almost there.‖We're:wɪr:我们:S/almost:ˈɔlmoʊst:几乎:A/there:ðɛr:到了:C‖almost there 表示快到
-终于到了。‖Here we are.‖Here:hɪr:这里:A/we:wi:我们:S/are:ɑr:是:V‖到达时的固定说法
+我周末通常在家。‖I usually stay home on weekends.‖I:aɪ:我:S/usually:ˈjuʒuəli:通常:A/stay:steɪ:待:V/home:hoʊm:家:O/on weekends:ɑn ˈwikɛndz:周末:A‖on 用于具体日期或周末
+能给我们拍张照吗？‖Could you take a photo of us?‖Could:kʊd:可以:AUX/you:ju:你:S/take:teɪk:拍:V/a photo:ə ˈfoʊtoʊ:一张照片:O/of us:ʌv ʌs:我们的:D‖take a photo of 固定搭配
+风景真美。‖The view is amazing.‖The view:ðə vju:景色:S/is:ɪz:是:V/amazing:əˈmeɪzɪŋ:惊艳的:C‖-ing 形容词描述事物
+我们下次再来。‖Let's come back another time.‖Let's:lɛts:让我们:V/come back:kʌm bæk:再来:C/another time:əˈnʌðər taɪm:改天:A‖another 表示另一个
+几乎每天。‖Almost every day.‖Almost:ˈɔlmoʊst:几乎:A/every day:ˈɛvri deɪ:每天:S‖almost 修饰频率
+#invite|邀约社交
+坐吧。‖Have a seat.‖Have:hæv:有:V/a:ə:一个:D/seat:sit:座位:O‖礼貌请人就坐
+进来吧。‖Come in.‖Come:kʌm:来:V/in:ɪn:进入:A‖祈使句;副词表方向
+请跟我来。‖Follow me.‖Follow:ˈfɑloʊ:跟随:V/me:mi:我:O‖祈使句;me 是宾格
+我出发了。‖I'm leaving.‖I'm:aɪm:我在:S/leaving:ˈlivɪŋ:离开:V‖现在进行时表将要发生
+我回来了。‖I'm back.‖I'm:aɪm:我:S/back:bæk:回来:C‖back 作表语表示位置
+我们走吧。‖Let's go.‖Let's:lɛts:让我们:V/go:ɡoʊ:走:C‖Let us 的缩写;提出建议
+等等我。‖Wait for me.‖Wait:weɪt:等:V/for:fɔr:为:A/me:mi:我:O‖wait 后接 for 才能带宾语
+请自便。‖Help yourself.‖Help:hɛlp:帮助:V/yourself:jʊrˈsɛlf:你自己:O‖反身代词作宾语
+再来一点吗？‖Would you like some more?‖Would:wʊd:愿意:AUX/you:ju:你:S/like:laɪk:想要:V/some more:sʌm mɔr:再多一些:O‖疑问句用 some 表期待肯定
+不用了谢谢。‖No, thanks.‖No:noʊ:不:N/thanks:θæŋks:谢谢:I‖礼貌拒绝
+我很快回来。‖I'll be right back.‖I'll:aɪl:我将:S/be:bi:是:V/right:raɪt:马上:A/back:bæk:回来:C‖right 加强马上的语气
+我们到了。‖We're here.‖We're:wɪr:我们:S/here:hɪr:在这里:C‖here 作表语表示到达
+我们各付各的。‖Let's split the bill.‖Let's:lɛts:让我们:V/split:splɪt:平分:C/the bill:ðə bɪl:账单:O‖split the bill 表示 AA
+不用麻烦了。‖Don't bother.‖Don't:doʊnt:不要:N/bother:ˈbɑðər:费心:V‖否定祈使句
+我自己来。‖I can do it myself.‖I:aɪ:我:S/can:kæn:能:AUX/do:du:做:V/it:ɪt:它:O/myself:maɪˈsɛlf:我自己:A‖反身代词加强语气
+我来搭把手。‖Let me give you a hand.‖Let:lɛt:让:V/me:mi:我:O/give you a hand:ɡɪv ju ə hænd:帮你一把:C‖give sb a hand 表示帮忙
+把门关上好吗？‖Would you mind closing the door?‖Would you mind:wʊd ju maɪnd:介意吗:Q/closing:ˈkloʊzɪŋ:关上:V/the door:ðə dɔr:门:O‖mind 后接动名词
+一点也不。‖Not at all.‖Not at all:nɑt æt ɔl:一点也不:I‖回答 mind 类问题表示不介意
+这里可以抽烟吗？‖Is smoking allowed here?‖Is:ɪz:是:V/smoking:ˈsmoʊkɪŋ:抽烟:S/allowed:əˈlaʊd:被允许的:C/here:hɪr:这里:A‖被动语态表示规定
+请安静。‖Please be quiet.‖Please:pliz:请:A/be:bi:保持:V/quiet:ˈkwaɪət:安静的:C‖be 型祈使句
+声音太大了。‖It's too loud.‖It's:ɪts:它:S/too:tu:太:A/loud:laʊd:大声的:C‖too 表示过分
+可以小声点吗？‖Could you keep it down?‖Could:kʊd:可以:AUX/you:ju:你:S/keep:kip:保持:V/it:ɪt:声音:O/down:daʊn:低:C‖keep it down 表示小声点
 我扶你起来。‖Let me help you up.‖Let:lɛt:让:V/me:mi:我:O/help:hɛlp:帮:C/you:ju:你:O/up:ʌp:起来:A‖help sb up 表示扶起
-今天先到这里。‖Let's call it a day.‖Let's:lɛts:让我们:V/call:kɔl:称:C/it:ɪt:它:O/a day:ə deɪ:一天:C‖call it a day 表示收工
-明天继续。‖We'll continue tomorrow.‖We'll:wil:我们将:S/continue:kənˈtɪnju:继续:V/tomorrow:təˈmɑroʊ:明天:A‖will 表示将来
-/*@S*/`;
+能帮我吗？‖Can you help me?‖Can:kæn:能:AUX/you:ju:你:S/help:hɛlp:帮助:V/me:mi:我:O‖情态动词开头的疑问句
+我马上就来。‖I'm coming right now.‖I'm:aɪm:我在:S/coming:ˈkʌmɪŋ:来:V/right now:raɪt naʊ:立刻:A‖进行时表即将发生
+太重了我搬不动。‖It's too heavy for me to carry.‖It's:ɪts:它是:S/too heavy:tu ˈhɛvi:太重:C/for me:fɔr mi:对我来说:A/to carry:tu ˈkæri:搬动:A‖too...to 表示太而不能
+周末有空吗？‖Are you free this weekend?‖Are:ɑr:是:V/you:ju:你:S/free:fri:有空的:C/this weekend:ðɪs ˈwikɛnd:这周末:A‖free 表示有空
+一起吃个饭吧。‖Let's grab a bite.‖Let's:lɛts:让我们:V/grab a bite:ɡræb ə baɪt:吃点东西:C‖grab a bite 口语说法
+我请你喝咖啡。‖Let me buy you a coffee.‖Let:lɛt:让:V/me:mi:我:O/buy:baɪ:买:C/you:ju:你:O/a coffee:ə ˈkɔfi:一杯咖啡:O‖buy 接双宾语
+几点方便？‖What time works for you?‖What time:wʌt taɪm:什么时间:Q/works:wɜrks:合适:V/for you:fɔr ju:对你:A‖work 表示合适
+我去接你。‖I'll pick you up.‖I'll:aɪl:我将:S/pick:pɪk:接:V/you:ju:你:O/up:ʌp:起来:A‖pick sb up 中间夹代词
+再多待会儿吧。‖Stay a little longer.‖Stay:steɪ:待:V/a little longer:ə ˈlɪtəl ˈlɔŋɡər:再久一点:A‖比较级加 a little
+#view|观点讨论
+我明白了。‖I see.‖I:aɪ:我:S/see:si:明白:V‖see 在此表示理解
+我不知道。‖I don't know.‖I:aɪ:我:S/don't:doʊnt:不:N/know:noʊ:知道:V‖实义动词否定要用 don't
+我不确定。‖I'm not sure.‖I'm:aɪm:我是:S/not:nɑt:不:N/sure:ʃʊr:确定的:C‖be 动词后直接加 not
+当然可以。‖Of course.‖Of course:ʌv kɔrs:当然:I‖固定短语;表示肯定
+没问题。‖No problem.‖No:noʊ:没有:N/problem:ˈprɑbləm:问题:S‖省略句;回应请求或致谢
+稍等一下。‖Just a moment.‖Just:dʒʌst:只:A/a:ə:一:D/moment:ˈmoʊmənt:片刻:S‖请求对方稍候
+我同意。‖I agree.‖I:aɪ:我:S/agree:əˈɡri:同意:V‖不及物动词
+我不介意。‖I don't mind.‖I:aɪ:我:S/don't:doʊnt:不:N/mind:maɪnd:介意:V‖mind 表示介意
+随你便。‖It's up to you.‖It's:ɪts:这:S/up to:ʌp tu:取决于:V/you:ju:你:O‖固定短语 be up to sb
+我不这么认为。‖I don't think so.‖I:aɪ:我:S/don't:doʊnt:不:N/think:θɪŋk:认为:V/so:soʊ:如此:O‖so 代替上文内容
+我希望如此。‖I hope so.‖I:aɪ:我:S/hope:hoʊp:希望:V/so:soʊ:如此:O‖so 指代前文
+听起来不错。‖Sounds good.‖Sounds:saʊndz:听起来:V/good:ɡʊd:好的:C‖省略主语 It;系动词 sound
+真可惜。‖What a pity.‖What:wʌt:多么:Q/a:ə:一个:D/pity:ˈpɪti:憾事:S‖what 引导的感叹句
+你确定吗？‖Are you sure?‖Are:ɑr:是:V/you:ju:你:S/sure:ʃʊr:确定的:C‖一般疑问句;be 提到句首
+真的吗？‖Really?‖Really:ˈriəli:真的:I‖单词句;表示惊讶
+为什么？‖Why?‖Why:waɪ:为什么:Q‖疑问副词单独成句
+怎么了？‖What's wrong?‖What's:wʌts:什么是:Q/wrong:rɔŋ:不对劲的:C‖询问对方状况
+当然。‖Sure.‖Sure:ʃʊr:当然:I‖单词句;表示答应
+我同意你。‖I agree with you.‖I:aɪ:我:S/agree:əˈɡri:同意:V/with:wɪð:与:A/you:ju:你:O‖agree with sb 固定搭配
+让我想想。‖Let me think about it.‖Let:lɛt:让:V/me:mi:我:O/think about:θɪŋk əˈbaʊt:考虑:C/it:ɪt:它:O‖think about 表示考虑
+我改主意了。‖I changed my mind.‖I:aɪ:我:S/changed:tʃeɪndʒd:改变:V/my:maɪ:我的:D/mind:maɪnd:主意:O‖change one's mind 固定搭配
+我完全同意。‖I couldn't agree more.‖I:aɪ:我:S/couldn't:ˈkʊdənt:不能:N/agree:əˈɡri:同意:V/more:mɔr:更多:A‖否定加比较级表示最高程度
+恐怕不行。‖I'm afraid not.‖I'm:aɪm:我:S/afraid:əˈfreɪd:恐怕:C/not:nɑt:不:N‖礼貌否定的固定说法
+我尽量。‖I'll try my best.‖I'll:aɪl:我将:S/try:traɪ:尽:V/my best:maɪ bɛst:最大努力:O‖try one's best 固定搭配
+当然可以。‖Sure, no problem.‖Sure:ʃʊr:当然:I/no problem:noʊ ˈprɑbləm:没问题:I‖爽快答应的口语
+虽然很难但值得一试。‖Although it's hard, it's worth a try.‖Although:ɔlˈðoʊ:虽然:J/it's hard:ɪts hɑrd:很难:A/it's:ɪts:它是:S/worth a try:wɜrθ ə traɪ:值得一试:C‖although 不能与 but 连用
+我不知道该说什么。‖I don't know what to say.‖I:aɪ:我:S/don't:doʊnt:不:N/know:noʊ:知道:V/what to say:wʌt tu seɪ:该说什么:O‖疑问词加不定式作宾语
+我不确定这是否正确。‖I'm not sure if this is correct.‖I'm:aɪm:我:S/not sure:nɑt ʃʊr:不确定:C/if this is correct:ɪf ðɪs ɪz kəˈrɛkt:这是否正确:A‖if 表示是否
+我相信你能做到。‖I believe you can do it.‖I:aɪ:我:S/believe:bɪˈliv:相信:V/you can do it:ju kæn du ɪt:你能做到:O‖宾语从句省略 that
+我尽快回复你。‖I'll get back to you soon.‖I'll:aɪl:我将:S/get back to:ɡɛt bæk tu:回复:V/you:ju:你:O/soon:sun:尽快:A‖get back to sb 表示稍后答复
+我需要再想想。‖I need more time to think.‖I:aɪ:我:S/need:nid:需要:V/more time:mɔr taɪm:更多时间:O/to think:tu θɪŋk:思考:D‖不定式作定语
+我们再讨论一下。‖Let's discuss it further.‖Let's:lɛts:让我们:V/discuss:dɪˈskʌs:讨论:C/it:ɪt:它:O/further:ˈfɜrðər:进一步:A‖discuss 后直接接宾语
+我明白你的意思。‖I see your point.‖I:aɪ:我:S/see:si:明白:V/your point:jʊr pɔɪnt:你的观点:O‖see 表示理解
+但我有不同看法。‖But I have a different view.‖But:bʌt:但是:J/I:aɪ:我:S/have:hæv:有:V/a different view:ə ˈdɪfərənt vju:不同看法:O‖view 表示观点
+就这么定了。‖It's a deal.‖It's:ɪts:这:S/a deal:ə dil:说定了:C‖口语中表示成交
+我完全理解。‖I totally understand.‖I:aɪ:我:S/totally:ˈtoʊtəli:完全:A/understand:ˌʌndərˈstænd:理解:V‖副词修饰动词
+我不是那个意思。‖That's not what I meant.‖That's:ðæts:那:S/not:nɑt:不:N/what I meant:wʌt aɪ mɛnt:我的意思:C‖what 引导表语从句
+让我解释一下。‖Let me explain.‖Let:lɛt:让:V/me:mi:我:O/explain:ɪkˈspleɪn:解释:C‖explain 后可不接宾语
+请稍等我查一下。‖Let me check for you.‖Let:lɛt:让:V/me:mi:我:O/check:tʃɛk:查:C/for you:fɔr ju:为你:A‖for you 表示为对方
+这里很值得一看。‖It's worth a visit.‖It's:ɪts:它:S/worth:wɜrθ:值得:C/a visit:ə ˈvɪzɪt:一次参观:O‖worth 加名词
+我也是。‖Me too.‖Me:mi:我:S/too:tu:也:A‖口语省略句
+那很粗鲁。‖That's rude.‖That's:ðæts:那是:S/rude:rud:粗鲁的:C‖一般现在时;主系表结构;That's 是 That is 的缩写
+太棒了。‖That's great.‖That's:ðæts:那是:S/great:ɡreɪt:很棒的:C‖形容词作表语
+让我看看。‖Let me see.‖Let:lɛt:让:V/me:mi:我:O/see:si:看:C‖let 后接动词原形
+你是对的。‖You're right.‖You're:jʊr:你是:S/right:raɪt:对的:C‖形容词作表语
+#thanks|道歉感谢
+谢谢你。‖Thank you.‖Thank:θæŋk:感谢:V/you:ju:你:O‖祈使句省略主语 I
+非常感谢。‖Thanks a lot.‖Thanks:θæŋks:谢谢:S/a lot:ə lɑt:很多:A‖a lot 作程度状语
+不客气。‖You're welcome.‖You're:jʊr:你是:S/welcome:ˈwɛlkəm:受欢迎的:C‖回应致谢的固定说法
+对不起。‖I'm sorry.‖I'm:aɪm:我是:S/sorry:ˈsɑri:抱歉的:C‖主系表结构
+没关系。‖It's OK.‖It's:ɪts:它是:S/OK:ˌoʊˈkeɪ:没问题:C‖it 指代前面提到的事
+别担心。‖Don't worry.‖Don't:doʊnt:不要:N/worry:ˈwɜri:担心:V‖否定祈使句
+快点。‖Hurry up.‖Hurry:ˈhɜri:赶快:V/up:ʌp:起来:A‖动词短语;up 加强语气
+小心。‖Be careful.‖Be:bi:要:V/careful:ˈkɛrfəl:小心的:C‖be 开头的祈使句
+干得好。‖Well done.‖Well:wɛl:好地:A/done:dʌn:完成的:C‖表扬用语
+慢慢来。‖Take your time.‖Take:teɪk:花费:V/your:jʊr:你的:D/time:taɪm:时间:O‖让对方不必着急
+我错了。‖I was wrong.‖I:aɪ:我:S/was:wʌz:是:V/wrong:rɔŋ:错的:C‖be 动词过去式
+没事的。‖It doesn't matter.‖It:ɪt:它:S/doesn't:ˈdʌzənt:不:N/matter:ˈmætər:要紧:V‖第三人称单数否定用 doesn't
+我保证。‖I promise.‖I:aɪ:我:S/promise:ˈprɑmɪs:保证:V‖一般现在时表承诺
+祝你生日快乐。‖Happy birthday to you.‖Happy:ˈhæpi:快乐的:D/birthday:ˈbɜrθdeɪ:生日:S/to you:tu ju:给你:A‖省略 I wish 的祝福句
+新年快乐。‖Happy New Year.‖Happy:ˈhæpi:快乐的:D/New Year:nu jɪr:新年:S‖节日祝福固定说法
+非常感谢你的帮助。‖Thanks for your help.‖Thanks:θæŋks:感谢:V/for:fɔr:因为:A/your help:jʊr hɛlp:你的帮助:O‖thanks for 后接名词或动名词
+别放在心上。‖Don't take it personally.‖Don't:doʊnt:不要:N/take:teɪk:理解:V/it:ɪt:它:O/personally:ˈpɜrsənəli:针对个人地:A‖take it personally 表示往心里去
+是我的错。‖It's my fault.‖It's:ɪts:这是:S/my fault:maɪ fɔlt:我的错:C‖fault 表示过错
+我向你道歉。‖I owe you an apology.‖I:aɪ:我:S/owe:oʊ:欠:V/you:ju:你:O/an apology:ən əˈpɑlədʒi:一个道歉:O‖owe 接双宾语
+下不为例。‖It won't happen again.‖It:ɪt:这:S/won't:woʊnt:不会:N/happen:ˈhæpən:发生:V/again:əˈɡɛn:再:A‖保证不再犯
+谢谢你的理解。‖Thanks for understanding.‖Thanks:θæŋks:感谢:V/for understanding:fɔr ˌʌndərˈstændɪŋ:你的理解:A‖for 后接动名词
+我很感激。‖I really appreciate it.‖I:aɪ:我:S/really:ˈriəli:真的:A/appreciate:əˈpriʃieɪt:感激:V/it:ɪt:它:O‖appreciate 后接事物不接人
+#chore|日常琐事
+给你。‖Here you are.‖Here:hɪr:这里:A/you:ju:你:S/are:ɑr:是:V‖递东西时使用
+我可以试试吗？‖May I try it?‖May:meɪ:可以:AUX/I:aɪ:我:S/try:traɪ:试:V/it:ɪt:它:O‖may 表示请求许可
+它坏了。‖It's broken.‖It's:ɪts:它是:S/broken:ˈbroʊkən:坏了的:C‖过去分词作表语
+我忘了。‖I forgot.‖I:aɪ:我:S/forgot:fərˈɡɑt:忘记:V‖forget 的过去式
+我记得。‖I remember.‖I:aɪ:我:S/remember:rɪˈmɛmbər:记得:V‖一般现在时表状态
+我没时间。‖I don't have time.‖I:aɪ:我:S/don't:doʊnt:不:N/have:hæv:有:V/time:taɪm:时间:O‖time 不可数
+听我说。‖Listen to me.‖Listen:ˈlɪsən:听:V/to:tu:向:A/me:mi:我:O‖listen 后必须加 to
+看那边。‖Look over there.‖Look:lʊk:看:V/over there:ˈoʊvər ðɛr:那边:A‖look 强调动作
+我每天六点起床。‖I get up at six every day.‖I:aɪ:我:S/get up:ɡɛt ʌp:起床:V/at:æt:在:A/six:sɪks:六点:O/every day:ˈɛvri deɪ:每天:A‖at 用于具体时刻;频率状语放句末
+他正在打电话。‖He is making a phone call.‖He:hi:他:S/is:ɪz:正在:AUX/making:ˈmeɪkɪŋ:打:V/a phone call:ə foʊn kɔl:电话:O‖现在进行时 be + doing
+我在找我的钥匙。‖I'm looking for my keys.‖I'm:aɪm:我在:S/looking for:ˈlʊkɪŋ fɔr:寻找:V/my:maɪ:我的:D/keys:kiz:钥匙:O‖look for 表示寻找过程
+你在做什么？‖What are you doing?‖What:wʌt:什么:O/are:ɑr:正在:AUX/you:ju:你:S/doing:ˈduɪŋ:做:V‖现在进行时疑问句
+我在看电视。‖I'm watching TV.‖I'm:aɪm:我在:S/watching:ˈwɑtʃɪŋ:观看:V/TV:ˌtiˈvi:电视:O‖watch 强调看动态画面
+我们该走了。‖It's time to go.‖It's:ɪts:现在是:S/time:taɪm:时候:C/to go:tu ɡoʊ:走:D‖It's time to do 固定句型
+我把手机落在家里了。‖I left my phone at home.‖I:aɪ:我:S/left:lɛft:落下:V/my:maɪ:我的:D/phone:foʊn:手机:O/at home:æt hoʊm:在家:A‖leave 表示遗落;at home 不加 the
+你能借我笔吗？‖Can I borrow your pen?‖Can:kæn:能:AUX/I:aɪ:我:S/borrow:ˈbɑroʊ:借入:V/your:jʊr:你的:D/pen:pɛn:笔:O‖borrow 是借进来
+我把书还给你。‖I'll return your book.‖I'll:aɪl:我将:S/return:rɪˈtɜrn:归还:V/your:jʊr:你的:D/book:bʊk:书:O‖will 表示将来的打算
+我可以问个问题吗？‖May I ask you a question?‖May:meɪ:可以:AUX/I:aɪ:我:S/ask:æsk:问:V/you:ju:你:O/a question:ə ˈkwɛstʃən:一个问题:O‖ask 可接双宾语
+你周末做什么？‖What do you do on weekends?‖What:wʌt:什么:O/do:du:助动词:AUX/you:ju:你:S/do:du:做:V/on weekends:ɑn ˈwikɛndz:周末:A‖第一个 do 是助动词
+我到家就给你打电话。‖I'll call you when I get home.‖I'll:aɪl:我将:S/call:kɔl:打电话:V/you:ju:你:O/when I get home:wɛn aɪ ɡɛt hoʊm:当我到家时:A‖时间状语从句用现在时表将来
+他一定是忘了。‖He must have forgotten.‖He:hi:他:S/must have forgotten:mʌst hæv fərˈɡɑtən:一定是忘了:V‖must have done 表示对过去的肯定推测
+这是什么？‖What's this?‖What's:wʌts:是什么:Q/this:ðɪs:这个:S‖What is 的缩写
+那是一本书。‖That's a book.‖That's:ðæts:那是:S/a:ə:一本:D/book:bʊk:书:C‖不定冠词 a 表示一个
+这是我的包。‖This is my bag.‖This:ðɪs:这个:S/is:ɪz:是:V/my:maɪ:我的:D/bag:bæɡ:包:C‖物主代词作定语
+闹钟没响。‖My alarm didn't go off.‖My alarm:maɪ əˈlɑrm:我的闹钟:S/didn't:ˈdɪdənt:没有:N/go off:ɡoʊ ɔf:响:V‖go off 表示闹铃响
+我该洗衣服了。‖I need to do the laundry.‖I:aɪ:我:S/need to:nid tu:需要:AUX/do the laundry:du ðə ˈlɔndri:洗衣服:V‖do the laundry 固定搭配
+帮我拿一下那个。‖Could you pass me that?‖Could:kʊd:可以:AUX/you:ju:你:S/pass:pæs:递:V/me:mi:我:O/that:ðæt:那个:O‖pass 接双宾语
+灯还开着。‖The light is still on.‖The light:ðə laɪt:灯:S/is:ɪz:是:V/still on:stɪl ɑn:还开着:C‖on 表示开启状态
+记得锁门。‖Remember to lock the door.‖Remember:rɪˈmɛmbər:记得:V/to lock the door:tu lɑk ðə dɔr:锁门:O‖remember to do 表示记得去做
+我把它放桌上了。‖I put it on the table.‖I:aɪ:我:S/put:pʊt:放:V/it:ɪt:它:O/on the table:ɑn ðə ˈteɪbəl:桌上:A‖put 的过去式同形
+东西太乱了。‖It's a mess.‖It's:ɪts:这:S/a mess:ə mɛs:一团糟:C‖mess 表示混乱
+我来收拾。‖I'll clean it up.‖I'll:aɪl:我将:S/clean:klin:清理:V/it:ɪt:它:O/up:ʌp:干净:A‖clean up 中间夹代词
+#proverb|谚语箴言
+那是我第一次坐飞机。‖That was my first time on a plane.‖That:ðæt:那:S/was:wʌz:是:V/my first time:maɪ fɜrst taɪm:我第一次:C/on a plane:ɑn ə pleɪn:坐飞机:A‖序数词前加物主代词
+越早越好。‖The sooner, the better.‖The sooner:ðə ˈsunər:越早:A/the better:ðə ˈbɛtər:越好:C‖the 加比较级表示越越
+这是唯一的办法。‖It's the only way.‖It's:ɪts:这是:S/the only way:ði ˈoʊnli weɪ:唯一的办法:C‖only 前加 the
+说起来容易做起来难。‖Easier said than done.‖Easier said:ˈiziər sɛd:说起来容易:C/than done:ðæn dʌn:比做起来:A‖谚语;省略主语
+熟能生巧。‖Practice makes perfect.‖Practice:ˈpræktɪs:练习:S/makes:meɪks:造就:V/perfect:ˈpɜrfɪkt:完美:O‖谚语;practice 作主语不加 the
+早起的鸟儿有虫吃。‖The early bird catches the worm.‖The early bird:ði ˈɜrli bɜrd:早起的鸟:S/catches:ˈkætʃɪz:抓住:V/the worm:ðə wɜrm:虫子:O‖谚语;第三人称单数加 es
+活到老学到老。‖It's never too late to learn.‖It's:ɪts:这:S/never too late:ˈnɛvər tu leɪt:永不太晚:C/to learn:tu lɜrn:学习:D‖it 作形式主语
+凡事都有第一次。‖There's a first time for everything.‖There's:ðɛrz:有:V/a first time:ə fɜrst taɪm:第一次:S/for everything:fɔr ˈɛvriθɪŋ:凡事:A‖There be 句型
+一分耕耘一分收获。‖No pain, no gain.‖No pain:noʊ peɪn:没有付出:S/no gain:noʊ ɡeɪn:没有收获:C‖对称省略句
+现在开始也不算晚。‖It's not too late to start now.‖It's:ɪts:这:S/not too late:nɑt tu leɪt:不算太晚:C/to start:tu stɑrt:开始:D/now:naʊ:现在:A‖不定式作真正主语
+我正在努力改进。‖I'm working on it.‖I'm:aɪm:我在:S/working on:ˈwɜrkɪŋ ɑn:着手处理:V/it:ɪt:它:O‖work on 表示正在做
+这需要时间。‖It takes time.‖It:ɪt:这:S/takes:teɪks:需要:V/time:taɪm:时间:O‖take 表示花费
+一步一步来。‖One step at a time.‖One step:wʌn stɛp:一步:S/at a time:æt ə taɪm:一次:A‖省略句;劝人不急
+别对自己太苛刻。‖Don't be too hard on yourself.‖Don't:doʊnt:不要:N/be:bi:是:V/too hard:tu hɑrd:太苛刻:C/on yourself:ɑn jʊrˈsɛlf:对自己:A‖be hard on sb 固定搭配
+每个人都会犯错。‖Everyone makes mistakes.‖Everyone:ˈɛvriwʌn:每个人:S/makes:meɪks:犯:V/mistakes:mɪˈsteɪks:错误:O‖everyone 视作单数
+从错误中学习。‖Learn from your mistakes.‖Learn:lɜrn:学习:V/from your mistakes:frʌm jʊr mɪˈsteɪks:从你的错误:A‖祈使句
+再试一次。‖Give it another try.‖Give:ɡɪv:给:V/it:ɪt:它:O/another try:əˈnʌðər traɪ:再一次尝试:O‖give sth a try 表示试一试
+坚持下去。‖Keep going.‖Keep:kip:保持:V/going:ˈɡoʊɪŋ:前进:C‖keep 后接动名词
+永不放弃。‖Never give up.‖Never:ˈnɛvər:永不:N/give up:ɡɪv ʌp:放弃:V‖否定祈使句
+三思而后行。‖Look before you leap.‖Look:lʊk:看:V/before you leap:bɪˈfɔr ju lip:在你跳之前:A‖谚语;before 引导时间从句
+条条大路通罗马。‖All roads lead to Rome.‖All roads:ɔl roʊdz:所有道路:S/lead to:lid tu:通向:V/Rome:roʊm:罗马:O‖lead to 表示通向
+入乡随俗。‖When in Rome, do as the Romans do.‖When in Rome:wɛn ɪn roʊm:在罗马时:A/do:du:做:V/as the Romans do:æz ðə ˈroʊmənz du:像罗马人那样:A‖as 引导方式状语
+有志者事竟成。‖Where there's a will, there's a way.‖Where there's a will:wɛr ðɛrz ə wɪl:有意志的地方:A/there's a way:ðɛrz ə weɪ:就有办法:S‖where 引导地点状语
+不入虎穴焉得虎子。‖Nothing ventured, nothing gained.‖Nothing ventured:ˈnʌθɪŋ ˈvɛntʃərd:不冒险:S/nothing gained:ˈnʌθɪŋ ɡeɪnd:无所得:C‖对称省略句
+行动胜于空谈。‖Actions speak louder than words.‖Actions:ˈækʃənz:行动:S/speak:spik:说话:V/louder:ˈlaʊdər:更响亮:A/than words:ðæn wɜrdz:比言语:A‖比较级加 than
+不要以貌取人。‖Don't judge a book by its cover.‖Don't:doʊnt:不要:N/judge:dʒʌdʒ:评判:V/a book:ə bʊk:一本书:O/by its cover:baɪ ɪts ˈkʌvər:凭封面:A‖by 表示依据
+积少成多。‖Every little bit helps.‖Every little bit:ˈɛvri ˈlɪtəl bɪt:每一点:S/helps:hɛlps:有帮助:V‖every 加单数
+双鸟在林不如一鸟在手。‖A bird in the hand is worth two in the bush.‖A bird in the hand:ə bɜrd ɪn ðə hænd:手中之鸟:S/is worth:ɪz wɜrθ:值得:V/two in the bush:tu ɪn ðə bʊʃ:林中两只:O‖worth 后接名词
+习惯成自然。‖Old habits die hard.‖Old habits:oʊld ˈhæbɪts:旧习惯:S/die hard:daɪ hɑrd:难以改掉:V‖die hard 表示根深蒂固
+#grammar|语法句型
+我认为你是对的。‖I think you're right.‖I:aɪ:我:S/think:θɪŋk:认为:V/you're right:jʊr raɪt:你是对的:O‖that 引导的宾语从句可省略 that
+他说他会晚点到。‖He said he would be late.‖He:hi:他:S/said:sɛd:说:V/he would be late:hi wʊd bi leɪt:他会迟到:O‖主句过去时从句要用过去将来时
+这就是我想要的。‖This is what I want.‖This:ðɪs:这:S/is:ɪz:是:V/what I want:wʌt aɪ wɑnt:我想要的:C‖what 引导表语从句
+我已经在这住了三年。‖I've lived here for three years.‖I've lived:aɪv lɪvd:我已住:S/here:hɪr:这里:A/for three years:fɔr θri jɪrz:三年:A‖现在完成时加 for 表示持续
+他学英语已经很久了。‖He has been learning English for years.‖He:hi:他:S/has been learning:hæz bɪn ˈlɜrnɪŋ:一直在学:V/English:ˈɪŋɡlɪʃ:英语:O/for years:fɔr jɪrz:很多年:A‖现在完成进行时强调持续
+我从没见过这么大的雨。‖I've never seen such heavy rain.‖I've:aɪv:我:S/never:ˈnɛvər:从未:N/seen:sin:见过:V/such heavy rain:sʌtʃ ˈhɛvi reɪn:这么大的雨:O‖such 加不可数名词
+我们已经认识十年了。‖We have known each other for ten years.‖We:wi:我们:S/have known:hæv noʊn:认识:V/each other:itʃ ˈʌðər:彼此:O/for ten years:fɔr tɛn jɪrz:十年:A‖know 是状态动词用完成时
+我还没决定。‖I haven't decided yet.‖I:aɪ:我:S/haven't:ˈhævənt:还没:N/decided:dɪˈsaɪdɪd:决定:V/yet:jɛt:尚且:A‖yet 用于否定句句末
+他刚刚出去了。‖He has just gone out.‖He:hi:他:S/has just gone out:hæz dʒʌst ɡɔn aʊt:刚出去:V‖just 表示刚刚
+如果我是你我就接受。‖If I were you, I would accept it.‖If I were you:ɪf aɪ wɜr ju:如果我是你:A/I:aɪ:我:S/would accept:wʊd əkˈsɛpt:会接受:V/it:ɪt:它:O‖虚拟语气用 were 和 would
+我真希望我能去。‖I wish I could go.‖I:aɪ:我:S/wish:wɪʃ:希望:V/I could go:aɪ kʊd ɡoʊ:我能去:O‖wish 后从句用虚拟语气
+你本该早点告诉我。‖You should have told me earlier.‖You:ju:你:S/should have told:ʃʊd hæv toʊld:本该告诉:V/me:mi:我:O/earlier:ˈɜrliər:更早:A‖should have done 表示本该做而没做
+我不该那么说。‖I shouldn't have said that.‖I:aɪ:我:S/shouldn't have said:ˈʃʊdənt hæv sɛd:不该说:V/that:ðæt:那话:O‖对过去行为的后悔
+她可能还在路上。‖She might still be on the way.‖She:ʃi:她:S/might:maɪt:可能:AUX/still be:stɪl bi:仍然在:V/on the way:ɑn ðə weɪ:路上:C‖might 表示不确定的推测
+这本书是他写的。‖This book was written by him.‖This book:ðɪs bʊk:这本书:S/was written:wʌz ˈrɪtən:被写:V/by him:baɪ hɪm:被他:A‖被动语态 be 加过去分词
+门被锁上了。‖The door is locked.‖The door:ðə dɔr:门:S/is locked:ɪz lɑkt:被锁上:V‖被动表状态
+这里禁止停车。‖Parking is not allowed here.‖Parking:ˈpɑrkɪŋ:停车:S/is:ɪz:是:V/not allowed:nɑt əˈlaʊd:不被允许:C/here:hɪr:这里:A‖动名词作主语
+房子正在装修。‖The house is being renovated.‖The house:ðə haʊs:房子:S/is being renovated:ɪz ˈbiɪŋ ˈrɛnəveɪtɪd:正在被装修:V‖现在进行时的被动语态
+我的自行车被偷了。‖My bike was stolen.‖My bike:maɪ baɪk:我的自行车:S/was stolen:wʌz ˈstoʊlən:被偷:V‖steal 的过去分词是 stolen
+比我想的容易。‖It's easier than I thought.‖It's:ɪts:它是:S/easier:ˈiziər:更容易的:C/than I thought:ðæn aɪ θɔt:比我想的:A‖比较级加 than
+这是我读过最好的书。‖It's the best book I've ever read.‖It's:ɪts:它是:S/the best book:ðə bɛst bʊk:最好的书:C/I've ever read:aɪv ˈɛvər rɛd:我读过的:D‖最高级后常接完成时定语从句
+他跑得比我快。‖He runs faster than me.‖He:hi:他:S/runs:rʌnz:跑:V/faster:ˈfæstər:更快:A/than me:ðæn mi:比我:A‖副词比较级
+我需要一个能上网的地方。‖I need a place where I can get online.‖I:aɪ:我:S/need:nid:需要:V/a place:ə pleɪs:一个地方:O/where I can get online:wɛr aɪ kæn ɡɛt ˈɑnlaɪn:能上网的:D‖where 引导定语从句
+认识她的人都喜欢她。‖Everyone who knows her likes her.‖Everyone:ˈɛvriwʌn:每个人:S/who knows her:hu noʊz hɜr:认识她的:D/likes:laɪks:喜欢:V/her:hɜr:她:O‖who 引导定语从句;先行词是人
+这就是我住的地方。‖This is where I live.‖This:ðɪs:这:S/is:ɪz:是:V/where I live:wɛr aɪ lɪv:我住的地方:C‖where 引导表语从句
+那是我上班的公司。‖That's the company I work for.‖That's:ðæts:那是:S/the company:ðə ˈkʌmpəni:那家公司:C/I work for:aɪ wɜrk fɔr:我上班的:D‖省略关系代词的定语从句
+你知道他住哪吗？‖Do you know where he lives?‖Do:du:助动词:AUX/you:ju:你:S/know:noʊ:知道:V/where he lives:wɛr hi lɪvz:他住哪:O‖从句要用陈述语序
+无论如何我都会去。‖I'll go anyway.‖I'll:aɪl:我将:S/go:ɡoʊ:去:V/anyway:ˈɛniweɪ:无论如何:A‖anyway 常放句末
+只要你努力就能成功。‖As long as you work hard, you'll succeed.‖As long as you work hard:æz lɔŋ æz ju wɜrk hɑrd:只要你努力:A/you'll:jul:你将:S/succeed:səkˈsid:成功:V‖as long as 表示只要
+我一到就告诉你。‖I'll let you know as soon as I arrive.‖I'll:aɪl:我将:S/let you know:lɛt ju noʊ:告诉你:V/as soon as I arrive:æz sun æz aɪ əˈraɪv:我一到:A‖as soon as 引导时间状语
+
+越努力越幸运。‖The harder you work, the luckier you get.‖The harder you work:ðə ˈhɑrdər ju wɜrk:你越努力:A/the luckier you get:ðə ˈlʌkiər ju ɡɛt:你越幸运:S‖the 加比较级的越越句型
+他既没来也没打电话。‖He neither came nor called.‖He:hi:他:S/neither came:ˈniðər keɪm:既没来:V/nor called:nɔr kɔld:也没打电话:V‖neither nor 连接并列
+要么现在做要么别做。‖Either do it now or don't do it.‖Either do it now:ˈiðər du ɪt naʊ:要么现在做:V/or don't do it:ɔr doʊnt du ɪt:要么别做:V‖either or 表示二选一
+他不仅聪明而且努力。‖He is not only smart but also hardworking.‖He:hi:他:S/is:ɪz:是:V/not only smart:nɑt ˈoʊnli smɑrt:不仅聪明:C/but also hardworking:bʌt ˈɔlsoʊ ˈhɑrdwɜrkɪŋ:而且勤奋:C‖not only but also 并列
+这么做没有意义。‖There's no point in doing that.‖There's:ðɛrz:有:V/no point:noʊ pɔɪnt:没有意义:S/in doing that:ɪn ˈduɪŋ ðæt:那样做:A‖in 后接动名词
+我宁愿待在家里。‖I would rather stay home.‖I:aɪ:我:S/would rather:wʊd ˈræðər:宁愿:AUX/stay:steɪ:待:V/home:hoʊm:家:O‖would rather 后接原形
+是时候做决定了。‖It's time we made a decision.‖It's time:ɪts taɪm:是时候:S/we made a decision:wi meɪd ə dɪˈsɪʒən:我们做决定:C‖It's time 后从句用过去式
+我一直想告诉你。‖I've been meaning to tell you.‖I've been meaning:aɪv bɪn ˈminɪŋ:我一直想:S/to tell you:tu tɛl ju:告诉你:O‖完成进行时表持续意图
+据说这里很有名。‖It's said to be famous.‖It's said:ɪts sɛd:据说:S/to be famous:tu bi ˈfeɪməs:很有名:C‖It is said 表示据说
+难怪他没来。‖No wonder he didn't come.‖No wonder:noʊ ˈwʌndər:难怪:A/he didn't come:hi ˈdɪdənt kʌm:他没来:S‖No wonder 后接从句/*@S*/`;
 const RAW_IELTS = `
 abatement|n. 减少，减轻
 aboriginal|a. 土著的 n. 原住民
@@ -5441,7 +5669,7 @@ vocalize|v. 发声，说出
   "use strict";
   const $ = id => document.getElementById(id);
   const KEY = "word-trainer-v1";
-  const VERSION = "v1.5.0";          // 每次改动都会更新，用于确认手机上加载的是不是最新版
+  const VERSION = "v1.6.0";          // 每次改动都会更新，用于确认手机上加载的是不是最新版
   const BUILD   = "2026-08-15";
 
   const ICONS = {"flame": "M13.5 1.8c.4 3-1.1 4.3-2.2 5.6-1.1 1.3-1.6 2.5-.9 4.1-1.3-.4-2.1-1.6-2.3-3.1C6.6 10.2 5.6 12.1 5.6 14c0 3.7 2.9 6.4 6.4 6.4s6.4-2.7 6.4-6.4c0-4.4-2.8-6.8-4.9-12.2zM12 18.6c-1.6 0-2.8-1.2-2.8-2.7 0-1.4.8-2.2 1.9-3.3.4 1.4 1.3 1.9 2.2 2.6.8.6 1.4 1.2 1.4 2.1 0 .8-1.1 1.3-2.7 1.3z","star": "M12 1.9l2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.2l-6 3.2 1.3-6.7-5-4.7 6.8-.9z","spark": "M12 2c.5 4.4 2.4 6.7 6.8 7.4-4.4.7-6.3 3-6.8 7.4-.5-4.4-2.4-6.7-6.8-7.4C10.6 8.7 11.5 6.4 12 2zM18.6 15.2c.3 2.2 1.2 3.3 3.4 3.7-2.2.4-3.1 1.5-3.4 3.7-.3-2.2-1.2-3.3-3.4-3.7 2.2-.4 3.1-1.5 3.4-3.7z","check": "M9.6 17.3L4 11.7l1.9-1.9 3.7 3.7 8.5-8.5L20 6.9z","cross": "M18.7 6.7l-1.4-1.4L12 10.6 6.7 5.3 5.3 6.7l5.3 5.3-5.3 5.3 1.4 1.4 5.3-5.3 5.3 5.3 1.4-1.4-5.3-5.3z","volume": "M4 9.2h3.4L12.6 4.6c.6-.5 1.6-.1 1.6.7v13.4c0 .8-1 1.2-1.6.7L7.4 14.8H4c-.6 0-1-.4-1-1V10.2c0-.6.4-1 1-1zM17 8.3c1.4 1 2.2 2.3 2.2 3.7s-.8 2.7-2.2 3.7v-1.9c.6-.5 1-1.1 1-1.8s-.4-1.3-1-1.8zM17.9 4.6c2.5 1.4 4.1 3.9 4.1 7.4s-1.6 6-4.1 7.4v-2.1c1.6-1.2 2.5-3.1 2.5-5.3s-.9-4.1-2.5-5.3z","bulb": "M12 2c3.7 0 6.6 2.9 6.6 6.5 0 2.3-1.1 4-2.3 5.3-.7.8-1.1 1.3-1.2 2.2H8.9c-.1-.9-.5-1.4-1.2-2.2-1.2-1.3-2.3-3-2.3-5.3C5.4 4.9 8.3 2 12 2zM9 17.6h6v1.6H9zM9.8 20.8h4.4c-.3.9-1.1 1.4-2.2 1.4s-1.9-.5-2.2-1.4z","eye": "M12 4.8c5 0 9 3.4 10.6 7.2C21 15.8 17 19.2 12 19.2S3 15.8 1.4 12C3 8.2 7 4.8 12 4.8zm0 2.7c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5zm0 2.2c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z","download": "M12 3v9.2l3.4-3.4 1.7 1.7-6.1 6.1-6.1-6.1 1.7-1.7 3.4 3.4V3zM3.6 18.4h16.8V21H3.6z","back": "M11.3 4.2l1.8 1.8-5 5h11.6v2.5H8.1l5 5-1.8 1.8L3.3 12z","refresh": "M12 3.6c4.6 0 8.4 3.8 8.4 8.4h2.6l-3.9 4.4-3.9-4.4h2.6c0-3.2-2.6-5.8-5.8-5.8-1 0-2 .3-2.8.8L7.3 5.1c1.4-.9 3-1.5 4.7-1.5zM4.3 7.6l3.9 4.4H5.6c0 3.2 2.6 5.8 5.8 5.8 1 0 2-.3 2.8-.8l1.9 1.9c-1.4.9-3 1.5-4.7 1.5-4.6 0-8.4-3.8-8.4-8.4H.4z","share": "M12 2.6l5.2 5.2-1.8 1.8-2.2-2.2v8.9h-2.5V7.4L8.6 9.6 6.8 7.8zM4.6 13.4h2.5v5.4h9.8v-5.4h2.5v7.9H4.6z","close": "M18.7 6.7l-1.4-1.4L12 10.6 6.7 5.3 5.3 6.7l5.3 5.3-5.3 5.3 1.4 1.4 5.3-5.3 5.3 5.3 1.4-1.4-5.3-5.3z","trash": "M9 2.6h6l1 1.6h4.4v2.3H3.6V4.2H8zM5.4 8.2h13.2l-1 12.4c-.1.9-.8 1.6-1.7 1.6H8.1c-.9 0-1.6-.7-1.7-1.6zm3.4 2.4v8.2h1.9v-8.2zm4.4 0v8.2h1.9v-8.2z","tier1": "M12 1.6l8.4 3.6v6.2c0 4.9-3.4 9.3-8.4 11-5-1.7-8.4-6.1-8.4-11V5.2zm0 6.2l-3.6 4.2h2.2v2.4h2.8v-2.4h2.2z","tier2": "M12 1.6l8.4 3.6v6.2c0 4.9-3.4 9.3-8.4 11-5-1.7-8.4-6.1-8.4-11V5.2zm0 5l-3.6 4h2.2v1.5h2.8V10.6h2.2zm0 5.2l-3.6 4h2.2v.9h2.8v-.9h2.2z","tier3": "M12 1.6l8.4 3.6v6.2c0 4.9-3.4 9.3-8.4 11-5-1.7-8.4-6.1-8.4-11V5.2zm0 4l-3.4 3.6h1.9v1.1h3v-1.1h1.9zm0 4.3l-3.4 3.6h1.9v1.1h3v-1.1h1.9zm0 4.3l-3.4 3.6h1.9v.8h3v-.8h1.9z","tier4": "M12 1.4l9 5.2v10.8l-9 5.2-9-5.2V6.6zm0 4.6l-1.7 3.6-3.9.5 2.9 2.7-.8 3.8 3.5-1.8 3.5 1.8-.8-3.8 2.9-2.7-3.9-.5z","tier5": "M7.4 2.6h9.2l4.8 6.2L12 21.8 2.6 8.8zm.5 2.4L5.4 8.6h4.1zm8.2 0l-1.6 3.6h4.1zm-4.1.4L9.9 8.6h4.2zM5.6 11h3.6l1.9 6.1zm12.8 0l-5.5 6.1 1.9-6.1zm-6.4 0h-.9l-1.4 4.6.9 2.8.9-2.8z","tier6": "M12 1.2l2.2 6.3 6.3 2.2-6.3 2.2L12 18.2 9.8 11.9 3.5 9.7l6.3-2.2zM19.4 14.6l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1zM4.6 15.8l.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z","tier7": "M3 8.2l4.2 3.2L12 3.6l4.8 7.8L21 8.2l-1.8 11.2H4.8zm2.4 13.2h13.2v1.8H5.4z","flag": "M5.4 2.4h2.2v19.2H5.4zM9 3.2h9.4l-1.8 3.6 1.8 3.6H9z","target": "M12 2.4c5.3 0 9.6 4.3 9.6 9.6s-4.3 9.6-9.6 9.6S2.4 17.3 2.4 12 6.7 2.4 12 2.4zm0 2.6c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm0 2.6c2.4 0 4.4 2 4.4 4.4s-2 4.4-4.4 4.4-4.4-2-4.4-4.4 2-4.4 4.4-4.4zm0 2.6c-1 0-1.8.8-1.8 1.8s.8 1.8 1.8 1.8 1.8-.8 1.8-1.8-.8-1.8-1.8-1.8z","books": "M3.4 4.2h4.4v15.6H3.4zM9 4.2h4.4v15.6H9zM14.6 5.4l4.2-1.1 4 15.1-4.2 1.1z","trophy": "M6.8 2.6h10.4v2.2h3.4v3.1c0 2.4-1.7 4.3-4 4.7-.7 1.5-2 2.6-3.4 3v2.6h3.4v2.2H7.4v-2.2h3.4v-2.6c-1.4-.4-2.7-1.5-3.4-3-2.3-.4-4-2.3-4-4.7V4.8h3.4zm-3.4 4.4v1c0 1 .6 1.8 1.5 2.2-.1-.5-.1-1-.1-1.5V7zm13.8 0v1.7c0 .5 0 1-.1 1.5.9-.4 1.5-1.2 1.5-2.2v-1z","bolt": "M13.6 1.8L5.2 13.4h5.2l-.8 8.8 8.4-11.6h-5.2z","calendar": "M7 1.8h2.4v2.4H7zm7.6 0H17v2.4h-2.4zM3.4 3.4h3.6v2.4h2.4V3.4h5.2v2.4H17V3.4h3.6v17.8H3.4zm2.4 6v9.4h12.4V9.4z","calcheck": "M7 1.8h2.4v2.4H7zm7.6 0H17v2.4h-2.4zM3.4 3.4h3.6v2.4h2.4V3.4h5.2v2.4H17V3.4h3.6v17.8H3.4zm2.4 6v9.4h12.4V9.4zm5.1 7.2l-2.9-2.9 1.5-1.5 1.4 1.4 3.9-3.9 1.5 1.5z","medal": "M6.4 1.8h3.2l2.4 5.4 2.4-5.4h3.2l-3 6.6h-5.2zM12 8.8c3.4 0 6.2 2.8 6.2 6.2s-2.8 6.2-6.2 6.2-6.2-2.8-6.2-6.2 2.8-6.2 6.2-6.2zm0 2.6c-2 0-3.6 1.6-3.6 3.6s1.6 3.6 3.6 3.6 3.6-1.6 3.6-3.6-1.6-3.6-3.6-3.6z","mountain": "M12 3.4l4.4 7.4-2.2 2.2-2.2-2.6-2.2 2.6-2.2-2.2zM7.6 13.2l1.9 2.2-2 2.4h9l-2-2.4 1.9-2.2 5.2 7.6H2.4z","globe": "M12 2.4c5.3 0 9.6 4.3 9.6 9.6s-4.3 9.6-9.6 9.6S2.4 17.3 2.4 12 6.7 2.4 12 2.4zm0 2.2c-.9 0-2 1.5-2.6 4h5.2c-.6-2.5-1.7-4-2.6-4zM8.9 10.8c-.1.4-.1.8-.1 1.2s0 .8.1 1.2h6.2c.1-.4.1-.8.1-1.2s0-.8-.1-1.2zm-2.3 0H4.8c-.2.4-.2.8-.2 1.2s0 .8.2 1.2h1.8c-.1-.4-.1-.8-.1-1.2s0-.8.1-1.2zm10.8 0c.1.4.1.8.1 1.2s0 .8-.1 1.2h1.8c.2-.4.2-.8.2-1.2s0-.8-.2-1.2zM12 19.4c.9 0 2-1.5 2.6-4H9.4c.6 2.5 1.7 4 2.6 4zm-4.7-4H5.6c.9 1.7 2.4 3 4.2 3.6-.6-.9-1.1-2.2-1.5-3.6zm9.4 0c-.4 1.4-.9 2.7-1.5 3.6 1.8-.6 3.3-1.9 4.2-3.6zm-9.4-6.8c.4-1.4.9-2.7 1.5-3.6-1.8.6-3.3 1.9-4.2 3.6zm9.4 0h1.7c-.9-1.7-2.4-3-4.2-3.6.6.9 1.1 2.2 1.5 3.6z","moon": "M13.2 1.8c-.9 1.4-1.4 3.1-1.4 4.9 0 5 4.1 9.1 9.1 9.1.5 0 1-.1 1.5-.2-1.5 4.2-5.5 7.2-10.2 7.2-6 0-10.8-4.8-10.8-10.8 0-5.6 4.2-10.2 9.6-10.8z","sunrise": "M12 8.2c2.6 0 4.8 2 5.1 4.6H6.9c.3-2.6 2.5-4.6 5.1-4.6zM10.8 1.8h2.4v4.2h-2.4zM4.9 4.3l1.7 1.7-1.7 1.7-1.7-1.7zm14.2 0l1.7 1.7-1.7 1.7-1.7-1.7zM1.6 11.6h3.4V14H1.6zm17.4 0h3.4V14H19zM3.4 16.4h17.2v2.2H3.4zm2.6 3.8h12v2H6z","route": "M6.2 2.4c2.1 0 3.8 1.7 3.8 3.8 0 2.8-3.8 7-3.8 7s-3.8-4.2-3.8-7c0-2.1 1.7-3.8 3.8-3.8zm0 2.4c-.8 0-1.4.6-1.4 1.4s.6 1.4 1.4 1.4 1.4-.6 1.4-1.4-.6-1.4-1.4-1.4zM17.8 11c2.1 0 3.8 1.7 3.8 3.8 0 2.8-3.8 7-3.8 7S14 17.6 14 14.8c0-2.1 1.7-3.8 3.8-3.8zm0 2.4c-.8 0-1.4.6-1.4 1.4s.6 1.4 1.4 1.4 1.4-.6 1.4-1.4-.6-1.4-1.4-1.4zM10.6 6.6h3.2c1.9 0 3.4 1.5 3.4 3.4h-2.4c0-.6-.4-1-1-1h-3.2zM6.2 14.2h3.2c1.9 0 3.4 1.5 3.4 3.4v1.6h-2.4v-1.6c0-.6-.4-1-1-1H6.2z","gem": "M7.4 2.6h9.2l4.8 6.2L12 21.8 2.6 8.8zm.6 2.4L5.6 8.4h4.2zm8 0l1.6 3.4h4.2zm-4 .2L10.4 8.4h3.2zM5.4 10.8h3.9l2 6.4zm13.2 0l-5.9 6.4 2-6.4zm-6.6 0h-.6l-1.5 4.8.9 2.9.9-2.9z","checkbadge": "M12 2.2l2.6 1.9 3.2-.3.9 3.1 2.7 1.8-1.3 2.9 1.3 2.9-2.7 1.8-.9 3.1-3.2-.3L12 21l-2.6-1.9-3.2.3-.9-3.1-2.7-1.8 1.3-2.9-1.3-2.9L5.3 6.9l.9-3.1 3.2.3zm-1.3 12.9l5.6-5.6-1.7-1.7-3.9 3.9-1.9-1.9-1.7 1.7z","cal3": "M7 1.8h2.4v2.4H7zm7.6 0H17v2.4h-2.4zM3.4 3.4h3.6v2.4h2.4V3.4h5.2v2.4H17V3.4h3.6v17.8H3.4zm2.4 6v9.4h12.4V9.4zm2.2 3.2h2.2v2.2H8zm3.9 0h2.2v2.2h-2.2zm3.9 0H18v2.2h-2.2z","grid": "M3.4 3.4h7.2v7.2H3.4zm10 0h7.2v7.2h-7.2zm-10 10h7.2v7.2H3.4zm10 0h7.2v7.2h-7.2z","play": "M6.4 3.2L20 12 6.4 20.8z","list": "M3.4 4.6h3.2v3.2H3.4zm5.4 .4h11.8v2.4H8.8zM3.4 10.4h3.2v3.2H3.4zm5.4 .4h11.8v2.4H8.8zM3.4 16.2h3.2v3.2H3.4zm5.4 .4h11.8V19H8.8z","home": "M12 2.4L22 11l-1.6 1.8-1.2-1v10.2H4.8V11.8l-1.2 1L2 11z"};
@@ -5584,8 +5812,14 @@ vocalize|v. 发声，说出
   /* 每行格式：中文‖English‖词:音标:词义:成分/词:音标:词义:成分‖知识点;知识点 */
   function parseSent(raw){
     const out = [];
+    let cid = "misc", cname = "其他";
     raw.split("\n").forEach(line=>{
       line = line.trim();
+      if(line.charAt(0) === "#"){                 // #章节id|章节名
+        const h = line.slice(1).split("|");
+        cid = h[0].trim(); cname = (h[1] || h[0]).trim();
+        return;
+      }
       if(!line || line.indexOf("‖") < 0) return;
       const p = line.split("‖");
       if(p.length < 3) return;
@@ -5598,27 +5832,34 @@ vocalize|v. 发声，说出
         cn: p[0].trim(),
         en: p[1].trim(),
         ws: words,
-        notes: (p[3]||"").split(";").map(t=>t.trim()).filter(Boolean)
+        notes: (p[3]||"").split(";").map(t=>t.trim()).filter(Boolean),
+        t: cid, tn: cname
       });
     });
     return out;
   }
   const SENTS = parseSent(RAW_SENT);
-  const SGROUPS = [
-    {id:"a", n:"入门", d:"最短最常用"},
-    {id:"b", n:"日常", d:"生活高频"},
-    {id:"c", n:"进阶", d:"句型更长"},
-    {id:"all", n:"全部", d:"随机混合"}
-  ];
+  const SGROUPS = (function(){
+    const seen = {}, list = [{id:"all", n:"全部章节"}];
+    SENTS.forEach(x=>{
+      if(seen[x.t]) return;
+      seen[x.t] = 1;
+      list.push({id:x.t, n:x.tn});
+    });
+    return list;
+  })();
   function groupList(id){
-    const n = SENTS.length;
-    if(id === "a")   return SENTS.slice(0, Math.round(n*0.35));
-    if(id === "b")   return SENTS.slice(Math.round(n*0.35), Math.round(n*0.75));
-    if(id === "c")   return SENTS.slice(Math.round(n*0.75));
-    return SENTS;
+    if(id === "all") return SENTS;
+    return SENTS.filter(x=>x.t === id);
+  }
+  function chapDone(id){
+    const l = groupList(id);
+    let n = 0;
+    l.forEach(x=>{ if(S.sentOK && S.sentOK[x.en]) n++; });
+    return n;
   }
 
-  let mode = "word", sGroup = "a", sWay = "build", sCnt = 10;
+  let mode = "word", sGroup = "all", sWay = "build", sCnt = 10;
   let picked = [], sentDone = false;
 
   function chunksOf(item){
@@ -5730,6 +5971,8 @@ vocalize|v. 发声，说出
     if(right){
       ok++; combo++;
       if(combo > roundBestCombo) roundBestCombo = combo;
+      if(!S.sentOK) S.sentOK = {};
+      if(!usedHint && !S.sentOK[cur.en]){ S.sentOK[cur.en] = 1; save(); }
       const base = sWay === "dict" ? 25 : 15;
       const gain = usedHint ? Math.round(base*.3) : base + Math.min(combo,6)*2;
       roundPt += gain;
@@ -5769,14 +6012,19 @@ vocalize|v. 发声，说出
 
   // 句库选项
   const sBankOpts = $("sBankOpts");
-  sBankOpts.style.gridTemplateColumns = "repeat(4,1fr)";
-  SGROUPS.forEach((g,i)=>{
-    const d = document.createElement("div");
-    d.className = "opt" + (i===0 ? " on" : "");
-    d.dataset.g = g.id;
-    d.innerHTML = "<b>"+g.n+"</b><span>"+groupList(g.id).length+" 句</span>";
-    sBankOpts.appendChild(d);
-  });
+  function renderChapters(){
+    sBankOpts.innerHTML = "";
+    SGROUPS.forEach(g=>{
+      const total = groupList(g.id).length, done = chapDone(g.id);
+      const d = document.createElement("div");
+      d.className = "opt chap" + (g.id === sGroup ? " on" : "");
+      d.dataset.g = g.id;
+      d.innerHTML = "<b>"+g.n+"</b><span>"+done+" / "+total+"</span>" +
+        '<i style="width:'+(total ? Math.round(done/total*100) : 0)+'%"></i>';
+      sBankOpts.appendChild(d);
+    });
+  }
+  renderChapters();
   pick(sBankOpts,  t => sGroup = t.dataset.g);
   pick($("sWayOpts"), t => sWay = t.dataset.w);
   pick($("sCntOpts"), t => sCnt = parseInt(t.dataset.c,10));
@@ -5793,6 +6041,7 @@ vocalize|v. 发声，说出
     first.classList.add("on");
     ["setup","sentset","ach","rec"].forEach(k=>
       $("tab-"+k).classList.toggle("hide", k !== (mode === "sent" ? "sentset" : "setup")));
+    if(mode === "sent") renderChapters();
   });
 
   $("sStartBtn").onclick = ()=>{
@@ -6617,6 +6866,7 @@ vocalize|v. 发声，说出
   $("homeBtn").onclick  = ()=>{
     $("done").classList.add("hide");
     $("home").classList.remove("hide");
+    if(mode === "sent") renderChapters();
     refreshWrongBtn(); refreshHeader();
     window.scrollTo(0,0);
   };
